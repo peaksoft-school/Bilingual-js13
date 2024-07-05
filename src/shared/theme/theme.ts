@@ -21,6 +21,7 @@ export const palette = {
   },
   linear: {
     linearBlue: 'linear-gradient(270deg, #3A10E5 0%, #6746EF 75.83%)',
+    linearPink: 'linear-gradient(270deg, #C23677 0%, #C5397A 30%, #C43879 65%, #BB2E6F 100%)',
   },
 };
 
