@@ -4,21 +4,22 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 import Radio from '@mui/material/Radio';
 import Checkbox from '@mui/material/Checkbox';
-import CheckIcon from '@mui/icons-material/Check';
 import { FC } from 'react';
+import tertiaryIcon from '../../../assets/svgs/tertiaryIcon.svg';
+import QuaternaryIcon from '../../../assets/svgs/QuaternaryIcon.svg';
 
 const IOSSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
-  width: 42,
-  height: 26,
+  width: '2.625rem',
+  height: '1.625rem',
   padding: 0,
   '& .MuiSwitch-switchBase': {
     padding: 0,
-    margin: 2,
+    margin: '0.125rem',
     transitionDuration: '300ms',
     '&.Mui-checked': {
-      transform: 'translateX(16px)',
+      transform: 'translateX(1rem)',
       color: '#fff',
       '& + .MuiSwitch-track': {
         backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
@@ -31,7 +32,7 @@ const IOSSwitch = styled((props: SwitchProps) => (
     },
     '&.Mui-focusVisible .MuiSwitch-thumb': {
       color: '#33cf4d',
-      border: '6px solid #fff',
+      border: '.375rem solid #fff',
     },
     '&.Mui-disabled .MuiSwitch-thumb': {
       color:
@@ -45,11 +46,11 @@ const IOSSwitch = styled((props: SwitchProps) => (
   },
   '& .MuiSwitch-thumb': {
     boxSizing: 'border-box',
-    width: 22,
-    height: 22,
+    width: '1.375rem',
+    height: '1.375rem',
   },
   '& .MuiSwitch-track': {
-    borderRadius: 26 / 2,
+    borderRadius: '0.8125rem',
     backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
     opacity: 1,
     transition: theme.transitions.create(['background-color'], {
@@ -60,17 +61,55 @@ const IOSSwitch = styled((props: SwitchProps) => (
 
 const CustomCheckbox = styled(Checkbox)(() => ({
   '& .MuiSvgIcon-root': {
-    borderRadius: '4px',
+    borderRadius: '0.25rem',
     backgroundColor: 'transparent',
-    border: '2px solid #9A9A9A',
+    border: '0.125rem solid #9A9A9A',
     color: '#ffffff',
   },
   '&.Mui-checked .MuiSvgIcon-root': {
     color: 'green',
     backgroundColor: '#ffffff',
-    border: '2px solid #9A9A9A',
+    border: '0.125rem solid #9A9A9A',
   },
 }));
+
+const IconWrapper = styled('div')({
+  width: '1rem',
+  height: '1rem',
+  borderRadius: '0.125rem',
+  border: '0.0625rem solid #9A9A9A',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
+const HiddenIcon = styled('img')({
+  display: 'none',
+});
+
+const IconWrapperQuaternary = styled('div')({
+  width: '1.1375rem',
+  height: '1.1375rem',
+  borderRadius: '0.25rem',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'rgba(42, 185, 48, 1)',
+});
+
+const IconWrapperQuaternaryChecked = styled('div')({
+  width: '1.1375rem',
+  height: '1.1375rem',
+  borderRadius: '0.25rem',
+  border: '0.125rem solid #9A9A9A',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
+const HiddenIconQuaternary = styled('img')({
+  display: 'none',
+});
 
 interface VariantType {
   variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Quaternary';
@@ -93,29 +132,45 @@ export const CustomizedSwitches: FC<CustomizedSwitchesProps> = ({
       )}
 
       {variant === 'Secondary' && (
-        <FormControlLabel value="female" control={<Radio />} label="" />
+        <FormControlLabel label="" value="female" control={<Radio />} />
       )}
+
       {variant === 'Tertiary' && (
         <CustomCheckbox
-          icon={<CheckIcon />}
-          checkedIcon={<CheckIcon />}
+          icon={
+            <IconWrapper>
+              <img src={tertiaryIcon} alt="tertiary icon" />
+            </IconWrapper>
+          }
+          checkedIcon={
+            <IconWrapper>
+              <HiddenIcon src={tertiaryIcon} alt="tertiary icon" />
+            </IconWrapper>
+          }
           defaultChecked
-          size="small"
-          sx={{ width: 40, height: 40 }}
+          sx={{ width: '2.1875rem', height: '2.1875rem' }}
         />
       )}
+
       {variant === 'Quaternary' && (
         <FormControlLabel
           label=""
           control={
             <Checkbox
+              icon={
+                <IconWrapperQuaternary>
+                  <img src={QuaternaryIcon} alt="tertiary icon" />
+                </IconWrapperQuaternary>
+              }
+              checkedIcon={
+                <IconWrapperQuaternaryChecked>
+                  <HiddenIconQuaternary
+                    src={QuaternaryIcon}
+                    alt="tertiary icon"
+                  />
+                </IconWrapperQuaternaryChecked>
+              }
               defaultChecked
-              sx={{
-                '&.Mui-checked': {
-                  color: 'rgba(42, 185, 48, 1)',
-                },
-              }}
-              size="medium"
             />
           }
         />
