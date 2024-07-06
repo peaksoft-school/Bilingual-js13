@@ -16,7 +16,7 @@ export const palette = {
     purple: '#70719a',
     blue: '#0F85F1',
     darkGray: '#757575',
-    inActiveColor: '#C4C4C4',
+    inactiveColor: '#C4C4C4',
     gray: '#9A9A9A',
   },
   linear: {
