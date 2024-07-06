@@ -1,12 +1,14 @@
 import { Box } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { FC } from 'react'
+import Reviews from './components/Reviews'
 
 const LandingPage: FC = () => {
-   return <Container>
-
-    
-   </Container>
+   return (
+      <Container>
+         <Reviews />
+      </Container>
+   )
 }
 
 export default LandingPage
