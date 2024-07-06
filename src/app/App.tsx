@@ -1,7 +1,7 @@
-import LandingPage from '../pages/LandingPage/LandingPage'
+import { FC } from 'react'
 
-const App = () => {
-   return <LandingPage />
+const App: FC = () => {
+   return <div></div>
 }
 
 export default App
