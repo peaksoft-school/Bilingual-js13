@@ -1,14 +1,9 @@
 import { Box } from '@mui/material'
-import LandingHeader from './components/LandingHeader'
 import { styled } from '@mui/material/styles'
 import { FC } from 'react'
 
 const LandingPage: FC = () => {
-   return (
-      <Container>
-         <LandingHeader />
-      </Container>
-   )
+   return <Container></Container>
 }
 
 export default LandingPage
