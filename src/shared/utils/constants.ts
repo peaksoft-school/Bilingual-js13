@@ -1,23 +1,23 @@
 import bezos from '../../assets/images/bezos.png'
-import ariana from '../../assets/images/ariana.png'
-import steve from '../../assets/images/ steve_jobs.png'
-import gates from '../../assets/images/billgates.png'
-import zuckerberg from '../../assets/images/mark-zukerberg.png'
-import taylor from '../../assets/images/taylorswift.png'
+import ariana from '../../assets/images/ariana.jpg'
+import steve from '../../assets/images/jobbs.png'
+import gates from '../../assets/images/bill-gates-png-9736.png'
+import zuckerberg from '../../assets/images/pngimg.com - mark_zuckerberg_PNG3.png'
+import taylor from '../../assets/images/taylor.jpeg'
 
 export const REVIEWS = [
    {
       id: 1,
       description:
-         'Bilingual is a fantastic website for learning English. The interface is user-friendly and the content is engaging and interactive.',
-      name: '- Steve Jobs',
+         'Bilingual has transformed my learning experience. The lessons are engaging and practical.',
+      name: '- Jeff Bezos',
       rating: 5,
       avatar: bezos,
    },
    {
       id: 2,
       description:
-         'Bilingual has helped me to get a good grasp of the language in a fun and challenging way. I enjoy the dialogues and scenarios, which include helpful phrases that can be used in various situations.',
+         'Bilingual helped me improve my English skills with its interactive and real-life content.',
       name: '- Steve Jobs',
       rating: 5,
       avatar: steve,
@@ -25,32 +25,32 @@ export const REVIEWS = [
    {
       id: 3,
       description:
-         'I have tried other language apps and found them boring but with Bilingual, it is easy and fun to practice every day.',
-      name: '- Steve Jobs',
+         'I love Bilingual! The daily challenges make learning fun and exciting.',
+      name: '- Taylor Swift',
       rating: 5,
       avatar: taylor,
    },
    {
       id: 4,
       description:
-         'Bilingual is a fantastic website for learning English. The interface is user-friendly and the content is engaging and interactive.',
-      name: '- Steve Jobs',
+         'Bilingual boosts my confidence with structured lessons and real-life practice.',
+      name: '- Bill Gates',
       rating: 5,
       avatar: gates,
    },
    {
       id: 5,
       description:
-         'Bilingual is a fantastic website for learning English. The interface is user-friendly and the content is engaging and interactive.',
-      name: '- Steve Jobs',
+         'Bilingual makes learning English enjoyable and effective with its user-friendly interface.',
+      name: '- Mark Zuckerberg',
       rating: 5,
       avatar: zuckerberg,
    },
    {
       id: 6,
       description:
-         'Bilingual is a fantastic website for learning English. The interface is user-friendly and the content is engaging and interactive.',
-      name: '- Steve Jobs',
+         'Bilingual is a fantastic tool with diverse exercises and engaging content.',
+      name: '- Ariana Grande',
       rating: 5,
       avatar: ariana,
    },

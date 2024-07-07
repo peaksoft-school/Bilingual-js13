@@ -6,18 +6,15 @@ import { NextArrowI, PrevArrowI } from '../../../assets/icons/Arrows'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-// Define ArrowProps interface for arrow components
-interface ArrowProps {
+export interface ArrowProps {
    onClick?: React.MouseEventHandler<SVGSVGElement>
    className?: string
 }
 
-// Previous arrow component
 const PrevArrow = ({ onClick, className }: ArrowProps) => (
    <PrevArrowI onClick={onClick} className={className} />
 )
 
-// Next arrow component
 const NextArrow = ({ onClick, className }: ArrowProps) => (
    <NextArrowI onClick={onClick} className={className} />
 )
@@ -25,12 +22,11 @@ const NextArrow = ({ onClick, className }: ArrowProps) => (
 const Feedbacks = () => {
    const [currentSlide, setCurrentSlide] = useState(0)
 
-   // Settings object for the Slider component
    const settings: Settings = {
       focusOnSelect: true,
       className: 'center',
       centerMode: true,
-      centerPadding: '0px', // Corrected centerPadding to a string
+      centerPadding: '0px',
       infinite: true,
       slidesToShow: 3,
       speed: 250,
@@ -41,7 +37,7 @@ const Feedbacks = () => {
       swipeToSlide: true,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
-      beforeChange: (next) => setCurrentSlide(next), // Corrected beforeChange and afterChange callbacks
+      beforeChange: (next) => setCurrentSlide(next),
       afterChange: (current) => setCurrentSlide(current),
    }
 
@@ -58,8 +54,10 @@ const Feedbacks = () => {
                         isActive={reviewsIndex === currentSlide}
                      >
                         <img src={avatar} alt={name} />
-                        <Typography className='description'>{description}</Typography>
-                        <Typography className='name'>{name}</Typography>
+                        <Typography className="description">
+                           {description}
+                        </Typography>
+                        <Typography className="name">{name}</Typography>
                         <Rating value={rating} readOnly />
                      </StyledCard>
                   )
@@ -72,12 +70,10 @@ const Feedbacks = () => {
 
 export default Feedbacks
 
-// StyledContainer styles using styled from @mui/material
 const StyledContainer = styled(Box)(() => ({
    display: 'flex',
    backgroundColor: '#fef6e8',
    flexDirection: 'column',
-   marginBottom: '120px',
 
    '& > .title': {
       color: '#3752B4',
@@ -96,7 +92,6 @@ const StyledContainer = styled(Box)(() => ({
    },
 }))
 
-// StyledSlider styles using styled from @mui/material
 const StyledSlider = styled(Slider)(() => ({
    display: 'grid',
    gridTemplateColumns: 'repeat(3, auto)',
@@ -106,18 +101,15 @@ const StyledSlider = styled(Slider)(() => ({
    position: 'relative',
    padding: '0 70px',
 
-
    '& .slick-slide': {
       transition: 'transform 2s ease',
    },
-
-
 
    '& .name': {
       position: 'absolute',
       bottom: '100px',
       left: '50%',
-    
+
       transform: 'translateX(-50%)',
       color: '#23212ACC',
       fontSize: '16px',
@@ -126,8 +118,8 @@ const StyledSlider = styled(Slider)(() => ({
    },
 
    '& .slick-center, .slick-center h4': {
-    color: 'white',
- },
+      color: 'white',
+   },
 
    '& .MuiRating-root': {
       display: 'flex',
@@ -148,13 +140,6 @@ const StyledSlider = styled(Slider)(() => ({
       opacity: '1',
    },
 
-  //  '& .slick-track': {
-  //     display: 'flex',
-  //     justifyContent: 'center',
-  //     alignItems: 'flex-start',
-  //     paddingTop: '50px',
-  //  },
-
    '& .slick-list': {
       width: '80%',
       height: '760px',
@@ -171,36 +156,30 @@ const StyledSlider = styled(Slider)(() => ({
       cursor: 'pointer',
    },
 
-   '& .slick-prev': {
+   '& .slick-prev, & .slick-next': {
       display: 'flex',
-      justifyContent: 'flex-end',
-      marginLeft: '128px',
+      alignItems: 'center',
+      justifyContent: 'center',
       width: '60px',
       height: '60px',
       borderRadius: '50%',
       cursor: 'pointer',
-      top: '320px',
+      backgroundColor: '#fff',
+      transition: 'background-color 0.3s ease',
+   },
 
-      '@media screen and (max-width: 1200px)': {
-         top: '288px',
-         width: '50px',
-         height: '50px',
-      },
+   '& .slick-prev': {
+      justifyContent: 'flex-end',
+      top: '320px',
    },
 
    '& .slick-next': {
-      display: 'flex',
       justifyContent: 'flex-start',
-      marginRight: '128px',
-      width: '60px',
-      height: '60px',
-      borderRadius: '50%',
-      cursor: 'pointer',
       top: '320px',
    },
 
    '& .slick-dots': {
-      bottom: '88px',
+      bottom: '140px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'flex-end',
@@ -245,30 +224,30 @@ const StyledCard = styled(Box)(({ isActive }: StyledSlideProps) => ({
    width: '564px',
 
    textAlign: 'center',
-   padding: '30px',
    height: '564px',
    maxHeight: '622px',
    maxWidth: '366px',
    cursor: 'pointer',
-   background: isActive ? 'gray' : '#E5E5E5',
+   background: isActive ? '#666CA7' : '#E5E5E5',
    transition: 'background 0.4s ease, transform 0.6s ease, filter 0.5s ease',
    borderRadius: '40px',
+   maarginBottom: '10px',
 
    '& img': {
-    width: isActive ? '250px' : '180px',
-    height: isActive ? '250px' : '180px',
-    borderRadius: '50%',
-    margin: 'auto',
-    marginTop: isActive ? '40px' : '70px',
-    transition:
-       'width 0.3s ease, height 0.3s ease, margin-top 0.3s ease, filter 0.7s ease',
- },
+      width: isActive ? '250px' : '180px',
+      height: isActive ? '250px' : '180px',
+      borderRadius: '50%',
+      margin: 'auto',
+      marginTop: isActive ? '40px' : '70px',
+      transition:
+         'width 0.3s ease, height 0.3s ease, margin-top 0.3s ease, filter 0.7s ease',
+   },
 
    '& .description': {
       width: '306px',
       margin: 'auto',
-      paddingTop: '52px',
+      paddingLeft: '30px',
+      paddingRight: '30px',
+      paddingTop: '32px',
    },
-
-
 }))
