@@ -4,9 +4,100 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 import Radio from '@mui/material/Radio';
 import Checkbox from '@mui/material/Checkbox';
-import { FC } from 'react';
+import { FC, forwardRef, SyntheticEvent } from 'react';
 import tertiaryIcon from '../../../assets/svgs/tertiaryIcon.svg';
 import QuaternaryIcon from '../../../assets/svgs/QuaternaryIcon.svg';
+
+interface VariantType {
+  variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Quaternary';
+}
+
+interface CustomizedSwitchesProps {
+  variant?: VariantType['variant'];
+  checked?: boolean;
+  onChange?: (event: SyntheticEvent, checked: boolean) => void;
+}
+
+const Switches: FC<CustomizedSwitchesProps> = forwardRef<
+  HTMLInputElement,
+  CustomizedSwitchesProps
+>(({ variant = 'Primary', checked, onChange }, ref) => {
+  const handleChange = (event: SyntheticEvent, checked: boolean) => {
+    onChange?.(event as React.ChangeEvent<HTMLInputElement>, checked);
+  };
+
+  return (
+    <FormGroup>
+      {variant === 'Primary' && (
+        <FormControlLabel
+          label=""
+          control={<IOSSwitch sx={{ m: 1 }} defaultChecked inputRef={ref} />}
+          checked={checked}
+          onChange={handleChange}
+        />
+      )}
+
+      {variant === 'Secondary' && (
+        <FormControlLabel
+          label=""
+          control={<Radio />}
+          checked={checked}
+          onChange={handleChange}
+        />
+      )}
+
+      {variant === 'Tertiary' && (
+        <FormControlLabel
+          label=""
+          control={
+            <CustomCheckbox
+              checked={checked}
+              onChange={handleChange}
+              icon={
+                <IconWrapper>
+                  <img src={tertiaryIcon} alt="tertiary icon" />
+                </IconWrapper>
+              }
+              checkedIcon={
+                <IconWrapper>
+                  <HiddenIcon src={tertiaryIcon} alt="tertiary icon" />
+                </IconWrapper>
+              }
+              defaultChecked
+              sx={{ width: '2.1875rem', height: '2.1875rem' }}
+            />
+          }
+        />
+      )}
+
+      {variant === 'Quaternary' && (
+        <FormControlLabel
+          label=""
+          control={
+            <Checkbox
+              icon={
+                <IconWrapperQuaternary>
+                  <img src={QuaternaryIcon} alt="quaternary icon" />
+                </IconWrapperQuaternary>
+              }
+              checkedIcon={
+                <IconWrapperQuaternaryChecked>
+                  <HiddenIconQuaternary
+                    src={QuaternaryIcon}
+                    alt="quaternary icon"
+                  />
+                </IconWrapperQuaternaryChecked>
+              }
+              defaultChecked
+            />
+          }
+          checked={checked}
+          onChange={handleChange}
+        />
+      )}
+    </FormGroup>
+  );
+});
 
 const IOSSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -111,70 +202,4 @@ const HiddenIconQuaternary = styled('img')({
   display: 'none',
 });
 
-interface VariantType {
-  variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Quaternary';
-}
-
-interface CustomizedSwitchesProps {
-  variant?: VariantType['variant'];
-}
-
-export const CustomizedSwitches: FC<CustomizedSwitchesProps> = ({
-  variant = 'Primary',
-}) => {
-  return (
-    <FormGroup>
-      {variant === 'Primary' && (
-        <FormControlLabel
-          label=""
-          control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
-        />
-      )}
-
-      {variant === 'Secondary' && (
-        <FormControlLabel label="" value="female" control={<Radio />} />
-      )}
-
-      {variant === 'Tertiary' && (
-        <CustomCheckbox
-          icon={
-            <IconWrapper>
-              <img src={tertiaryIcon} alt="tertiary icon" />
-            </IconWrapper>
-          }
-          checkedIcon={
-            <IconWrapper>
-              <HiddenIcon src={tertiaryIcon} alt="tertiary icon" />
-            </IconWrapper>
-          }
-          defaultChecked
-          sx={{ width: '2.1875rem', height: '2.1875rem' }}
-        />
-      )}
-
-      {variant === 'Quaternary' && (
-        <FormControlLabel
-          label=""
-          control={
-            <Checkbox
-              icon={
-                <IconWrapperQuaternary>
-                  <img src={QuaternaryIcon} alt="tertiary icon" />
-                </IconWrapperQuaternary>
-              }
-              checkedIcon={
-                <IconWrapperQuaternaryChecked>
-                  <HiddenIconQuaternary
-                    src={QuaternaryIcon}
-                    alt="tertiary icon"
-                  />
-                </IconWrapperQuaternaryChecked>
-              }
-              defaultChecked
-            />
-          }
-        />
-      )}
-    </FormGroup>
-  );
-};
+export default Switches;
