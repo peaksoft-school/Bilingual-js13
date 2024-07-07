@@ -1,3 +1,7 @@
-const App = () => {};
+import { FC } from 'react'
 
-export default App;
+const App: FC = () => {
+   return <div></div>
+}
+
+export default App
