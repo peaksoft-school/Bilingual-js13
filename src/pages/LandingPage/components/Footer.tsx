@@ -6,12 +6,12 @@ import {
    Typography,
    Box,
 } from '@mui/material'
-import OpenIcon from './assets/Open.svg'
-import CloseIcon from './assets/Close.svg'
-import IconsBilingual from './assets/Icons.svg'
-import IconsYouTube from './assets/YouTube.svg'
-import IconsFacebook from './assets/Facebook.svg'
-import IconsInstagram from './assets/Instagram.svg'
+import OpenIcon from '../../../assets/icons/svgs/Open.svg'
+import CloseIcon from '../../../assets/icons/svgs/Close.svg'
+import IconsBilingual from '../../../assets/icons/svgs/Icons.svg'
+import IconsYouTube from '../../../assets/icons/svgs/YouTube.svg'
+import IconsFacebook from '../../../assets/icons/svgs/Facebook.svg'
+import IconsInstagram from '../../../assets/icons/svgs/Instagram.svg'
 
 const Footer: React.FC = () => {
    const [expanded, setExpanded] = useState<string | false>(false)
