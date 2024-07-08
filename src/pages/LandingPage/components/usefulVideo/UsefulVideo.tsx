@@ -1,9 +1,9 @@
 import {
+  AnimatedCard,
     ContainerUsefulVideo,
     ContentUsefulVideo,
     TitleUsefulVideo,
   } from './StyleUsefulVideo';
-  import Card from '@mui/material/Card';
   import CardContent from '@mui/material/CardContent';
   import CardMedia from '@mui/material/CardMedia';
   import Typography from '@mui/material/Typography';
@@ -21,9 +21,8 @@ import {
           <TitleUsefulVideo>Useful videos</TitleUsefulVideo>
           <ContentUsefulVideo>
             {CARD_RENDER_DATA.map((item, index) => (
-              <Card
+              <AnimatedCard
                 key={index}
-                sx={{ width: '100%', maxWidth: 370, borderRadius: '1rem' }}
               >
                 <CardActionArea>
                 <CardMedia component="div">
@@ -67,7 +66,7 @@ import {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-              </Card>
+              </AnimatedCard>
             ))}
           </ContentUsefulVideo>
         </ContainerUsefulVideo>
