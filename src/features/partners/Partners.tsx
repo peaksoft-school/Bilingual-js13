@@ -1,4 +1,3 @@
-import { Box, styled } from '@mui/material';
 import Rodonit from '../../assets/Rodonit.svg';
 import Lidea from '../../assets/Lidea.svg';
 import DEKALB from '../../assets/DEKALB.svg';
@@ -7,6 +6,8 @@ import BASF from '../../assets/BASF.svg';
 import Adama from '../../assets/Adama.svg';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
+import { ContainerBox, LogoBox, MuiBox, PartnersText } from './StylePartners';
+import { FC } from 'react';
 
 const PARTNERS = [
   { name: 'Rodonit', src: Rodonit },
@@ -19,7 +20,7 @@ const PARTNERS = [
 
 const animation = { duration: 20000, easing: (t: number) => t };
 
-const Partners = () => {
+const Partners: FC = () => {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     renderMode: 'performance',
@@ -28,13 +29,13 @@ const Partners = () => {
       perView: 5,
       spacing: 15,
     },
-    created(s) {
+    created(s: any) {
       s.moveToIdx(5, true, animation);
     },
-    updated(s) {
+    updated(s: any) {
       s.moveToIdx(s.track.details.abs + 5, true, animation);
     },
-    animationEnded(s) {
+    animationEnded(s: any) {
       s.moveToIdx(s.track.details.abs + 5, true, animation);
     },
   });
@@ -62,42 +63,3 @@ const Partners = () => {
 };
 
 export default Partners;
-
-const MuiBox = styled(Box)(() => {
-  return {
-    width: '90rem',
-    height: '20.875rem',
-    backgroundColor: '#fef5e8',
-    overflow: 'hidden',
-  };
-});
-
-const ContainerBox = styled(Box)(() => {
-  return {
-    width: '15.9375rem',
-    height: '7.875rem',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ffffff',
-    border: '0.0625rem solid rgba(228, 228, 228, 1)',
-    borderRadius: '1.25rem',
-  };
-});
-
-const LogoBox = styled(Box)(() => ({
-  display: 'flex',
-  justifyContent: 'center',
-  gap: '1.25rem',
-}));
-
-const PartnersText = styled('h3')(() => {
-  return {
-    fontWeight: '43.75rem',
-    fontSize: '2.5rem',
-    color: 'rgba(55, 82, 180, 1)',
-    fontFamily: 'sans-serif',
-    textAlign: 'center',
-    marginBottom: '2.5rem',
-  };
-});
