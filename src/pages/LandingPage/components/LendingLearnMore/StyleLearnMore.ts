@@ -31,6 +31,7 @@ export const Title = styled('h2')(() => {
       fontWeight: '700px',
       color: 'rgba(55, 82, 180, 1)',
       textAlign: 'center',
+      fontFamily: 'Gilroy',
    }
 })
 
@@ -63,6 +64,7 @@ export const TitleExpand = styled('h2')(() => {
       fontWeight: '600',
       color: 'rgba(35, 33, 42, 1)',
       marginBottom: '1rem',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -74,6 +76,7 @@ export const Subtitle = styled('p')(() => {
       color: 'rgba(35, 33, 42, 1)',
       width: '100%',
       maxWidth: '30.875rem',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -111,6 +114,7 @@ export const BuitlTitle = styled('h2')(() => {
       fontWeight: '37.5rem',
       color: 'rgba(35, 33, 42, 1)',
       marginBottom: '1rem',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -120,6 +124,7 @@ export const BuiltSubTitle = styled('p')(() => {
       fontWeight: '400',
       lineHeight: '1.5rem',
       color: 'rgba(35, 33, 42, 1)',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -149,6 +154,7 @@ export const InnovativeTitle = styled('h2')(() => {
       fontWeight: '600',
       color: 'rgba(35, 33, 42, 1)',
       marginBottom: '1rem',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -158,6 +164,7 @@ export const InnovativeSubtitle = styled('p')(() => {
       fontWeight: '400',
       lineHeight: '1.5rem',
       color: 'rgba(35, 33, 42, 1)',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -186,6 +193,7 @@ export const TitleConvenient = styled('h2')(() => {
       fontWeight: '600',
       color: 'rgba(35, 33, 42, 1)',
       marginBottom: '1rem',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -197,6 +205,7 @@ export const SubtitleConvenient = styled('p')(() => {
       color: 'rgba(35, 33, 42, 1)',
       width: '100%',
       maxWidth: '30.875rem',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -225,6 +234,7 @@ export const SecureDesignTitle = styled('h2')(() => {
       fontWeight: '600',
       color: 'rgba(35, 33, 42, 1)',
       marginBottom: '1rem',
+      fontFamily: 'Poppins',
    }
 })
 
@@ -236,6 +246,7 @@ export const SecureDesignSubtitle = styled('p')(() => {
       color: 'rgba(35, 33, 42, 1)',
       width: '100%',
       maxWidth: '30.875rem',
+      fontFamily: 'Poppins',
    }
 })
 
