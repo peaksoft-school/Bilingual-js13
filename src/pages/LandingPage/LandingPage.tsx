@@ -3,10 +3,7 @@ import { styled } from '@mui/material/styles'
 import { FC } from 'react'
 
 const LandingPage: FC = () => {
-   return <Container>
-
-    
-   </Container>
+   return <Container></Container>
 }
 
 export default LandingPage
