@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Box } from '@mui/material'
 import logo from '../../../assets/logo/bilingual.png'
 import { styled } from '@mui/material/styles'
 import { motion } from 'framer-motion'
-import Button from '../../../shared/UI/Button'
+import Button from '../../shared/UI/Button'
 
 interface StyledAppBarProps {
    isSticky: boolean
@@ -38,8 +38,16 @@ const LandingHeader: React.FC = () => {
                />
             </Box>
             <Box className="box">
-               <Button type='button' customVariant='primary'>TO COME IN</Button>
-               <Button type='button' customVariant='Octonary' className="button">REGISTER</Button>
+               <Button type="button" customVariant="primary">
+                  TO COME IN
+               </Button>
+               <Button
+                  type="button"
+                  customVariant="Octonary"
+                  className="button"
+               >
+                  REGISTER
+               </Button>
             </Box>
          </Toolbar>
       </StyledAppBar>
@@ -69,7 +77,7 @@ const StyledAppBar = styled(AppBar)<StyledAppBarProps>(({ isSticky }) => ({
 
    '& .button': {
       marginLeft: '22px',
-      border: "none",
+      border: 'none',
    },
 }))
 
