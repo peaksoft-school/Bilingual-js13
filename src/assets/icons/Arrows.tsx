@@ -1,5 +1,10 @@
 import { styled } from '@mui/material/styles'
-import { ArrowProps } from '../../widgets/landing-page/QuestionTypes'
+
+export interface ArrowProps {
+   onClick?: React.MouseEventHandler<SVGSVGElement>
+   className?: string
+   style?: React.CSSProperties
+}
 
 const StyledSVG = styled('svg')(() => ({
    cursor: 'pointer',

@@ -3,14 +3,8 @@ import { Box, Typography, styled } from '@mui/material'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
+import { ArrowProps, NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
 import { QUESTION_TYPES } from '../../shared/utils/constants'
-
-export interface ArrowProps {
-   onClick?: React.MouseEventHandler<SVGSVGElement>
-   className?: string
-   style?: object
-}
 
 interface StyledSlideProps {
    isActive: boolean
@@ -19,7 +13,7 @@ interface StyledSlideProps {
 const PrevArrow = ({ onClick, className, style }: ArrowProps) => (
    <PrevArrowI
       onClick={onClick}
-      style={{ ...style, position: 'absolute', bottom: '140px', left: '40%', }}
+      style={{ ...style, position: 'absolute', bottom: '140px', left: '40%' }}
       className={className}
    />
 )
