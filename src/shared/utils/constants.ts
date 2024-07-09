@@ -16,22 +16,23 @@ export const QUESTION_TYPES = [
       title: 'Type what you hear ',
       image: TypeWhatYHear,
    },
-
-   {
-      id: 3,
-      title: '4 Describe image',
-      image: DescribeImage,
-   },
-   {
-      id: 4,
-      title: '5 Record saying statement ',
-      image: RecordYourself,
-   },
    {
       id: 5,
       title: 'Respond in at least 50 words',
       image: RecordYourself,
    },
+
+   {
+      id: 3,
+      title: 'Describe image',
+      image: DescribeImage,
+   },
+   {
+      id: 4,
+      title: 'Record saying statement ',
+      image: RecordYourself,
+   },
+
    {
       id: 6,
       title: 'Respond in at least 50 words',
