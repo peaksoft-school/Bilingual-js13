@@ -1,5 +1,10 @@
-import { ArrowProps } from '../../pages/LandingPage/components/Reviews'
 import { styled } from '@mui/material/styles'
+
+export interface ArrowProps {
+   onClick?: React.MouseEventHandler<SVGSVGElement>
+   className?: string
+   style?: React.CSSProperties
+}
 
 const StyledSVG = styled('svg')(() => ({
    cursor: 'pointer',
@@ -19,8 +24,9 @@ const StyledSVG = styled('svg')(() => ({
    },
 }))
 
-export const PrevArrowI = ({ onClick }: ArrowProps) => (
+export const PrevArrowI = ({ onClick, style }: ArrowProps) => (
    <StyledSVG
+      style={style}
       onClick={onClick}
       width="60"
       height="60"
@@ -48,8 +54,9 @@ export const PrevArrowI = ({ onClick }: ArrowProps) => (
    </StyledSVG>
 )
 
-export const NextArrowI = ({ onClick }: ArrowProps) => (
+export const NextArrowI = ({ onClick, style }: ArrowProps) => (
    <StyledSVG
+      style={style}
       onClick={onClick}
       width="60"
       height="60"

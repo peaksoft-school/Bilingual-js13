@@ -3,13 +3,8 @@ import { Box, Rating, Typography, styled } from '@mui/material'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
+import { ArrowProps, NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
 import { REVIEWS } from '../../shared/utils/constants'
-
-export interface ArrowProps {
-   onClick?: React.MouseEventHandler<SVGSVGElement>
-   className?: string
-}
 
 interface StyledSlideProps {
    isActive: boolean
