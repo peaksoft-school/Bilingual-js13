@@ -1,14 +1,18 @@
 import { useState } from 'react'
 import { Box, Rating, Typography, styled } from '@mui/material'
 import Slider, { Settings } from 'react-slick'
-import { REVIEWS } from '../../../shared/utils/constants'
-import { NextArrowI, PrevArrowI } from '../../../assets/icons/Arrows'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
+import { REVIEWS } from '../../shared/utils/constants'
 
 export interface ArrowProps {
    onClick?: React.MouseEventHandler<SVGSVGElement>
    className?: string
+}
+
+interface StyledSlideProps {
+   isActive: boolean
 }
 
 const PrevArrow = ({ onClick, className }: ArrowProps) => (
@@ -214,10 +218,6 @@ const StyledSlider = styled(Slider)(() => ({
       },
    },
 }))
-
-interface StyledSlideProps {
-   isActive: boolean
-}
 
 const StyledCard = styled(Box)(({ isActive }: StyledSlideProps) => ({
    position: 'relative',
