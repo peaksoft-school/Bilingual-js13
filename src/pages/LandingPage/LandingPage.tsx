@@ -1,12 +1,9 @@
 import { Box } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { FC } from 'react'
-import QuestionTypes from '../../widgets/landing-page/QuestionTypes'
 
 const LandingPage: FC = () => {
-   return <Container>
-      <QuestionTypes/>
-   </Container>
+   return <Container></Container>
 }
 
 export default LandingPage
