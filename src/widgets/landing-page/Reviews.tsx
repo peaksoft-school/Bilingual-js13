@@ -18,7 +18,7 @@ const NextArrow = ({ onClick, className }: ArrowProps) => (
    <NextArrowI onClick={onClick} className={className} />
 )
 
-const Feedbacks = () => {
+const Reviews = () => {
    const [currentSlide, setCurrentSlide] = useState(0)
 
    const settings: Settings = {
@@ -67,7 +67,7 @@ const Feedbacks = () => {
    )
 }
 
-export default Feedbacks
+export default Reviews
 
 const StyledContainer = styled(Box)(() => ({
    display: 'flex',
@@ -144,37 +144,6 @@ const StyledSlider = styled(Slider)(() => ({
       height: '760px',
       overflow: 'hidden',
       padding: '50px',
-   },
-
-   '& .slick-arrow': {
-      display: 'flex',
-      alignItems: 'center',
-      width: '60px',
-      height: '60px',
-      borderRadius: '50%',
-      cursor: 'pointer',
-   },
-
-   '& .slick-prev, & .slick-next': {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '60px',
-      height: '60px',
-      borderRadius: '50%',
-      cursor: 'pointer',
-      backgroundColor: '#fff',
-      transition: 'background-color 0.3s ease',
-   },
-
-   '& .slick-prev': {
-      justifyContent: 'flex-end',
-      top: '320px',
-   },
-
-   '& .slick-next': {
-      justifyContent: 'flex-start',
-      top: '320px',
    },
 
    '& .slick-dots': {
