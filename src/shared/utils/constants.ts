@@ -41,7 +41,7 @@ export const REVIEWS = [
    {
       id: 5,
       description:
-         'Bilingual make learning English enjoyable and effective with its user-friendly interface.',
+         'Bilingual makes learning English enjoyable and effective with its user-friendly interface.',
       name: '- Mark Zuckerberg',
       rating: 5,
       avatar: zuckerberg,
