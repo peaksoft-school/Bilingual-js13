@@ -58,6 +58,7 @@ const StyledAppBar = styled(AppBar)<StyledAppBarProps>(({ isSticky }) => ({
    transition: 'background-color 0.3s ease',
    backgroundColor: isSticky ? '#ffffff' : '#FCD200',
    boxShadow: isSticky ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none',
+   height: '118px',
 
    '& .toolbar': {
       justifyContent: 'space-between',
