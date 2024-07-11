@@ -27,7 +27,7 @@ const NextArrow = ({ onClick, className, style }: ArrowProps) => (
 )
 
 const QuestionTypes = () => {
-   const [currentSlide, setCurrentSlide] = useState(0)
+   const [currentSlide, setCurrentSlide] = useState<number>(0)
 
    const settings: Settings = {
       focusOnSelect: true,
@@ -44,8 +44,8 @@ const QuestionTypes = () => {
       swipeToSlide: true,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
-      beforeChange: (next) => setCurrentSlide(next),
-      afterChange: (current) => setCurrentSlide(current),
+      beforeChange: (_oldIndex: number, next: number) => setCurrentSlide(next),
+      afterChange: (current: number) => setCurrentSlide(current),
    }
 
    return (
@@ -54,8 +54,8 @@ const QuestionTypes = () => {
 
          <Box className="slider-container">
             <StyledSlider {...settings}>
-               {QUESTION_TYPES.map(({ id, title, image }, reviewsIndex) => (
-                  <StyledCard key={id} isActive={reviewsIndex === currentSlide}>
+               {QUESTION_TYPES.map(({ id, title, image }, questionsIndex) => (
+                  <StyledCard key={id} isActive={questionsIndex === currentSlide}>
                      <Typography>{title}</Typography>
                      <img src={image} alt={title} />
                   </StyledCard>
@@ -161,9 +161,9 @@ const StyledCard = styled(Box)(({ isActive }: StyledSlideProps) => ({
    maxWidth: '650px',
    cursor: 'pointer',
    background: isActive ? '#666CA7' : '#E5E5E5',
-   transition: 'background 0.6s ease,  filter 0.5s ease',
+   transition: 'background 0.6s ease, filter 0.5s ease',
    borderRadius: '10px',
-   margin: ' auto',
+   margin: 'auto',
 
    '& .MuiTypography-root': {
       color: 'white',

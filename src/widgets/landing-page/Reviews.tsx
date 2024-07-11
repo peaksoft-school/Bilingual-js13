@@ -1,10 +1,10 @@
-import { useState } from 'react'
 import { Box, Rating, Typography, styled } from '@mui/material'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { ArrowProps, NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
 import { REVIEWS } from '../../shared/utils/constants'
+import { useState } from 'react'
 
 interface StyledSlideProps {
    isActive: boolean
@@ -36,8 +36,8 @@ const Reviews = () => {
       swipeToSlide: true,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
-      beforeChange: (next) => setCurrentSlide(next),
-      afterChange: (current) => setCurrentSlide(current),
+      beforeChange: (_oldIndex: number, next: number) => setCurrentSlide(next),
+      afterChange: (current: number) => setCurrentSlide(current),
    }
 
    return (
