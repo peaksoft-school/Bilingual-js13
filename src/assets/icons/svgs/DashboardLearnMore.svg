@@ -12,14 +12,14 @@
 <path d="M257.44 122.731L263.404 96.6772" stroke="#4C4C4C" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
  <path id="myPath" fill="#E8E8E8" stroke="#4C4C4C" stroke-width="2"
     d="M246.715 152.737H267.016C270.298 152.737 272.96 150.055 272.96 146.746V115.949C272.96 115.224 272.372 114.635 271.646 114.635H242.084C241.358 114.635 240.77 115.224 240.77 115.949V146.746C240.77 150.055 243.432 152.737 246.715 152.737Z">
-    <animate attributeName="fill" values="#E8E8E8; #CCCCCC; #FFD700; #00FF00; #00CED1; #E8E8E8" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="fill" values="#E8E8E8" dur="5s" repeatCount="indefinite" />
     <animate attributeName="stroke" from="#4C4C4C" to="#888888" dur="1s" repeatCount="indefinite" />
     <animate attributeName="stroke-width" from="2" to="5" dur="1s" repeatCount="indefinite" />
   </path><path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd" d="M246.715 152.737H267.016C270.298 152.737 272.96 150.055 272.96 146.746C272.96 146.79 272.925 146.825 272.881 146.825H240.849C240.805 146.825 240.77 146.79 240.77 146.746C240.77 150.055 243.432 152.737 246.715 152.737Z" fill="#4C4C4C"/>
 <path opacity="0.1" d="M249.964 115.292H243.395V147.482H249.964V115.292Z" fill="#4C4C4C"/>
   <path id="myPath" fill="white" stroke="#4C4C4C" stroke-width="2"
     d="M36.4835 152.723H65.4543C70.1396 152.723 73.938 148.925 73.938 144.24V100.084C73.938 99.358 73.35 98.77 72.6241 98.77H29.3137C28.5881 98.77 27.9998 99.358 27.9998 100.084V144.24C27.9998 148.925 31.7976 152.723 36.4835 152.723Z">
-    <animate attributeName="fill" values="white; #CCCCCC; #FFD700; #00FF00; #00CED1; white" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="fill" values="white; " dur="5s" repeatCount="indefinite" />
     <animate attributeName="stroke" from="#4C4C4C" to="#888888" dur="1s" repeatCount="indefinite" />
     <animate attributeName="stroke-width" from="2" to="5" dur="1s" repeatCount="indefinite" />
   </path><path fill-rule="evenodd" clip-rule="evenodd" d="M23.3217 109.379C18.9679 109.379 15.4385 112.909 15.4385 117.263V133.029C15.4385 137.383 18.9679 140.912 23.3217 140.912H27.9202V135H22.6648C21.5763 135 20.694 134.118 20.694 133.029V117.263C20.694 116.174 21.5763 115.292 22.6648 115.292H27.9202V109.379H23.3217Z" fill="white"/>
@@ -32,11 +32,11 @@
     fill="#E8E8E8" stroke="#4C4C4C" stroke-width="2" stroke-dasharray="5,10" stroke-dashoffset="0">
     <animate attributeName="stroke-dashoffset" values="0; -15" dur="0.1s" repeatCount="indefinite" />
     <animate attributeName="stroke" values="#4C4C4C; #4C4C4C" dur="5s" repeatCount="indefinite" />
-    <animate attributeName="fill" values="#E8E8E8; #FF6347; #FFD700; #00FF7F; #00BFFF; #E8E8E8" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="fill" values="#E8E8E8" dur="5s" repeatCount="indefinite" />
   </path><path d="M75.219 39.0876C75.219 36.9107 76.9835 35.146 79.1606 35.146H231.569C233.746 35.146 235.511 36.9107 235.511 39.0876V142.226H75.219V39.0876Z" fill="#DBDBDB"/>
 <path id="myPath" d="M75.219 39.0876C75.219 36.9107 76.9835 35.146 79.1606 35.146H231.569C233.746 35.146 235.511 36.9107 235.511 39.0876V48.2847H75.219V39.0876Z"
     fill="white" stroke="#777777" stroke-width="2">
-    <animate attributeName="fill" values="white; #E8E8E8; #FF6347; #FFD700; #00FF7F; #00BFFF; white" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="fill" values="white; #E8E8E8;" dur="6s" repeatCount="indefinite" />
     <animate attributeName="stroke" values="#777777; #4C4C4C; #888888; #CCCCCC; #4C4C4C" dur="6s" repeatCount="indefinite" />
   </path><path d="M75.219 39.0876C75.219 36.9107 76.9835 35.146 79.1606 35.146H231.569C233.746 35.146 235.511 36.9107 235.511 39.0876V142.226H75.219V39.0876Z" stroke="#4C4C4C" stroke-width="2"/>
 <path d="M171.788 41.0583H163.905C163.542 41.0583 163.248 41.3525 163.248 41.7153C163.248 42.0781 163.542 42.3722 163.905 42.3722H171.788C172.151 42.3722 172.445 42.0781 172.445 41.7153C172.445 41.3525 172.151 41.0583 171.788 41.0583Z" fill="#DDDDDD"/>
@@ -46,7 +46,7 @@
 <path d="M221.715 41.0586H213.832C213.469 41.0586 213.175 41.3527 213.175 41.7155C213.175 42.0783 213.469 42.3725 213.832 42.3725H221.715C222.078 42.3725 222.372 42.0783 222.372 41.7155C222.372 41.3527 222.078 41.0586 221.715 41.0586Z" fill="#DDDDDD"/>
 <path id="fillPath" d="M88.3574 61.9397C88.3574 59.4778 90.3578 57.4819 92.8246 57.4819H217.905C220.372 57.4819 222.372 59.4778 222.372 61.9397V146.309C222.372 148.771 220.372 150.767 217.905 150.767H92.8246C90.3578 150.767 88.3574 148.771 88.3574 146.309V61.9397Z"
     fill="white">
-    <animate attributeName="fill" values="white; #FF4500; #FFD700; #7CFC00; #00BFFF; #FF1493; white" dur="10s" repeatCount="indefinite" />
+    <animate attributeName="fill" values=" white" dur="10s" repeatCount="indefinite" />
   </path>
   <path id="strokePath" d="M88.3574 61.9397C88.3574 59.4778 90.3578 57.4819 92.8246 57.4819H217.905C220.372 57.4819 222.372 59.4778 222.372 61.9397V146.309C222.372 148.771 220.372 150.767 217.905 150.767H92.8246C90.3578 150.767 88.3574 148.771 88.3574 146.309V61.9397Z"
     stroke="#777777" stroke-width="2" stroke-dasharray="5,5">

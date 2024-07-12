@@ -2,7 +2,7 @@
 <g opacity="0.4">
 <path d="M45.8252 116.545C47.5709 116.545 48.9866 115.13 48.9866 113.383C48.9866 111.637 47.5709 110.222 45.8252 110.222C44.0788 110.222 42.6631 111.637 42.6631 113.383C42.6631 115.13 44.0788 116.545 45.8252 116.545Z" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10">
     <animate attributeName="stroke-dasharray" dur="2s" repeatCount="indefinite" values="0 200; 100 100; 50 150; 0 200" />
-    <animate attributeName="stroke" dur="3s" repeatCount="indefinite" values="#4C4CFF; #FF6347; #4C4CFF; #DDDDDD" keyTimes="0; 0.2; 0.8; 1" />
+    <animate attributeName="stroke" dur="3s" repeatCount="indefinite" values="#4C4CFF; #FF6347;  #DDDDDD" keyTimes="0; 0.2; 0.8; 1" />
 </path>
 
 <path d="M28.8875 128.289C30.6332 128.289 32.0489 126.873 32.0489 125.127C32.0489 123.381 30.6332 121.966 28.8875 121.966C27.1411 121.966 25.7254 123.381 25.7254 125.127C25.7254 126.873 27.1411 128.289 28.8875 128.289Z" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10">
@@ -150,7 +150,7 @@
     <animate attributeName="stroke" dur="3s" repeatCount="indefinite" values="#4C4CFF; #FF6347; #4C4CFF; #DDDDDD" keyTimes="0; 0.2; 0.8; 1" />
 </path>
     stroke="#4CFF4C" stroke-width="2" stroke-miterlimit="10" />
-<path d="M229.238 87.4028L238.045 96.2108V100.366C238.045 101.134 237.459 101.721 236.691 101.721H225.557M218.533 101.721H222.044" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="229.238 87.4028L238.045 96.2108V100.366C238.045 101.134 237.459 101.721 236.691 101.721H225.557M218.533 101.721H222.044" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M228.38 140.882L234.433 146.89V151.045C234.433 151.813 233.846 152.4 233.078 152.4H228.38" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M247.758 67.665C246.012 67.665 244.596 69.0807 244.596 70.8264C244.596 72.5729 246.012 73.9886 247.758 73.9886C249.504 73.9886 250.919 72.5729 250.919 70.8264C250.919 69.0807 249.504 67.665 247.758 67.665Z" 
       stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10">
@@ -206,7 +206,7 @@
 <path d="M187.371 52.8757C187.371 51.13 185.956 49.7144 184.21 49.7144C182.464 49.7144 181.048 51.13 181.048 52.8757C181.048 54.6222 182.464 56.0379 184.21 56.0379C185.956 56.0379 187.371 54.6222 187.371 52.8757Z"
       stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10">
     <animate attributeName="stroke-dasharray" dur="2s" repeatCount="indefinite" values="0 300; 150 150; 100 200; 0 300" />
-    <animate attributeName="stroke" dur="3s" repeatCount="indefinite" values="#DDDDDD; #4C4CFF; #FF6347; #DDDDDD" keyTimes="0; 0.2; 0.8; 1" />
+    <animate attributeName="stroke" dur="3s" repeatCount="indefinite" values="#DDDDDD; #4C4CFF; #FF6347 #DDDDDD" keyTimes="0; 0.2; 0.8; 1" />
 </path>
 
 <path d="M141.534 48.1794H142.149M169.575 38.6489L160.044 48.1794H145.693"
@@ -408,7 +408,7 @@
     <animate attributeName="stroke" dur="3s" repeatCount="indefinite" values="#FF6347; #4C4CFF; #DDDDDD; #4C4CFF" keyTimes="0; 0.2; 0.8; 1" />
   </path></g>
 <path d="M40.4141 55.2499C40.4141 52.7189 42.4661 50.666 44.998 50.666H222.243C224.774 50.666 226.827 52.7189 226.827 55.2499V170.612C226.827 173.144 224.774 175.196 222.243 175.196H44.9972C42.4661 175.196 40.4141 173.144 40.4141 170.612V55.2499Z" fill="#EDECEC">
-    <animate attributeName="fill" dur="2s" repeatCount="indefinite" values="#EDECEC; #9ACD32; #EDECEC" />
+    <animate attributeName="fill" dur="2s" repeatCount="indefinite" values="#EDECEC; #EDECEC" />
   </path><path d="M55.6935 79.6973C55.6935 78.0097 57.061 76.6414 58.7494 76.6414H208.491C210.179 76.6414 211.547 78.0097 211.547 79.6973V156.86C211.547 158.548 210.179 159.916 208.491 159.916H58.7494C57.061 159.916 55.6935 158.548 55.6935 156.86V79.6973Z" fill="white" stroke="#777777" stroke-width="2"/>
 <path d="M187.482 92.6851H62.9516C62.3187 92.6851 61.8057 93.1981 61.8057 93.831C61.8057 94.4639 62.3187 94.977 62.9516 94.977H187.482C188.115 94.977 188.628 94.4639 188.628 93.831C188.628 93.1981 188.115 92.6851 187.482 92.6851Z" fill="#DDDDDD"/>
 <path d="M72.8835 82.7534H64.4796C63.0028 82.7534 61.8057 83.9506 61.8057 85.4274C61.8057 86.9042 63.0028 88.1013 64.4796 88.1013H72.8835C74.3603 88.1013 75.5574 86.9042 75.5574 85.4274C75.5574 83.9506 74.3603 82.7534 72.8835 82.7534Z" fill="#DDDDDD"/>
@@ -467,7 +467,7 @@
 <path d="M257.769 91.1572H253.949C253.316 91.1572 252.803 91.6703 252.803 92.3032C252.803 92.9361 253.316 93.4492 253.949 93.4492H257.769C258.402 93.4492 258.915 92.9361 258.915 92.3032C258.915 91.6703 258.402 91.1572 257.769 91.1572Z" fill="white"/>
 <path opacity="0.15" fill-rule="evenodd" clip-rule="evenodd" d="M112.531 99.5615C108.734 99.5615 105.655 102.64 105.655 106.437V135.007C105.655 150.452 118.176 162.972 133.621 162.972C149.066 162.972 161.586 150.452 161.586 135.007V106.437C161.586 102.64 158.508 99.5615 154.71 99.5615H112.531Z" fill="#4C4C4C"/>
 <path d="M106.42 99.5616C106.42 96.1863 109.157 93.4497 112.532 93.4497H154.711C158.086 93.4497 160.823 96.1863 160.823 99.5616V128.132C160.823 143.155 148.644 155.333 133.622 155.333C118.599 155.333 106.42 143.155 106.42 128.132V99.5616Z" fill="#4C4CFF" stroke="#4C4C4C" stroke-width="2">
-  <animate attributeName="fill" dur="1s" repeatCount="indefinite" values="#4C4CFF; #FF6347; #4C4CFF" />
+  <animate attributeName="fill" dur="1s" repeatCount="indefinite" values="" />
   
   
   <animate attributeName="stroke-dasharray" dur="0.5s" repeatCount="indefinite" values="1 200; 80 200; 1 200" />
