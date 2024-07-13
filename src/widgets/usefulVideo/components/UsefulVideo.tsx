@@ -131,3 +131,4 @@ const StyleUsefulVideo = styled(DefaultPlayer)<{ poster: string }>`
       fill: rgba(58, 16, 229, 1);
    }
 `
+//
