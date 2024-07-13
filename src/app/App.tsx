@@ -19,7 +19,7 @@ const App = () => {
       <Button onClick={modalOpenHandler}>adfds</Button>
       <BasicModal
         open={modalOpen}
-        customVariant="primary"
+        customVariant="quaternary"
         onCloseCancel={onCloseCancelHandlerApp}
         onCloseYes={onCloseYesHandlerApp}
       >

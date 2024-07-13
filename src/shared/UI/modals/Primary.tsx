@@ -17,3 +17,4 @@ const Primary: FC<ModalType> = ({open, children, onCloseCancel, ...rest}) => {
 }
 
 export default Primary
+
