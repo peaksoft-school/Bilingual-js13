@@ -1,31 +1,7 @@
-import { useState } from 'react';
-import { Button } from '@mui/material';
-import BasicModal from '../shared/UI/modals/Modal';
+import { FC } from 'react'
 
-const App = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+const App: FC = () => {
+   return <div></div>
+}
 
-  const modalOpenHandler = () => setModalOpen((prev) => !prev);
-
-  const onCloseCancelHandlerApp = () => setModalOpen((prev) => !prev);
-
-  const onCloseYesHandlerApp = () => {
-    alert('helloo');
-    setModalOpen((prev) => !prev);
-  };
-
-  return (
-    <>
-      <Button onClick={modalOpenHandler}>adfds</Button>
-      <BasicModal
-        open={modalOpen}
-        customVariant="quaternary"
-        onCloseCancel={onCloseCancelHandlerApp}
-        onCloseYes={onCloseYesHandlerApp}
-      >
-      </BasicModal>
-    </>
-  );
-};
-
-export default App;
+export default App
