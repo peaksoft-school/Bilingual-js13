@@ -26,7 +26,7 @@ export const showToastify = (
       </>,
       {
          position: 'top-right',
-         autoClose: 10000,
+         autoClose: 600,
          hideProgressBar: true,
          closeOnClick: true,
          pauseOnHover: true,
