@@ -26,10 +26,10 @@ export default Prove
 const ProvoContainer = styled('div')(() => {
    return {
       width: '100%',
-      // maxWidth: '90rem',
+      maxWidth: '90rem',
       height: '100%',
       minHeight: '40.625rem',
-      margin: '0 auto',
+      // margin: '0 auto',
       background: `no-repeat center center url(${ProveBackground})`,
       backgroundSize: 'cover',
    }
