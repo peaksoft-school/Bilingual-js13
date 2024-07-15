@@ -10,7 +10,7 @@ import LearnImage from '../../assets/images/learn.png'
 import ReadingImage from '../../assets/images/reading.png'
 import { motion } from 'framer-motion'
 
-const PartThree = () => {
+const Features = () => {
    return (
       <Container>
          <Box className="">
@@ -103,7 +103,7 @@ const PartThree = () => {
    )
 }
 
-export default PartThree
+export default Features
 
 const PULSE_ANIMATION = {
    animate: {
@@ -161,7 +161,7 @@ const Container = styled(Box)(() => ({
 }))
 
 const StyledGlobusBox = styled(Box)(({ theme }) => ({
-   marginTop:"40px",
+   marginTop: '40px',
    [theme.breakpoints.down('lg')]: {
       position: 'absolute',
       left: '30rem',
@@ -231,4 +231,3 @@ const ANIMATE = {
       },
    },
 }
-
