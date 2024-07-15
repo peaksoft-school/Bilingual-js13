@@ -1,6 +1,3 @@
-// import airplane from "./assets/airplane.svg";
-// import earth from "./assets/earth.svg";
-// import pig from "./assets/pig.svg";
 import airplane from '../../../assets/icons/svgs/airplane.svg'
 import earth from '../../../assets/icons/svgs/earth.svg'
 import pig from '../../../assets/icons/svgs/pig.svg'
