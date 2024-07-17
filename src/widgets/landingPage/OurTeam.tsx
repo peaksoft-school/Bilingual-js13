@@ -1,10 +1,10 @@
-import { Box, Typography } from '@mui/material'
-import alice from '../../assets/images/alice.png'
-import mia from '../../assets/images/mia.png'
-import oscar from '../../assets/images/oscar.png'
-import jack from '../../assets/images/jack.png'
-import rose from '../../assets/images/rose.png'
-import albert from '../../assets/images/albert.png'
+import { Box, styled, Typography } from '@mui/material'
+import alice from './assets/alice.png'
+import mia from './assets/mia.png'
+import oscar from './assets/oscar.png'
+import jack from './assets/jack.png'
+import rose from './assets/rose.png'
+import albert from './assets/albert.png'
 import Marquee from 'react-fast-marquee'
 
 const teamMembers = [
@@ -18,29 +18,9 @@ const teamMembers = [
 
 const Slider = () => {
    return (
-      <Box
-         sx={{
-            maxWidth: '1440px',
-            width: '100%',
-            height: '100vh',
-            backgroundColor: '#fef5e8',
-            display: 'flex',
-            justifyContent: 'center',
-            margin: '0 auto',
-         }}
-      >
-         <Box sx={{ width: '80%', maxWidth: '1200px', textAlign: 'center' }}>
-            <Typography
-               sx={{
-                  textAlign: 'center',
-                  color: '#3752b4',
-                  fontSize: '40px',
-                  marginBottom: '20px',
-                  fontWeight: 'bold',
-               }}
-            >
-               Our Team
-            </Typography>
+      <StyledContainer>
+         <StyledContainers>
+            <StyledTitle>Our Team</StyledTitle>
             <Marquee
                direction="left"
                speed={100}
@@ -51,15 +31,7 @@ const Slider = () => {
                }}
             >
                {teamMembers.map((member, index) => (
-                  <Box
-                     sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        marginX: '10px',
-                     }}
-                     key={index}
-                  >
+                  <StyledFlexBox key={index}>
                      <img
                         style={{
                            width: '100%',
@@ -70,26 +42,54 @@ const Slider = () => {
                         src={member.src}
                         alt={member.name}
                      />
-                     <Typography
-                        sx={{
-                           fontWeight: 'bold',
-                           color: '#3A10E5',
-                           textAlign: 'center',
-                           marginBottom: '10px',
-                        }}
-                        variant="h6"
-                     >
+                     <StyledTypographySecond variant="h6">
                         {member.name}
-                     </Typography>
+                     </StyledTypographySecond>
                      <Typography sx={{ textAlign: 'center' }}>
                         {member.role}
                      </Typography>
-                  </Box>
+                  </StyledFlexBox>
                ))}
             </Marquee>
-         </Box>
-      </Box>
+         </StyledContainers>
+      </StyledContainer>
    )
 }
 
 export default Slider
+
+const StyledContainer = styled(Box)({
+   width: '100%',
+   height: '100vh',
+   backgroundColor: '#fef5e8',
+   display: 'flex',
+   justifyContent: 'center',
+})
+
+const StyledContainers = styled(Box)({
+   width: '80%',
+   maxWidth: '1200px',
+   textAlign: 'center',
+})
+
+const StyledTitle = styled(Typography)({
+   textAlign: 'center',
+   color: '#3752b4',
+   fontSize: '40px',
+   marginBottom: '20px',
+   fontWeight: 'bold',
+})
+
+const StyledTypographySecond = styled(Typography)({
+   fontWeight: 'bold',
+   color: '#3A10E5',
+   textAlign: 'center',
+   marginBottom: '10px',
+})
+
+const StyledFlexBox = styled(Box)({
+   display: 'flex',
+   flexDirection: 'column',
+   alignItems: 'center',
+   marginX: '10px',
+})
