@@ -2,15 +2,12 @@ import airplane from '../../../assets/icons/svgs/airplane.svg'
 import earth from '../../../assets/icons/svgs/earth.svg'
 import pig from '../../../assets/icons/svgs/pig.svg'
 import { Box, styled, Typography } from '@mui/material'
+import CountUp from 'react-countup'
 import { useEffect, useRef, useState } from 'react'
 
-const formatNumber = (num: number): string => {
-   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-}
-
-const Animation: React.FC = () => {
-   const [countFirst, setCountFirst] = useState<number>(0)
-   const [countSecond, setCountSecond] = useState<number>(0)
+const StatisticsDisplay: React.FC = () => {
+   const [startFirst, setStartFirst] = useState<boolean>(false)
+   const [startSecond, setStartSecond] = useState<boolean>(false)
    const countFirstRef = useRef<HTMLDivElement | null>(null)
    const countSecondRef = useRef<HTMLDivElement | null>(null)
 
@@ -18,36 +15,10 @@ const Animation: React.FC = () => {
       let observerFirst: IntersectionObserver
       let observerSecond: IntersectionObserver
 
-      const startCountingFirst = () => {
-         const intervalFirst = setInterval(() => {
-            setCountFirst((prevCount) => {
-               if (prevCount < 10000) {
-                  return prevCount + 100
-               } else {
-                  clearInterval(intervalFirst)
-                  return prevCount
-               }
-            })
-         }, 1)
-      }
-
-      const startCountingSecond = () => {
-         const intervalSecond = setInterval(() => {
-            setCountSecond((prevCount) => {
-               if (prevCount < 200) {
-                  return prevCount + 1
-               } else {
-                  clearInterval(intervalSecond)
-                  return prevCount
-               }
-            })
-         }, 1)
-      }
-
       if (countFirstRef.current) {
          observerFirst = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-               startCountingFirst()
+               setStartFirst(true)
                observerFirst.disconnect()
             }
          })
@@ -57,7 +28,7 @@ const Animation: React.FC = () => {
       if (countSecondRef.current) {
          observerSecond = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-               startCountingSecond()
+               setStartSecond(true)
                observerSecond.disconnect()
             }
          })
@@ -77,14 +48,27 @@ const Animation: React.FC = () => {
                <StyledBox>
                   <img src={airplane} alt="first" />
                   <StyledCounter ref={countFirstRef}>
-                     <Typography>{formatNumber(countFirst)}</Typography>
+                     <Typography>
+                        <CountUp
+                           start={0}
+                           end={10000}
+                           duration={2}
+                           separator=","
+                           redraw={startFirst}
+                        />
+                     </Typography>
                   </StyledCounter>
                </StyledBox>
                <StyledBox>
                   <img src={earth} alt="second" />
                   <StyledCounter ref={countSecondRef}>
                      <Typography sx={{ marginTop: '-10px' }}>
-                        {countSecond}
+                        <CountUp
+                           start={0}
+                           end={200}
+                           duration={2}
+                           redraw={startSecond}
+                        />
                      </Typography>
                   </StyledCounter>
                </StyledBox>
@@ -97,11 +81,10 @@ const Animation: React.FC = () => {
    )
 }
 
-export default Animation
+export default StatisticsDisplay
 
 const StyledBackgroundContainers = styled(Box)`
    width: 100%;
-   height: 100vh;
    background-color: #fef5e8;
 `
 
@@ -122,7 +105,7 @@ const StyledCounter = styled(Box)`
    color: #4c4c4c;
 
    & .MuiTypography-root {
-      font-size: 50px;
+      font-size: 45px;
       font-weight: bold;
       background-color: white;
    }
