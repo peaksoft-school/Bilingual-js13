@@ -220,7 +220,6 @@ export default Footer
 
 const StyledContainer = styled(Box)({
    width: '100%',
-   maxWidth: '1440px',
    height: '100%',
    minHeight: '870px',
    backgroundColor: '#262626',
