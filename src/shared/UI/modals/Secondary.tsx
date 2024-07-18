@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Box, Modal, styled } from '@mui/material'
 import { ModalType } from './Modal'
 import Button from '../Button'
-import ModadXIcon from '../../../assets/icons/svgs/modal-x-icon.svg'
+import ModadXIcon from '../../../assets/icons/svgs/exit-model.svg'
 
 const Secondary: FC<ModalType> = ({
    open,
@@ -26,7 +26,8 @@ const Secondary: FC<ModalType> = ({
                <img src={ModadXIcon} alt="ModadXIcon" />
             </ImageModalX>
 
-            <Box>{children}</Box>
+            <Box style={{marginTop: children ? '' : '20px'}}>{children}</Box>
+
             <ModalButtonDelete>
                {buttonChange === 'true' ? (
                   <>

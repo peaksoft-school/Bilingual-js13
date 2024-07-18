@@ -1,10 +1,11 @@
 import { FC, ReactNode } from 'react'
 import Primary from './Primary'
 import Secondary from './Secondary'
+import { Box } from '@mui/material'
 
 export interface ModalType {
    children?: ReactNode
-   customVariant?: 'primary' | 'secondary'
+   variant?: 'primary' | 'secondary'
    open: boolean
    onClose?: () => void
    onClick?: () => void
@@ -14,7 +15,7 @@ export interface ModalType {
 
 export const Modal: FC<ModalType> = ({
    children,
-   customVariant = 'primary',
+   variant = 'primary',
    open,
    onClose,
    onClick,
@@ -22,10 +23,10 @@ export const Modal: FC<ModalType> = ({
    ...rest
 }) => {
    return (
-      <div>
-         {customVariant === 'primary' && (
+      <Box>
+         {variant === 'primary' && (
             <Primary
-               customVariant={customVariant}
+            variant={variant}
                open={open}
                children={children}
                onClose={onClose}
@@ -33,7 +34,7 @@ export const Modal: FC<ModalType> = ({
             />
          )}
 
-         {customVariant === 'secondary' && (
+         {variant === 'secondary' && (
             <Secondary
                onClick={onClick}
                open={open}
@@ -43,7 +44,7 @@ export const Modal: FC<ModalType> = ({
                boxContent={boxContent}
             />
          )}
-      </div>
+      </Box>
    )
 }
 export default Modal
