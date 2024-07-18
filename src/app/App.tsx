@@ -1,9 +1,10 @@
-import { FC } from 'react'
-import UiHeader from '../shared/UI/UiHeader'
+
+import { FC } from 'react';
+import Header from '../shared/UI/Header';
 
 const App: FC = () => {
    return <div>
-      <UiHeader/>
+      <Header/>
    </div>
 }
 
