@@ -11,7 +11,7 @@ interface InputProps extends Omit<TextFieldProps, 'variant'> {
 
 export const Input = forwardRef(
   (props: InputProps, ref?: Ref<HTMLInputElement>) => {
-    const { label = 'text',variant='outlined', value, disabled, error,placeholder, onChange, ...rest } = props;
+    const { label = '',variant='outlined', value, disabled, error,placeholder, onChange, ...rest } = props;
     return (
       <StyledInput
         label={label}
@@ -29,11 +29,11 @@ export const Input = forwardRef(
 );
 
 const StyledInput = styled(TextField)`
-  width: 500px;
+   width: 100%;
 
   .MuiOutlinedInput-root {
     background-color: #ffffff;
-    height: 52px;
+    height: 3.25rem;
     padding: 0;
 
     &.Mui-focused {
@@ -41,7 +41,7 @@ const StyledInput = styled(TextField)`
     }
 
     .MuiOutlinedInput-notchedOutline {
-      border: 2px solid #d6d6d6;
+      border: .125rem solid #d6d6d6;
     }
 
     &:hover .MuiOutlinedInput-notchedOutline {
@@ -57,6 +57,7 @@ const StyledInput = styled(TextField)`
       border: none;
       outline: none;
       color: #23212a;
+      padding: .8125rem ;
     }
 
     &.Mui-disabled {
