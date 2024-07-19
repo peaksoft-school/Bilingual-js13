@@ -1,10 +1,10 @@
 import { Box, styled, Typography } from '@mui/material'
-import alice from '../../assets/images/alice.png'
-import mia from '../../assets/images/mia.png'
-import oscar from '../../assets/images/oscar.png'
-import jack from '../../assets/images/jack.png'
-import rose from '../../assets/images/rose.png'
-import albert from '../../assets/images/albert.png'
+import alice from '../../../assets/images/alice.png'
+import mia from '../../../assets/images/mia.png'
+import oscar from '../../../assets/images/oscar.png'
+import jack from '../../../assets/images/jack.png'
+import rose from '../../../assets/images/rose.png'
+import albert from '../../../assets/images/albert.png'
 import Marquee from 'react-fast-marquee'
 
 const teamMembers = [
