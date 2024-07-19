@@ -60,7 +60,6 @@ export default OurTeam
 
 const StyledContainer = styled(Box)({
    width: '100%',
-   height: '100vh',
    backgroundColor: '#fef5e8',
    display: 'flex',
    justifyContent: 'center',
