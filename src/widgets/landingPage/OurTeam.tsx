@@ -16,7 +16,7 @@ const teamMembers = [
    { src: albert, name: 'Albert Stanley', role: 'Chief Editor' },
 ]
 
-const Slider = () => {
+const OurTeam = () => {
    return (
       <StyledContainer>
          <StyledContainers>
@@ -56,7 +56,7 @@ const Slider = () => {
    )
 }
 
-export default Slider
+export default OurTeam
 
 const StyledContainer = styled(Box)({
    width: '100%',
