@@ -48,7 +48,7 @@ const StatisticsDisplay: React.FC = () => {
                <StyledBox>
                   <img src={airplane} alt="first" />
                   <StyledCounter ref={countFirstRef}>
-                     <Typography>
+                     <StyledNumbers>
                         <CountUp
                            start={0}
                            end={10000}
@@ -56,20 +56,20 @@ const StatisticsDisplay: React.FC = () => {
                            separator=","
                            redraw={startFirst}
                         />
-                     </Typography>
+                     </StyledNumbers>
                   </StyledCounter>
                </StyledBox>
                <StyledBox>
                   <img src={earth} alt="second" />
                   <StyledCounter ref={countSecondRef}>
-                     <Typography sx={{ marginTop: '-10px' }}>
+                     <StyledNumbers sx={{ marginTop: '-10px' }}>
                         <CountUp
                            start={0}
                            end={200}
                            duration={2}
                            redraw={startSecond}
                         />
-                     </Typography>
+                     </StyledNumbers>
                   </StyledCounter>
                </StyledBox>
                <StyledBox>
@@ -103,10 +103,10 @@ const StyledCounter = styled(Box)`
    left: 46%;
    transform: translate(-50%, -50%);
    color: #4c4c4c;
+`
 
-   & .MuiTypography-root {
-      font-size: 45px;
-      font-weight: bold;
-      background-color: white;
-   }
+const StyledNumbers = styled(Typography)`
+   font-size: 45px;
+   font-weight: bold;
+   background-color: white;
 `
