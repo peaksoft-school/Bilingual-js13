@@ -1,8 +1,5 @@
 import { FC } from 'react'
-import UsefulVideo from '../widgets/usefulVideo/components/UsefulVideo'
 
-const App: FC = () => {
-   return <div><UsefulVideo/></div>
-}
+const App: FC = () => <h1>Bilingual</h1>
 
 export default App
