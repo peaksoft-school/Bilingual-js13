@@ -23,7 +23,7 @@ const OurTeam = () => {
             <StyledTitle>Our Team</StyledTitle>
             <Marquee
                direction="left"
-               speed={100}
+               speed={50}
                style={{
                   display: 'flex',
                   justifyContent: 'space-around',
@@ -32,22 +32,11 @@ const OurTeam = () => {
             >
                {teamMembers.map((member, index) => (
                   <StyledFlexBox key={index}>
-                     <img
-                        style={{
-                           width: '100%',
-                           maxWidth: '200px',
-                           height: 'auto',
-                           margin: '20px',
-                        }}
-                        src={member.src}
-                        alt={member.name}
-                     />
+                     <StyledImg src={member.src} alt={member.name} />
                      <StyledTypographySecond variant="h6">
                         {member.name}
                      </StyledTypographySecond>
-                     <Typography sx={{ textAlign: 'center' }}>
-                        {member.role}
-                     </Typography>
+                     <Typography>{member.role}</Typography>
                   </StyledFlexBox>
                ))}
             </Marquee>
@@ -66,8 +55,7 @@ const StyledContainer = styled(Box)({
 })
 
 const StyledContainers = styled(Box)({
-   width: '80%',
-   maxWidth: '1200px',
+   maxWidth: '1330px',
    textAlign: 'center',
 })
 
@@ -83,7 +71,6 @@ const StyledTypographySecond = styled(Typography)({
    fontWeight: 'bold',
    color: '#3A10E5',
    textAlign: 'center',
-   marginBottom: '10px',
 })
 
 const StyledFlexBox = styled(Box)({
@@ -91,4 +78,11 @@ const StyledFlexBox = styled(Box)({
    flexDirection: 'column',
    alignItems: 'center',
    marginX: '10px',
+})
+
+const StyledImg = styled('img')({
+   width: '100%',
+   maxWidth: '200px',
+   height: 'auto',
+   margin: '20px',
 })
