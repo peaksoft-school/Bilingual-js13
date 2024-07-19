@@ -1,10 +1,3 @@
-
-import { FC } from 'react';
-import Header from '../shared/UI/Header';
-
-const App: FC = () => {
-   return   <Header/>
-
-}
+const App = () => <h1>Bilingual</h1>
 
 export default App
