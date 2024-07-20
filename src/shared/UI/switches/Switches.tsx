@@ -21,7 +21,7 @@ interface CustomizedSwitchesProps {
 const Switches: FC<CustomizedSwitchesProps> = forwardRef<
   HTMLInputElement,
   CustomizedSwitchesProps
->(({ variant = 'Primary', checked, onChange }, ref) => {
+>(({ variant = 'Primary', checked, onChange, ...rest }, ref) => {
   const handleChange = (event: SyntheticEvent, checked: boolean) => {
     onChange?.(event as React.ChangeEvent<HTMLInputElement>, checked);
   };
@@ -31,7 +31,7 @@ const Switches: FC<CustomizedSwitchesProps> = forwardRef<
       {variant === 'Primary' && (
         <FormControlLabel
           label=""
-          control={<IOSSwitch sx={{ m: 1 }} defaultChecked inputRef={ref} />}
+          control={<IOSSwitch sx={{ m: 1 }} defaultChecked inputRef={ref} {...rest} />}
           checked={checked}
           onChange={handleChange}
         />
@@ -40,7 +40,7 @@ const Switches: FC<CustomizedSwitchesProps> = forwardRef<
       {variant === 'Secondary' && (
         <FormControlLabel
           label=""
-          control={<Radio />}
+          control={<Radio {...rest} />}
           checked={checked}
           onChange={handleChange}
         />
@@ -65,6 +65,7 @@ const Switches: FC<CustomizedSwitchesProps> = forwardRef<
               }
               defaultChecked
               sx={{ width: '2.1875rem', height: '2.1875rem' }}
+              {...rest}
             />
           }
         />
@@ -89,6 +90,7 @@ const Switches: FC<CustomizedSwitchesProps> = forwardRef<
                 </IconWrapperQuaternaryChecked>
               }
               defaultChecked
+              {...rest}
             />
           }
           checked={checked}
