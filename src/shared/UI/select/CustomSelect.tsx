@@ -1,0 +1,86 @@
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import Select, { SelectChangeEvent } from '@mui/material/Select'
+import { styled, Paper } from '@mui/material'
+
+interface CustomSelectProps {
+   value: string | number
+   options: Array<{ value: string | number; label: string }>
+   onChange: (event: SelectChangeEvent<string | number>) => void
+   placeholder?: string
+}
+
+const CustomSelect: React.FC<CustomSelectProps> = ({
+   value,
+   options,
+   onChange,
+   placeholder,
+}) => {
+   const handleChange = (event: SelectChangeEvent<unknown>) => {
+      onChange(event as SelectChangeEvent<string | number>)
+   }
+
+   return (
+      <div>
+         <FormControl>
+            <StyledSelect
+               value={value}
+               onChange={handleChange}
+               displayEmpty
+               inputProps={{ 'aria-label': 'Without label' }}
+               MenuProps={{
+                  PaperProps: {
+                     component: StyledPaper,
+                     style: {
+                        maxHeight: 200,
+                        width: 819,
+                        borderRadius: '0px 0px 8px 8px',
+                     },
+                  },
+               }}
+            >
+               {placeholder && (
+                  <StyledMenuItem value="">
+                     <p>{placeholder}</p>
+                  </StyledMenuItem>
+               )}
+               {options.map((item) => (
+                  <StyledMenuItem key={item.value} value={item.value}>
+                     {item.label}
+                  </StyledMenuItem>
+               ))}
+            </StyledSelect>
+         </FormControl>
+      </div>
+   )
+}
+
+export default CustomSelect
+
+const StyledSelect = styled(Select)({
+   width: '819px',
+   borderRadius: '8px',
+   marginLeft: '15px',
+})
+
+const StyledPaper = styled(Paper)({
+   '&::-webkit-scrollbar': {
+      width: '13px',
+   },
+   '&::-webkit-scrollbar-track': {
+      background: 'white',
+   },
+   '&::-webkit-scrollbar-thumb': {
+      background: '#9A9A9A',
+      borderRadius: '15px',
+   },
+})
+
+const StyledMenuItem = styled(MenuItem)({
+   '&:hover': {
+      backgroundColor: '#dfd9fb',
+   },
+   '&.Mui-selected': {
+      backgroundColor: 'transparent !important',
+   },
+})
