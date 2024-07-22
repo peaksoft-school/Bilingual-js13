@@ -1,11 +1,4 @@
 import { FC } from 'react'
-import TestsPage from '../shared/UI/tests/TestsPage'
-const App: FC = () => {
-   return (
-      <div>
-         <TestsPage />
-      </div>
-   )
-}
+const App: FC = () => <h1>Bilingual</h1>
 
 export default App

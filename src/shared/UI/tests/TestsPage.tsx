@@ -2,9 +2,10 @@ import { FC } from 'react'
 import { IconButton, styled } from '@mui/material'
 import { palette } from '../../theme/theme'
 import Button from '../Button'
-import Switches from '../switches/Switches'
 import Update from '../../../assets/icons/svgs/update.svg?react'
+
 import Delete from '../../../assets/icons/svgs/delete.svg?react'
+import Switches from '../switches/Switches'
 
 interface DataTestItem {
    id: number
