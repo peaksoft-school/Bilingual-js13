@@ -1,7 +1,8 @@
+import { FC } from 'react'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
-import Select, { SelectChangeEvent } from '@mui/material/Select'
-import { styled, Paper } from '@mui/material'
+import { SelectChangeEvent } from '@mui/material/Select'
+import { styled, Paper, Select as SelectMui, Box } from '@mui/material'
 
 interface CustomSelectProps {
    value: string | number
@@ -10,7 +11,7 @@ interface CustomSelectProps {
    placeholder?: string
 }
 
-const CustomSelect: React.FC<CustomSelectProps> = ({
+const Select: FC<CustomSelectProps> = ({
    value,
    options,
    onChange,
@@ -21,7 +22,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
    }
 
    return (
-      <div>
+      <Box>
          <FormControl>
             <StyledSelect
                value={value}
@@ -51,13 +52,13 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
                ))}
             </StyledSelect>
          </FormControl>
-      </div>
+      </Box>
    )
 }
 
-export default CustomSelect
+export default Select
 
-const StyledSelect = styled(Select)({
+const StyledSelect = styled(SelectMui)({
    width: '819px',
    borderRadius: '8px',
    marginLeft: '15px',
