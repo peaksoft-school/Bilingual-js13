@@ -60,13 +60,13 @@ export default Select
 
 const StyledSelect = styled(SelectMui)({
    width: '819px',
-   borderRadius: '8px',
+   borderRadius: '12px',
    marginLeft: '15px',
 })
 
 const StyledPaper = styled(Paper)({
    '&::-webkit-scrollbar': {
-      width: '13px',
+      width: '10px',
    },
    '&::-webkit-scrollbar-track': {
       background: 'white',
@@ -75,6 +75,7 @@ const StyledPaper = styled(Paper)({
       background: '#9A9A9A',
       borderRadius: '15px',
    },
+   paddingRight: '10px',
 })
 
 const StyledMenuItem = styled(MenuItem)({
