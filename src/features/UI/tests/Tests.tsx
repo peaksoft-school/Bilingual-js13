@@ -1,18 +1,16 @@
 import { FC } from 'react'
-import {  styled } from '@mui/material'
+import { styled } from '@mui/material'
 import { palette } from '../../../shared/theme/theme'
 import Button from '../../../shared/UI/Button'
-
-import TestsItem from './TestsItem'
 import TestsEmpty from './TestsEmpty'
+import TestsItem from './TestsItem'
 
-interface DataTestItem {
+export interface DataTestItem {
    id?: number
    text?: string
 }
 
-export const DATA_TEST: DataTestItem[] = [
-]
+export const DATA_TEST: DataTestItem[] = [{ text: 'dhe' }]
 
 const Tests: FC = () => {
    return (
@@ -21,7 +19,13 @@ const Tests: FC = () => {
             <StyledButton>
                <span>+</span> ADD NEW TEST
             </StyledButton>
-            {DATA_TEST.length === 0 ? <TestsEmpty/> : <TestsItem/>}
+            {DATA_TEST.length === 0 ? (
+               <TestsEmpty />
+            ) : (
+               DATA_TEST.map((item) => (
+                  <TestsItem key={item.id} text={item.text} />
+               ))
+            )}
          </ContainerBox>
       </>
    )
@@ -50,7 +54,3 @@ const StyledButton = styled(Button)(() => ({
    },
    marginBottom: 36.5,
 }))
-
-
-
-
