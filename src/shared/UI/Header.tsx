@@ -5,6 +5,8 @@ import Button from './Button'
 const Header = () => {
    const role = 'user'
 
+   const openModal = () => {}
+
    return (
       <Container>
          <Logo />
@@ -14,7 +16,12 @@ const Header = () => {
                {role === 'user' ? 'MY RESULTS' : 'SUBMITTED RESULTS'}
             </Typography>
 
-            <Button className="button" type="button" customVariant="Octonary">
+            <Button
+               onClick={openModal}
+               className="button"
+               type="button"
+               customVariant="Octonary"
+            >
                LOG OUT
             </Button>
          </ButtonsContainer>
@@ -24,7 +31,7 @@ const Header = () => {
 
 export default Header
 
-const Container = styled(Box)(({ theme }) => ({
+const Container = styled(Box)(() => ({
    maxWidth: '1440px',
    margin: '0 auto',
    height: '94px',
@@ -35,9 +42,9 @@ const Container = styled(Box)(({ theme }) => ({
    backgroundColor: 'white',
 
    '& .tests': {
-      color: theme.palette.primary.main,
+      color: '#3a11e5',
       fontFamily: 'Gilroy',
-      fontWeight: '700',
+      fontWeight: '600',
       cursor: 'pointer',
    },
    '& .results': {
