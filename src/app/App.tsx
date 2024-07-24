@@ -1,6 +1,4 @@
-import { FC } from 'react'
-
-const App: FC = () => {
+const App = () => {
    return <div></div>
 }
 
