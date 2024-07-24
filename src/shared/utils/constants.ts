@@ -77,12 +77,12 @@ export const QUESTION_TYPES = [
 
    {
       id: 3,
-      title: '4 Describe image',
+      title: 'Describe image',
       image: DescribeImage,
    },
    {
       id: 4,
-      title: '5 Record saying statement ',
+      title: 'Record saying statement ',
       image: RecordYourself,
    },
    {

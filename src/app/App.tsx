@@ -1,7 +1,12 @@
-import { FC } from 'react'
+import QuestionTypes from "../widgets/landing-page/QuestionTypes"
+import Reviews from "../widgets/landing-page/Reviews"
 
-const App: FC = () => {
-   return <div></div>
+const App = () => {
+   return <div>
+      <Reviews/>
+
+      <QuestionTypes/>
+   </div>
 }
 
 export default App

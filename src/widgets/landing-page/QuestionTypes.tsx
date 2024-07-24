@@ -10,20 +10,12 @@ interface StyledSlideProps {
    isActive: boolean
 }
 
-const PrevArrow = ({ onClick, className, style }: ArrowProps) => (
-   <PrevArrowI
-      onClick={onClick}
-      style={{ ...style, position: 'absolute', bottom: '140px', left: '40%' }}
-      className={className}
-   />
+const PrevArrow = ({ onClick, className }: ArrowProps) => (
+   <StyledArrowPrev onClick={onClick} className={className} />
 )
 
-const NextArrow = ({ onClick, className, style }: ArrowProps) => (
-   <NextArrowI
-      onClick={onClick}
-      style={{ ...style, position: 'absolute', bottom: '140px', right: '40%' }}
-      className={className}
-   />
+const NextArrow = ({ onClick, className }: ArrowProps) => (
+   <StyledArrowNext onClick={onClick} className={className} />
 )
 
 const QuestionTypes = () => {
@@ -51,11 +43,13 @@ const QuestionTypes = () => {
    return (
       <StyledContainer>
          <Typography className="title">Check out each question type</Typography>
-
          <Box className="slider-container">
             <StyledSlider {...settings}>
                {QUESTION_TYPES.map(({ id, title, image }, questionsIndex) => (
-                  <StyledCard key={id} isActive={questionsIndex === currentSlide}>
+                  <StyledCard
+                     key={id}
+                     isActive={questionsIndex === currentSlide}
+                  >
                      <Typography>{title}</Typography>
                      <img src={image} alt={title} />
                   </StyledCard>
@@ -152,7 +146,7 @@ const StyledSlider = styled(Slider)(() => ({
    },
 }))
 
-const StyledCard = styled(Box)(({ isActive }: StyledSlideProps) => ({
+const StyledCard = styled(Box)<StyledSlideProps>(({ isActive }) => ({
    position: 'relative',
    width: '500px',
    textAlign: 'center',
@@ -176,4 +170,16 @@ const StyledCard = styled(Box)(({ isActive }: StyledSlideProps) => ({
       height: '450px',
       margin: 'auto',
    },
+}))
+
+const StyledArrowPrev = styled(PrevArrowI)(() => ({
+   position: 'absolute',
+   bottom: '140px',
+   left: '40%',
+}))
+
+const StyledArrowNext = styled(NextArrowI)(() => ({
+   position: 'absolute',
+   bottom: '140px',
+   right: '40%',
 }))
