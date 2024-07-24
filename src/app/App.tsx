@@ -1,5 +1,5 @@
-import { FC } from 'react'
-
-const App: FC = () => <h1>Bilingual</h1>
+const App = () => {
+   return <div></div>
+}
 
 export default App
