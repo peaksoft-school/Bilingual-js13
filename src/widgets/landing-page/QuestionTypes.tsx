@@ -11,11 +11,15 @@ interface StyledSlideProps {
 }
 
 const PrevArrow = ({ onClick, className }: ArrowProps) => (
-   <StyledArrowPrev onClick={onClick} className={className} />
+   <StyledArrowPrev>
+      <PrevArrowI onClick={onClick} className={className} />
+   </StyledArrowPrev>
 )
 
 const NextArrow = ({ onClick, className }: ArrowProps) => (
-   <StyledArrowNext onClick={onClick} className={className} />
+   <StyledArrowNext>
+      <NextArrowI onClick={onClick} className={className} />
+   </StyledArrowNext>
 )
 
 const QuestionTypes = () => {
@@ -34,9 +38,9 @@ const QuestionTypes = () => {
       rtl: false,
       autoplay: true,
       swipeToSlide: true,
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
-      beforeChange: (_oldIndex: number, next: number) => setCurrentSlide(next),
+      nextArrow: <PrevArrow />,
+      prevArrow: <NextArrow />,
+      beforeChange: (next: number) => setCurrentSlide(next),
       afterChange: (current: number) => setCurrentSlide(current),
    }
 
@@ -61,6 +65,26 @@ const QuestionTypes = () => {
 }
 
 export default QuestionTypes
+
+const StyledArrowPrev = styled(Box)(() => ({
+   position: 'absolute',
+   bottom: '140px',
+   left: '40%',
+   width: '60px',
+   height: '60px',
+   cursor: 'pointer',
+   zIndex: 1,
+}))
+
+const StyledArrowNext = styled(Box)(() => ({
+   position: 'absolute',
+   bottom: '140px',
+   right: '40%',
+   width: '60px',
+   height: '60px',
+   cursor: 'pointer',
+   zIndex: 1,
+}))
 
 const StyledContainer = styled(Box)(() => ({
    display: 'flex',
@@ -99,6 +123,7 @@ const StyledSlider = styled(Slider)(() => ({
    padding: '0 19%',
 
    '& .slick-slide': {
+      height: '760px',
       transition: 'transform 4s ease',
    },
 
@@ -170,16 +195,4 @@ const StyledCard = styled(Box)<StyledSlideProps>(({ isActive }) => ({
       height: '450px',
       margin: 'auto',
    },
-}))
-
-const StyledArrowPrev = styled(PrevArrowI)(() => ({
-   position: 'absolute',
-   bottom: '140px',
-   left: '40%',
-}))
-
-const StyledArrowNext = styled(NextArrowI)(() => ({
-   position: 'absolute',
-   bottom: '140px',
-   right: '40%',
 }))

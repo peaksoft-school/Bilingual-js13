@@ -214,7 +214,6 @@ const ANIMATE = {
 
    onscreen: {
       opacity: 1,
-
       transition: {
          duration: 1,
          damping: 3,
