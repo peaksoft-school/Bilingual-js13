@@ -3,8 +3,12 @@ import { Box, Rating, Typography, styled } from '@mui/material'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { ArrowProps, NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
-import { REVIEWS } from '../../shared/utils/constants'
+import {
+   ArrowProps,
+   NextArrowI,
+   PrevArrowI,
+} from '../../../assets/icons/Arrows'
+import { REVIEWS } from '../../../shared/utils/constants'
 
 interface StyledSlideProps {
    isActive: boolean

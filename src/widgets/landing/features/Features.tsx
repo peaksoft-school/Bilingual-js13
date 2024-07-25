@@ -1,107 +1,100 @@
 import { Box, styled, Typography } from '@mui/material'
+import { motion } from 'framer-motion'
 import AccessibleIcon from '../../assets/icons/svgs/accessible.svg?react'
 import SpeechIcon from '../../assets/icons/svgs/speech.svg?react'
 import ExtensiveIcon from '../../assets/icons/svgs/extensive.svg?react'
 import TutoringIcon from '../../assets/icons/svgs/tutoring.svg?react'
-
 import BookImage from '../../assets/images/book.png'
 import GlobusUserExperienceImage from '../../assets/images/globus-user-experience.png'
 import LearnImage from '../../assets/images/learn.png'
 import ReadingImage from '../../assets/images/reading.png'
-import { motion } from 'framer-motion'
 
-const Features = () => {
-   return (
-      <Container>
-         <Box className="">
-            <Typography className="title">
-               Unparalleled user
-               <br /> experience
-            </Typography>
+const Features = () => (
+   <Container>
+      <Box className="">
+         <Typography className="title">
+            Unparalleled user
+            <br /> experience
+         </Typography>
 
-            <Typography className="description">
-               The most effective way to perfect a language is by immersing
-               yourself in it. Rosetta Stone for Enterprise delivers an
-               effective end-to-end experience, founded on a wealth of carefully
-               structured content. Each learner has the opportunity to balance
-               independent study with optional online tutoring in a way that
-               fits their schedule and language learning goals.
-            </Typography>
+         <Typography className="description">
+            The most effective way to perfect a language is by immersing
+            yourself in it. Rosetta Stone for Enterprise delivers an effective
+            end-to-end experience, founded on a wealth of carefully structured
+            content. Each learner has the opportunity to balance independent
+            study with optional online tutoring in a way that fits their
+            schedule and language learning goals.
+         </Typography>
 
-            <Box className="boxes-container">
-               <Box>
-                  <div>
-                     <AccessibleIcon />
-                  </div>
-                  <Typography>Accessible anytime, anywhere</Typography>
-               </Box>
+         <Box className="boxes-container">
+            <Box>
+               <div>
+                  <AccessibleIcon />
+               </div>
+               <Typography>Accessible anytime, anywhere</Typography>
+            </Box>
 
-               <Box>
-                  <div>
-                     <SpeechIcon />
-                  </div>
-                  <Typography>Leading speech recognition</Typography>
-               </Box>
+            <Box>
+               <div>
+                  <SpeechIcon />
+               </div>
+               <Typography>Leading speech recognition</Typography>
+            </Box>
 
-               <Box>
-                  <div>
-                     <ExtensiveIcon />
-                  </div>
-                  <Typography>Extensive business content</Typography>
-               </Box>
+            <Box>
+               <div>
+                  <ExtensiveIcon />
+               </div>
+               <Typography>Extensive business content</Typography>
+            </Box>
 
-               <Box>
-                  <TutoringIcon />
-                  <Typography>
-                     Unlimited live
-                     <br /> tutoring
-                  </Typography>
-               </Box>
+            <Box>
+               <TutoringIcon />
+               <Typography>
+                  Unlimited live
+                  <br /> tutoring
+               </Typography>
             </Box>
          </Box>
+      </Box>
 
-         <StyledGlobusBox>
-            <img
-               src={GlobusUserExperienceImage}
-               alt="globus"
-               className="globus"
+      <StyledGlobusBox>
+         <img src={GlobusUserExperienceImage} alt="globus" className="globus" />
+
+         <StyledAnimationsImagesBox>
+            <StyledBookImage
+               src={BookImage}
+               variants={PULSE_ANIMATION}
+               initial="offscreen"
+               whileInView="onscreen"
+               animate="animate"
+               loading="lazy"
+               alt="book"
             />
 
-            <StyledAnimationsImagesBox>
-               <StyledBookImage
-                  src={BookImage}
-                  variants={PULSE_ANIMATION}
-                  initial="offscreen"
-                  whileInView="onscreen"
-                  animate="animate"
-                  loading="lazy"
-                  alt="book"
-               />
+            <StyledLearnImage
+               src={LearnImage}
+               variants={ANIMATE}
+               initial="offscreen"
+               whileInView="onscreen"
+               animate="animate"
+               loading="lazy"
+               alt="learn"
+            />
 
-               <StyledLearnImage
-                  src={LearnImage}
-                  variants={ANIMATE}
-                  initial="offscreen"
-                  whileInView="onscreen"
-                  animate="animate"
-                  loading="lazy"
-                  alt="learn"
-               />
-
-               <StyledReadingImage
-                  src={ReadingImage}
-                  variants={ANIMATE}
-                  initial="offscreen"
-                  whileInView="onscreen"
-                  animate="animate"
-                  loading="lazy"
-                  alt="reading"
-               />
-            </StyledAnimationsImagesBox>
-         </StyledGlobusBox>
-      </Container>
-   )
-}
+            <StyledReadingImage
+               src={ReadingImage}
+               variants={ANIMATE}
+               initial="offscreen"
+               whileInView="onscreen"
+               animate="animate"
+               loading="lazy"
+               alt="reading"
+            />
+         </StyledAnimationsImagesBox>
+      </StyledGlobusBox>
+   </Container>
+)
 
 export default Features
 

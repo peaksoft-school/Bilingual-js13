@@ -3,7 +3,7 @@ import {
    LeftBoxProvoAnimateText,
 } from '../model/AnimationProvo'
 import { styled } from '@mui/material'
-import Button from '../../../shared/UI/Button'
+import Button from '../../../../shared/UI/Button'
 
 const AnimatedButton = styled(Button)`
    animation: ${LeftBoxProvoAnimateButton} 1s forwards;
