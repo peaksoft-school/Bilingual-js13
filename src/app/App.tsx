@@ -1,5 +1,3 @@
-import Landing from '../pages/landing-page/Landing'
-
-const App = () => <Landing />
+const App = () => <h1>Bilingual-13</h1>
 
 export default App
