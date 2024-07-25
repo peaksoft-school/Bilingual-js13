@@ -1,8 +1,8 @@
 import { styled } from '@mui/material'
 import LeftBoxProvo from './LeftBoxProvo'
 import RightBoxProvo from './RightBoxProvo'
-import ProveBackground from '../../../assets/icons/svgs/ProveBackground.svg'
-import BacgkroundSecond from '../../../assets/icons/svgs/BacgkroundSecond.svg'
+import ProveBackground from '../../../../assets/icons/svgs/ProveBackground.svg'
+import BacgkroundSecond from '../../../../assets/icons/svgs/BacgkroundSecond.svg'
 
 const Prove = () => (
    <>

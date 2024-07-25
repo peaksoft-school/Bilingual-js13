@@ -1,4 +1,4 @@
-import TheScience from '../../../assets/icons/svgs/TheScience.svg'
+import TheScience from '../../../../assets/icons/svgs/TheScience.svg'
 import { styled } from '@mui/material'
 import { InView } from 'react-intersection-observer'
 import { FC } from 'react'
