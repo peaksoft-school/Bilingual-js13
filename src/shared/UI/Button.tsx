@@ -40,8 +40,9 @@ const buttonStyles = {
       backgroundColor:
          childrenContent === 'CANCEL' ? '#fff' : 'rgba(58, 16, 229, 1)',
       color: childrenContent === 'CANCEL' ? 'rgba(58, 16, 229, 1)' : '#fff',
-      padding: '12px 24px 12px 16px',
+      padding: '10px 24px 10px 24px',
       fontSize: '14px',
+      fontWeight: '700',
       borderRadius: '8px',
       border: childrenContent === 'CANCEL' ? 'solid 2px blue' : 'none',
 
