@@ -4,22 +4,20 @@ import RightBoxProvo from './RightBoxProvo'
 import ProveBackground from '../../../assets/icons/svgs/ProveBackground.svg'
 import BacgkroundSecond from '../../../assets/icons/svgs/BacgkroundSecond.svg'
 
-const Prove = () => {
-   return (
-      <>
-         <ProvoContainer>
-            <ProvoBackroundUrl>
-               <ProvoContent>
-                  <ProvoFlex>
-                     <LeftBoxProvo />
-                     <RightBoxProvo />
-                  </ProvoFlex>
-               </ProvoContent>
-            </ProvoBackroundUrl>
-         </ProvoContainer>
-      </>
-   )
-}
+const Prove = () => (
+   <>
+      <ProvoContainer>
+         <ProvoBackroundUrl>
+            <ProvoContent>
+               <ProvoFlex>
+                  <LeftBoxProvo />
+                  <RightBoxProvo />
+               </ProvoFlex>
+            </ProvoContent>
+         </ProvoBackroundUrl>
+      </ProvoContainer>
+   </>
+)
 
 export default Prove
 

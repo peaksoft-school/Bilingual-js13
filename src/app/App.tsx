@@ -1,11 +1,3 @@
-import Prove from '../widgets/prove/components/Prove'
-
-const App = () => {
-   return (
-      <div>
-         <Prove />
-      </div>
-   )
-}
+const App = () => <h1>Bilingual-13</h1>
 
 export default App
