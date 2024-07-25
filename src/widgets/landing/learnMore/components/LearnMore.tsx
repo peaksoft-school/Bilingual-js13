@@ -1,4 +1,4 @@
-import LineLearnMore from '../../../assets/icons/svgs/LineLearnMore.svg'
+import LineLearnMore from '../../../../assets/icons/svgs/LineLearnMore.svg'
 import Built from './Built'
 import ExpandBox from './ExpandBox'
 import Innovative from './Innovative'

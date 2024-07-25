@@ -1,4 +1,4 @@
-import GlobusLearnMore from '../../../assets/icons/svgs/GlobusLearnMore.svg'
+import GlobusLearnMore from '../../../../assets/icons/svgs/GlobusLearnMore.svg'
 import { Box, styled } from '@mui/material'
 import { InView } from 'react-intersection-observer'
 import { FC } from 'react'

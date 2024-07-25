@@ -1,13 +1,13 @@
 import { Box, styled, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
-import AccessibleIcon from '../../assets/icons/svgs/accessible.svg?react'
-import SpeechIcon from '../../assets/icons/svgs/speech.svg?react'
-import ExtensiveIcon from '../../assets/icons/svgs/extensive.svg?react'
-import TutoringIcon from '../../assets/icons/svgs/tutoring.svg?react'
-import BookImage from '../../assets/images/book.png'
-import GlobusUserExperienceImage from '../../assets/images/globus-user-experience.png'
-import LearnImage from '../../assets/images/learn.png'
-import ReadingImage from '../../assets/images/reading.png'
+import AccessibleIcon from '../../../assets/icons/svgs/accessible.svg?react'
+import SpeechIcon from '../../../assets/icons/svgs/speech.svg?react'
+import ExtensiveIcon from '../../../assets/icons/svgs/extensive.svg?react'
+import TutoringIcon from '../../../assets/icons/svgs/tutoring.svg?react'
+import BookImage from '../../../assets/images/book.png'
+import GlobusUserExperienceImage from '../../../assets/images/globus-user-experience.png'
+import LearnImage from '../../../assets/images/learn.png'
+import ReadingImage from '../../../assets/images/reading.png'
 
 const Features = () => (
    <Container>

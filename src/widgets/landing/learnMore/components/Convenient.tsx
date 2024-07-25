@@ -1,4 +1,4 @@
-import DashboardLearnMore from '../../../assets/icons/svgs/DashboardLearnMore.svg'
+import DashboardLearnMore from '../../../../assets/icons/svgs/DashboardLearnMore.svg'
 import { Box, styled } from '@mui/material'
 import { InView } from 'react-intersection-observer'
 import { FC } from 'react'

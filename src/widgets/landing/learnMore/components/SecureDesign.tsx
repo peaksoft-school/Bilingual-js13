@@ -1,5 +1,5 @@
 import {  styled } from '@mui/material'
-import DesignLearnMore from '../../../assets/icons/svgs/DesignLearnMore.svg'
+import DesignLearnMore from '../../../../assets/icons/svgs/DesignLearnMore.svg'
 import { InView } from 'react-intersection-observer'
 import { FC } from 'react'
 import { animationVariants } from '../model/animateLogic'
