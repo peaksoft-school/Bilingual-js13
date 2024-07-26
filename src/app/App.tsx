@@ -1,5 +1,9 @@
-const App = () => {
-   return <div></div>
-}
+import MainPage from '../pages/admin/components/MainPage'
+
+const App = () => (
+   <>
+      <MainPage />
+   </>
+)
 
 export default App
