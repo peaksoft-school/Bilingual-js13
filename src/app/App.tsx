@@ -1,5 +1,3 @@
-import { FC } from 'react'
-import TestsPage from '../features/UI/tests/Tests'
-const App: FC = () => <TestsPage />
+const App = () => <h1>Bilingual</h1>
 
 export default App
