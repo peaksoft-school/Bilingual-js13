@@ -5,8 +5,8 @@ import Switch, { SwitchProps } from '@mui/material/Switch';
 import Radio from '@mui/material/Radio';
 import Checkbox from '@mui/material/Checkbox';
 import { FC, forwardRef, SyntheticEvent } from 'react';
-import tertiaryIcon from '../../../assets/svgs/tertiaryIcon.svg';
-import QuaternaryIcon from '../../../assets/svgs/QuaternaryIcon.svg';
+import tertiaryIcon from '../../../assets/icons/svgs/tertiaryIcon.svg';
+import QuaternaryIcon from '../../../assets/icons/svgs/QuaternaryIcon.svg';
 
 interface VariantType {
   variant?: 'Primary' | 'Secondary' | 'Tertiary' | 'Quaternary';
