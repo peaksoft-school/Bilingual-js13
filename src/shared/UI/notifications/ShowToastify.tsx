@@ -1,21 +1,21 @@
-import { Box, styled } from '@mui/material';
-import { toast, ToastOptions } from 'react-toastify';
-import ErrorOutline from '../../assets/icons/svgs/error-outline.svg?react';
-import SuccessIcon from '../../assets/icons/svgs/success-icon.svg?react';
-import CancelIcon from '../../assets/icons/svgs/cancel-icon.svg?react';
+import { Box, styled } from '@mui/material'
+import { toast, ToastOptions } from 'react-toastify'
+import ErrorOutline from '../../../assets/icons/svgs/error-outline.svg?react'
+import SuccessIcon from '../../../assets/icons/svgs/success-icon.svg?react'
+import CancelIcon from '../../../assets/icons/svgs/cancel-icon.svg?react'
 
-type ToastType = 'success' | 'error';
+type ToastType = 'success' | 'error'
 
 export const showToastify = (
    type: ToastType,
    title: React.ReactNode,
    message: React.ReactNode
 ) => {
-   let icon;
+   let icon
    if (type === 'success') {
-      icon = <SuccessIcon />;
+      icon = <SuccessIcon />
    } else {
-      icon = <ErrorOutline />;
+      icon = <ErrorOutline />
    }
 
    toast[type](
@@ -32,27 +32,26 @@ export const showToastify = (
          pauseOnHover: true,
          closeButton: <CustomCloseButton />,
       } as ToastOptions
-   );
-};
+   )
+}
 
 const Icon = styled(Box)(() => ({
    position: 'absolute',
    top: '24px',
-   
-}));
+}))
 
 const Title = styled('h4')(() => ({
    color: '#4C4859',
    fontFamily: 'Gilroy',
-   paddingLeft: '32px', 
-}));
+   paddingLeft: '32px',
+}))
 
 const Message = styled('p')(() => ({
-   paddingLeft: '32px', 
+   paddingLeft: '32px',
    marginTop: '8px',
    color: '#646464',
    fontFamily: 'Poppins',
-}));
+}))
 
 const CustomCloseButton = styled(CancelIcon)(() => ({
    width: '24px',
@@ -67,4 +66,4 @@ const CustomCloseButton = styled(CancelIcon)(() => ({
    '&:hover': {
       fill: 'black',
    },
-}));
+}))
