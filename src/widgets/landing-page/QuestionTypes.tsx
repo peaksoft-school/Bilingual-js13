@@ -179,6 +179,7 @@ const StyledCard = styled(Box)<StyledSlideProps>(({ isActive }) => ({
    maxHeight: '450px',
    maxWidth: '650px',
    cursor: 'pointer',
+
    background: isActive ? '#666CA7' : '#E5E5E5',
    transition: 'background 0.6s ease, filter 0.5s ease',
    borderRadius: '10px',
