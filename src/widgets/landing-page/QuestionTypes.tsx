@@ -38,8 +38,8 @@ const QuestionTypes = () => {
       rtl: false,
       autoplay: true,
       swipeToSlide: true,
-      nextArrow: <PrevArrow />,
-      prevArrow: <NextArrow />,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
       beforeChange: (next: number) => setCurrentSlide(next),
       afterChange: (current: number) => setCurrentSlide(current),
    }
