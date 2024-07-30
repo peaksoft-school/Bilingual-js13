@@ -40,13 +40,20 @@ const buttonStyles = {
       backgroundColor:
          childrenContent === 'CANCEL' ? '#fff' : 'rgba(58, 16, 229, 1)',
       color: childrenContent === 'CANCEL' ? 'rgba(58, 16, 229, 1)' : '#fff',
-      padding: '12px 24px 12px 16px',
+      padding:
+         childrenContent === 'CANCEL'
+            ? '8px 20px 8px 20px'
+            : '10px 34px 10px 34px',
       fontSize: '14px',
+      fontWeight: '700',
       borderRadius: '8px',
-      border: childrenContent === 'CANCEL' ? 'solid 2px blue' : 'none',
+      border:
+         childrenContent === 'CANCEL'
+            ? 'solid 2px rgba(58, 16, 229, 1)'
+            : 'none',
 
       '&:hover': {
-         backgroundColor: 'rgba(58, 16, 229, 0.9)',
+         backgroundColor: 'rgba(58, 16, 229, 1)',
          color: '#fff',
       },
       '&:active': {
