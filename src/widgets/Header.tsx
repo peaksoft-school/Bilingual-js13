@@ -1,23 +1,18 @@
 import { Box, styled, Typography } from '@mui/material'
-import Logo from '../../assets/logo/bilingual.svg?react'
-import Button from './Button'
-import Modal from './modals/Modal'
+import Logo from '../assets/logo/bilingual.svg?react'
 import { useState } from 'react'
+import Button from '../shared/UI/Button'
+import Modal from '../shared/UI/modals/Modal'
 
 const Header = () => {
    const [isModalOpen, setModalOpen] = useState(false)
    const role = 'user'
 
-   const openModal = () => {
-      setModalOpen(true)
-   }
+   const openModal = () => setModalOpen(true)
 
-   const closeModalHandler = () => {
-      setModalOpen(false)
-   }
-   const logOutHandler = () => {
-      setModalOpen(false)
-   }
+   const closeModalHandler = () => setModalOpen(false)
+
+   const logOutHandler = () => setModalOpen(false)
 
    return (
       <>
