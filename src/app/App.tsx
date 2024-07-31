@@ -1,3 +1,7 @@
-const App = () => <h1>Bilingual-13</h1>
+import AppRouter from "../routes/AppRouter";
+
+const App = () =>{
+return <AppRouter/>
+} 
 
 export default App
