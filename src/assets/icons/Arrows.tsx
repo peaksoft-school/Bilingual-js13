@@ -1,3 +1,4 @@
+import React from 'react'
 import { styled } from '@mui/material/styles'
 
 export interface ArrowProps {
@@ -24,7 +25,7 @@ const StyledSVG = styled('svg')(() => ({
    },
 }))
 
-export const PrevArrowI = ({ onClick, style }: ArrowProps) => (
+export const PrevArrowI: React.FC<ArrowProps> = ({ onClick, style }) => (
    <StyledSVG
       style={style}
       onClick={onClick}
@@ -54,7 +55,7 @@ export const PrevArrowI = ({ onClick, style }: ArrowProps) => (
    </StyledSVG>
 )
 
-export const NextArrowI = ({ onClick, style }: ArrowProps) => (
+export const NextArrowI: React.FC<ArrowProps> = ({ onClick, style }) => (
    <StyledSVG
       style={style}
       onClick={onClick}
