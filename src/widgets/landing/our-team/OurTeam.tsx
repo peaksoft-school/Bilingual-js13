@@ -18,43 +18,54 @@ const teamMembers = [
 
 const OurTeam = () => {
    return (
-      <StyledContainer>
-         <StyledContainers>
-            <StyledTitle>Our Team</StyledTitle>
-            <Marquee
-               direction="left"
-               speed={50}
-               style={{
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                  alignItems: 'center',
-               }}
-            >
-               {teamMembers.map((member, index) => (
-                  <StyledFlexBox key={index}>
-                     <StyledImg src={member.src} alt={member.name} />
-                     <StyledTypographySecond variant="h6">
-                        {member.name}
-                     </StyledTypographySecond>
-                     <Typography>{member.role}</Typography>
-                  </StyledFlexBox>
-               ))}
-            </Marquee>
-         </StyledContainers>
-      </StyledContainer>
+      <MainContainer>
+         <BoxContainer>
+            <StyledContainers>
+               <StyledTitle>Our Team</StyledTitle>
+               <Marquee
+                  direction="left"
+                  speed={50}
+                  style={{
+                     display: 'flex',
+                     justifyContent: 'space-around',
+                     alignItems: 'center',
+                  }}
+               >
+                  {teamMembers.map((member, index) => (
+                     <StyledFlexBox key={index}>
+                        <StyledImg src={member.src} alt={member.name} />
+                        <StyledTypographySecond variant="h6">
+                           {member.name}
+                        </StyledTypographySecond>
+                        <Typography>{member.role}</Typography>
+                     </StyledFlexBox>
+                  ))}
+               </Marquee>
+            </StyledContainers>
+         </BoxContainer>
+      </MainContainer>
    )
 }
 
 export default OurTeam
 
-const StyledContainer = styled(Box)({
+const MainContainer = styled(Box)({
    width: '100%',
    backgroundColor: '#fef5e8',
    display: 'flex',
    justifyContent: 'center',
+   paddingBottom: '120px',
 })
 
+const BoxContainer = styled('div')(() => ({
+   width: '100%',
+   maxWidth: '1440px',
+   display: 'flex',
+   justifyContent: 'center',
+}))
+
 const StyledContainers = styled(Box)({
+   width: '100%',
    maxWidth: '1330px',
    textAlign: 'center',
 })

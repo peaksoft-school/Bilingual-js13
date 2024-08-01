@@ -10,39 +10,52 @@ import Convenient from './Convenient'
 
 const LearnMore = () => {
    return (
-      <ContainerBox>
-         <MuiBox>
-            <Title>Learn more</Title>
+      <MainContainer>
+         <ContainerBox>
+            <MuiBox>
+               <Title>Learn more</Title>
 
-            <LineSvg>
-               <img src={LineLearnMore} alt="LinerLearnMore" />
-            </LineSvg>
+               <LineSvg>
+                  <img src={LineLearnMore} alt="LinerLearnMore" />
+               </LineSvg>
 
-            <ExpandBox />
+               <ExpandBox />
 
-            <Built />
+               <Built />
 
-            <Innovative />
+               <Innovative />
 
-            <Convenient />
+               <Convenient />
 
-            <SecureDesign />
+               <SecureDesign />
 
-            <ButtonLearnMore>
-               <Button className="learn-more-button" customVariant="Undenary">
-                  GET STARTED
-               </Button>
-            </ButtonLearnMore>
-         </MuiBox>
-      </ContainerBox>
+               <ButtonLearnMore>
+                  <Button
+                     className="learn-more-button"
+                     customVariant="Undenary"
+                  >
+                     GET STARTED
+                  </Button>
+               </ButtonLearnMore>
+            </MuiBox>
+         </ContainerBox>
+      </MainContainer>
    )
 }
 
 export default LearnMore
 
+const MainContainer = styled('div')(() => ({
+   width: '100%',
+   display: 'flex',
+   justifyContent: 'center',
+   backgroundColor: '#fef5e8',
+}))
+
 const ContainerBox = styled(Box)(() => {
    return {
       width: '100%',
+      maxWidth: '1440px',
       minHeight: '127.1875rem',
       height: '100%',
       padding: '1rem 8.1875rem 7.5rem 5rem',

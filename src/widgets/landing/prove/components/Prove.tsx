@@ -6,20 +6,31 @@ import BacgkroundSecond from '../../../../assets/icons/svgs/BacgkroundSecond.svg
 
 const Prove = () => (
    <>
-      <ProvoContainer>
-         <ProvoBackroundUrl>
-            <ProvoContent>
-               <ProvoFlex>
-                  <LeftBoxProvo />
-                  <RightBoxProvo />
-               </ProvoFlex>
-            </ProvoContent>
-         </ProvoBackroundUrl>
-      </ProvoContainer>
+      <MainContainer>
+         <ProvoContainer>
+            <ProvoBackroundUrl>
+               <ProvoContent>
+                  <ProvoFlex>
+                     <LeftBoxProvo />
+                     <RightBoxProvo />
+                  </ProvoFlex>
+               </ProvoContent>
+            </ProvoBackroundUrl>
+         </ProvoContainer>
+      </MainContainer>
    </>
 )
 
 export default Prove
+
+const MainContainer = styled('div')(() => {
+   return {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      backgroundColor: '#fcd200'
+   }
+})
 
 const ProvoContainer = styled('div')(() => {
    return {

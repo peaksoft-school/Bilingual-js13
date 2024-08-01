@@ -69,7 +69,8 @@ const PartnersContainer = styled(Box)(() => ({
 
 const MuiBox = styled(Box)(() => {
    return {
-      width: '90rem',
+      width: '100%',
+      maxWidth: '90rem',
       height: '20.875rem',
       overflow: 'hidden',
    }
