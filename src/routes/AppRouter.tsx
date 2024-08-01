@@ -6,20 +6,22 @@ import AdminLoyaut from '../layouts/AdminLoyaut'
 import { userRoutes } from './userRouter'
 import { guestRoutes } from './quesRoutes'
 import { adminRoutes } from './adminRoutes'
+import ErrorPage from './ErrorPage'
 
 const AppRouter = () => {
    const { isAuth, role } = useAppSelector((state) => state.auth)
+   console.log(role)
 
    const router = createBrowserRouter([
       {
          path: '/',
          element: (
             <PrivatRouter
-               isAuth={isAuth}
+               isAuth={role === 'GUEST' ? !isAuth : isAuth}
                role={role}
                isAllowed={['USER', 'GUEST']}
                component={<UserLoyaut />}
-               fallBackPath="Admin"
+               fallBackPath="/admin"
             />
          ),
          children: guestRoutes,
@@ -55,7 +57,7 @@ const AppRouter = () => {
 
       {
          path: '*',
-         element: <h1>Not found</h1>
+         element: <ErrorPage/>,
       },
    ])
 

@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { logoutHandler, signIn } from './auth.thunk'
 
 const getInitialState = () => {
    const data = localStorage.getItem('BILINGUAL')
@@ -31,19 +30,4 @@ export const authSlice = createSlice({
    name: 'auth',
    initialState: getInitialState(),
    reducers: {},
-   extraReducers: (builder) => {
-      builder.addCase(logoutHandler.fulfilled,() => {
-         return getInitialState()
-      })
-      builder.addCase(signIn.fulfilled, (state,action) => {
-         state.email = action.payload?.email
-         state.firstName = action.payload?.firstName
-         state.lastName = action.payload?.lastName
-         state.role = action.payload?.role
-         state.token = action.payload?.token
-         state.isAuth = true
-         state.isAuth = true
-
-      })
-   }
 })
