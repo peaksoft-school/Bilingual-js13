@@ -10,93 +10,106 @@ import LearnImage from '../../../assets/images/learn.png'
 import ReadingImage from '../../../assets/images/reading.png'
 
 const Features = () => (
-   <Container>
-      <Box className="">
-         <Typography className="title">
-            Unparalleled user
-            <br /> experience
-         </Typography>
+   <MainContainer>
+      <Container>
+         <Box className="">
+            <Typography className="title">
+               Unparalleled user
+               <br /> experience
+            </Typography>
 
-         <Typography className="description">
-            The most effective way to perfect a language is by immersing
-            yourself in it. Rosetta Stone for Enterprise delivers an effective
-            end-to-end experience, founded on a wealth of carefully structured
-            content. Each learner has the opportunity to balance independent
-            study with optional online tutoring in a way that fits their
-            schedule and language learning goals.
-         </Typography>
+            <Typography className="description">
+               The most effective way to perfect a language is by immersing
+               yourself in it. Rosetta Stone for Enterprise delivers an
+               effective end-to-end experience, founded on a wealth of carefully
+               structured content. Each learner has the opportunity to balance
+               independent study with optional online tutoring in a way that
+               fits their schedule and language learning goals.
+            </Typography>
 
-         <Box className="boxes-container">
-            <Box>
-               <div>
-                  <AccessibleIcon />
-               </div>
-               <Typography>Accessible anytime, anywhere</Typography>
-            </Box>
+            <Box className="boxes-container">
+               <Box>
+                  <div>
+                     <AccessibleIcon />
+                  </div>
+                  <Typography>Accessible anytime, anywhere</Typography>
+               </Box>
 
-            <Box>
-               <div>
-                  <SpeechIcon />
-               </div>
-               <Typography>Leading speech recognition</Typography>
-            </Box>
+               <Box>
+                  <div>
+                     <SpeechIcon />
+                  </div>
+                  <Typography>Leading speech recognition</Typography>
+               </Box>
 
-            <Box>
-               <div>
-                  <ExtensiveIcon />
-               </div>
-               <Typography>Extensive business content</Typography>
-            </Box>
+               <Box>
+                  <div>
+                     <ExtensiveIcon />
+                  </div>
+                  <Typography>Extensive business content</Typography>
+               </Box>
 
-            <Box>
-               <TutoringIcon />
-               <Typography>
-                  Unlimited live
-                  <br /> tutoring
-               </Typography>
+               <Box>
+                  <TutoringIcon />
+                  <Typography>
+                     Unlimited live
+                     <br /> tutoring
+                  </Typography>
+               </Box>
             </Box>
          </Box>
-      </Box>
 
-      <StyledGlobusBox>
-         <img src={GlobusUserExperienceImage} alt="globus" className="globus" />
-
-         <StyledAnimationsImagesBox>
-            <StyledBookImage
-               src={BookImage}
-               variants={PULSE_ANIMATION}
-               initial="offscreen"
-               whileInView="onscreen"
-               animate="animate"
-               loading="lazy"
-               alt="book"
+         <StyledGlobusBox>
+            <img
+               src={GlobusUserExperienceImage}
+               alt="globus"
+               className="globus"
             />
 
-            <StyledLearnImage
-               src={LearnImage}
-               variants={ANIMATE}
-               initial="offscreen"
-               whileInView="onscreen"
-               animate="animate"
-               loading="lazy"
-               alt="learn"
-            />
+            <StyledAnimationsImagesBox>
+               <StyledBookImage
+                  src={BookImage}
+                  variants={PULSE_ANIMATION}
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  animate="animate"
+                  loading="lazy"
+                  alt="book"
+               />
 
-            <StyledReadingImage
-               src={ReadingImage}
-               variants={ANIMATE}
-               initial="offscreen"
-               whileInView="onscreen"
-               animate="animate"
-               loading="lazy"
-               alt="reading"
-            />
-         </StyledAnimationsImagesBox>
-      </StyledGlobusBox>
-   </Container>
+               <StyledLearnImage
+                  src={LearnImage}
+                  variants={ANIMATE}
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  animate="animate"
+                  loading="lazy"
+                  alt="learn"
+               />
+
+               <StyledReadingImage
+                  src={ReadingImage}
+                  variants={ANIMATE}
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  animate="animate"
+                  loading="lazy"
+                  alt="reading"
+               />
+            </StyledAnimationsImagesBox>
+         </StyledGlobusBox>
+      </Container>
+   </MainContainer>
 )
 
 export default Features
+
+const MainContainer = styled('div')(() => ({
+   width: '100%',
+   display: 'flex',
+   justifyContent: 'center',
+   backgroundColor: '#fef5e8'
+}))
 
 const PULSE_ANIMATION = {
    animate: {
@@ -115,8 +128,9 @@ const Container = styled(Box)(() => ({
    margin: '0 auto',
    backgroundColor: '#fef6e8',
    width: '100%',
+   maxWidth: '1440px',
    padding: '0 100px',
-   paddingBottom: '120px',
+   paddingBottom: '50px',
 
    '& .title': {
       color: '#3752B4',

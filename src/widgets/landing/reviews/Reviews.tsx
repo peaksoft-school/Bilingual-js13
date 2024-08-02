@@ -2,18 +2,13 @@ import { Box, Rating, Typography, styled } from '@mui/material'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-<<<<<<< HEAD:src/pages/landing-page/Reviews.tsx
-import { ArrowProps, NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
-import { REVIEWS } from '../../shared/utils/constants'
-import { useState } from 'react'
-=======
 import {
    ArrowProps,
    NextArrowI,
    PrevArrowI,
 } from '../../../assets/icons/Arrows'
 import { REVIEWS } from '../../../shared/utils/constants'
->>>>>>> 65bf07490db5885740fcbd9505033c5f3ff7b00d:src/widgets/landing/reviews/Reviews.tsx
+import { useState } from 'react'
 
 interface StyledSlideProps {
    isActive: boolean
@@ -50,35 +45,49 @@ const Reviews = () => {
    }
 
    return (
-      <StyledContainer>
-         <Typography className="title">Why people love Bilingual</Typography>
+      <MainContainer>
+         <StyledContainer>
+            <Typography className="title">Why people love Bilingual</Typography>
 
-         <Box className="slider-container">
-            <StyledSlider {...settings}>
-               {REVIEWS.map(
-                  ({ id, name, description, rating, avatar }, reviewsIndex) => (
-                     <StyledCard
-                        key={id}
-                        isActive={reviewsIndex === currentSlide}
-                     >
-                        <img src={avatar} alt={name} />
-                        <Typography className="description">
-                           {description}
-                        </Typography>
-                        <Typography className="name">{name}</Typography>
-                        <Rating value={rating} readOnly />
-                     </StyledCard>
-                  )
-               )}
-            </StyledSlider>
-         </Box>
-      </StyledContainer>
+            <Box className="slider-container">
+               <StyledSlider {...settings}>
+                  {REVIEWS.map(
+                     (
+                        { id, name, description, rating, avatar },
+                        reviewsIndex
+                     ) => (
+                        <StyledCard
+                           key={id}
+                           isActive={reviewsIndex === currentSlide}
+                        >
+                           <img src={avatar} alt={name} />
+                           <Typography className="description">
+                              {description}
+                           </Typography>
+                           <Typography className="name">{name}</Typography>
+                           <Rating value={rating} readOnly />
+                        </StyledCard>
+                     )
+                  )}
+               </StyledSlider>
+            </Box>
+         </StyledContainer>
+      </MainContainer>
    )
 }
 
 export default Reviews
 
+const MainContainer = styled('div')(() => ({
+   width: '100%',
+   display: 'flex',
+   justifyContent: 'center',
+   backgroundColor: '#fef6e8',
+}))
+
 const StyledContainer = styled(Box)(() => ({
+   width: '100%',
+   maxWidth: '1440px',
    display: 'flex',
    backgroundColor: '#fef6e8',
    flexDirection: 'column',

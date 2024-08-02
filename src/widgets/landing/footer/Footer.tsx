@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
       }
 
    return (
-      <div>
+      <MainContainer>
          <StyledContainer>
             {/* Accordion №1 */}
             <TypographyTitle>FAQ:</TypographyTitle>
@@ -212,11 +212,18 @@ const Footer: React.FC = () => {
                © Copyright PeakSoft. All Rights Reserved
             </Typography>
          </StyledContainer>
-      </div>
+      </MainContainer>
    )
 }
 
 export default Footer
+
+const MainContainer = styled('div')(() => ({
+   width:'100%',
+   display: 'flex',
+   justifyContent: 'center',
+   backgroundColor: '#262626'
+}))
 
 const StyledContainer = styled(Box)({
    width: '100%',

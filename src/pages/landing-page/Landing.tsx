@@ -6,6 +6,7 @@ import Features from '../../widgets/landing/features/Features'
 import Partners from '../../widgets/landing/partners/components/Partners'
 import LearnMore from '../../widgets/landing/learnMore/components/LearnMore'
 import StatisticsDisplay from '../../widgets/landing/statistics/StatisticsDisplay'
+import UsefulVideo from '../../widgets/usefulVideo/components/UsefulVideo'
 
 const Landing = () => (
    <>
@@ -13,6 +14,7 @@ const Landing = () => (
       <StatisticsDisplay />
       <Features />
       <OurTeam />
+      <UsefulVideo/>
       <LearnMore />
       <Reviews />
       <Partners />

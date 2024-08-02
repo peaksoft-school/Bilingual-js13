@@ -42,7 +42,7 @@ const StatisticsDisplay: React.FC = () => {
    }, [])
 
    return (
-      <div>
+      <MainContainer>
          <StyledBackgroundContainers>
             <StyledContainers>
                <StyledBox>
@@ -77,14 +77,23 @@ const StatisticsDisplay: React.FC = () => {
                </StyledBox>
             </StyledContainers>
          </StyledBackgroundContainers>
-      </div>
+      </MainContainer>
    )
 }
 
 export default StatisticsDisplay
 
+const MainContainer = styled('div')(() => ({
+   width: '100%',
+   display: 'flex',
+   justifyContent: 'center',
+   backgroundColor: '#fef5e8',
+   padding: '120px 0'
+}))
+
 const StyledBackgroundContainers = styled(Box)`
    width: 100%;
+   max-width: 1440px;
    background-color: #fef5e8;
 `
 
