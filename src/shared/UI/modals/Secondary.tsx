@@ -26,7 +26,7 @@ const Secondary: FC<ModalType> = ({
                <img src={ModadXIcon} alt="ModadXIcon" />
             </ImageModalX>
 
-            <Box style={{marginTop: children ? '' : '20px'}}>{children}</Box>
+            <Box style={{ marginTop: children ? '' : '20px' }}>{children}</Box>
 
             <ModalButtonDelete>
                {buttonChange === 'true' ? (
