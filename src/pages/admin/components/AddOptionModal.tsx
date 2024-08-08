@@ -105,13 +105,14 @@ const StyledTextOption = styled(Typography)({
    color: '#4C4859',
    fontSize: '16px',
    marginTop: '8px',
+   marginLeft: '5px',
 })
 
 const StyledFlexText = styled(Box)({
    display: 'flex',
-   marginLeft: '35px',
    position: 'relative',
-   top: '-10px',
+   top: '-20px',
+   margin: '30px',
 })
 
 const StyledFlexButton = styled(Box)({
@@ -125,7 +126,6 @@ const StyledFlexButton = styled(Box)({
 
 const StyledAddInput = styled(TextField)({
    width: '450px',
-   height: '46px',
    '& .MuiInputBase-root': {
       borderRadius: '8px',
    },

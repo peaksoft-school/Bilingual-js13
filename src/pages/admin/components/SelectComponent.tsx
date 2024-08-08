@@ -1,3 +1,4 @@
+import { styled, Typography } from '@mui/material'
 import Select from '../../../shared/UI/select/Select'
 import { SelectChangeEvent } from '@mui/material/Select'
 
@@ -19,13 +20,20 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
    ]
 
    return (
-      <Select
-         value={value}
-         options={options}
-         onChange={onChange}
-         placeholder="Select real English words"
-      />
+      <>
+         <StyledText>Type</StyledText>
+         <Select
+            value={value}
+            options={options}
+            onChange={onChange}
+            placeholder="Select real English words"
+         />
+      </>
    )
 }
 
 export default SelectComponent
+
+const StyledText = styled(Typography)({
+   margin: '15px',
+})

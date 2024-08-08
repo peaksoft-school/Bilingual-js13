@@ -24,10 +24,12 @@ const OptionList: React.FC<OptionListProps> = ({
          {optionsList.map((option) => (
             <StyledItem key={option.id}>
                <StyledText>
-                  {option.id} {option.text}
+                  <span>{option.id}</span>
+                  <span>{option.text}</span>
                </StyledText>
                <StyledFlexItem>
                   <Checkbox
+                     color="success"
                      checked={option.isTrue}
                      onChange={() => onCheckboxChange(option.id)}
                      sx={{
@@ -54,7 +56,11 @@ export default OptionList
 const StyledContainer = styled(Box)({
    display: 'flex',
    flexWrap: 'wrap',
-   gap: '8px',
+   width: '100%',
+   maxWidth: '900px',
+   gap: '20px',
+   marginLeft: '15px',
+   marginTop: '25px',
 })
 
 const StyledItem = styled(Box)({
@@ -70,6 +76,10 @@ const StyledItem = styled(Box)({
 
 const StyledText = styled('span')({
    fontSize: '16px',
+   display: 'flex',
+   gap: '20px',
+   marginLeft: '10px',
+   color: '#4C4859',
 })
 
 const StyledFlexItem = styled(Box)({

@@ -72,9 +72,9 @@ const MainPage: React.FC = () => {
             onSubmit={handleAddOption}
          />
          {age && (
-            <Button customVariant="primary" onClick={handleOpenModal}>
-               +ADD OPTIONS
-            </Button>
+            <FlexButtons customVariant="primary" onClick={handleOpenModal}>
+               + ADD OPTIONS
+            </FlexButtons>
          )}
          <OptionList
             optionsList={optionsList}
@@ -101,9 +101,17 @@ export default MainPage
 const StyledButton = styled(Button)({
    borderColor: 'blue',
    color: 'blue',
+   fontWeight: 'bold',
+})
+
+const FlexButtons = styled(Button)({
+   marginLeft: '685px',
+   marginTop: '30px',
 })
 
 const StyledFlexButton = styled(Box)({
    display: 'flex',
    gap: '15px',
+   marginTop: '30px',
+   marginLeft: '625px',
 })
