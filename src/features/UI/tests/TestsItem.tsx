@@ -7,7 +7,8 @@ import { palette } from '../../../shared/theme/theme'
 import { DataTestItem } from '../../../pages/admin-page/test/CreateDescription'
 
 interface TestsItemProps extends DataTestItem {
-   deleteHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
+   deleteHandler: (event: React.MouseEvent<HTMLButtonElement>) => void
+   handleUpdate: (id: number | undefined) => void
 }
 
 const TestsItem: FC<TestsItemProps> = ({
@@ -15,7 +16,9 @@ const TestsItem: FC<TestsItemProps> = ({
    number,
    duration,
    description,
-   deleteHandler
+   deleteHandler,
+   handleUpdate,
+   id
 }) => {
    return (
       <TextBox>
@@ -25,10 +28,16 @@ const TestsItem: FC<TestsItemProps> = ({
          <QuestionTypeTest>{description}</QuestionTypeTest>
          <TextIcons>
             <Switches variant="Primary" />
-            <IconButton className="update-icon">
+            <IconButton
+               className="update-icon"
+               onClick={() => handleUpdate(id)}
+            >
                <Update />
             </IconButton>
-            <IconButton className="delete-icon" onClick={(event) => deleteHandler(event)}>
+            <IconButton
+               className="delete-icon"
+               onClick={(event) => deleteHandler(event)}
+            >
                <Delete />
             </IconButton>
          </TextIcons>
@@ -70,9 +79,9 @@ const NameTest = styled('h3')(() => ({
    fontFamily: 'Poppins',
    marginRight: 20,
    color: 'rgba(76, 72, 89, 1)',
-   whiteSpace: 'nowrap',        
-   overflow: 'hidden',          
-   textOverflow: 'ellipsis',    
+   whiteSpace: 'nowrap',
+   overflow: 'hidden',
+   textOverflow: 'ellipsis',
 }))
 
 const DurationTest = styled('h4')(() => ({
@@ -82,7 +91,7 @@ const DurationTest = styled('h4')(() => ({
    fontFamily: 'Poppins',
    color: 'rgba(76, 72, 89, 1)',
    position: 'relative',
-   marginRight: 10
+   marginRight: 10,
 }))
 
 const QuestionTypeTest = styled('h5')(() => ({
@@ -94,9 +103,9 @@ const QuestionTypeTest = styled('h5')(() => ({
    fontFamily: 'Poppins',
    color: 'rgba(76, 72, 89, 1)',
    marginRight: 10,
-   whiteSpace: 'nowrap',        
-   overflow: 'hidden',          
-   textOverflow: 'ellipsis',    
+   whiteSpace: 'nowrap',
+   overflow: 'hidden',
+   textOverflow: 'ellipsis',
 }))
 
 const TextIcons = styled('div')(() => ({

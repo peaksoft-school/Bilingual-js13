@@ -50,6 +50,16 @@ const CreateTest = () => {
       setOpen(true)
    }
 
+   
+   const handleUpdate = (id: number | undefined) => {
+      if (id !== undefined) {
+         const testItem = dataTestS.find((item) => item.id === id)
+         if (testItem) {
+            navigate(`/admin/create-description`, { state: { testItem } })
+         }
+      }
+   }
+
    return (
       <>
          <Header />
@@ -88,6 +98,9 @@ const CreateTest = () => {
                               {...item}
                               deleteHandler={(event) =>
                                  handleOpenModal(item.id, event)
+                              }
+                              handleUpdate ={() =>
+                                 handleUpdate(item.id)
                               }
                            />
                         ))}

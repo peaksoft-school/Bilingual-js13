@@ -116,7 +116,7 @@ const TestInterface = () => {
                                  <Modal
                                     open={open}
                                     variant="secondary"
-                                    
+                                    onClose={handleCloseModal}
                                     boxContent={
                                        <ButtonBox>
                                           <Button onClick={handleCloseModal}>
