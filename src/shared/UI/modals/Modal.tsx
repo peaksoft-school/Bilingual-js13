@@ -7,7 +7,7 @@ export interface ModalType {
    children?: ReactNode
    variant?: 'primary' | 'secondary'
    open: boolean
-   onClose?: () => void
+   onClose?: () => void 
    onClick?: () => void
    buttonChange?: 'true' | 'false'
    boxContent?: ReactNode
