@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom'
+import Header from '../widgets/landing/header/Header'
 
-const 
-AdminLoyaut = () => {
+const AdminLoyaut = () => {
    return (
-      <div>
-         {/* <h1>Admin page</h1> */}
+      <>
+         <Header />
          <Outlet />
-      </div>
+      </>
    )
 }
 
