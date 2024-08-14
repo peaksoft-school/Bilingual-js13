@@ -19,7 +19,7 @@ const AppRouter = () => {
             <PrivatRouter
                isAuth={role === 'GUEST' ? !isAuth : isAuth}
                role={role}
-               isAllowed={['USER', 'GUEST']}
+               isAllowed={['USER', 'GUEST',]}
                component={<UserLoyaut />}
                fallBackPath="/admin"
             />
