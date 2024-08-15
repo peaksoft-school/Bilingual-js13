@@ -2,18 +2,13 @@ import { Box, Rating, Typography, styled } from '@mui/material'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-<<<<<<< HEAD:src/pages/landing-page/Reviews.tsx
-import { ArrowProps, NextArrowI, PrevArrowI } from '../../assets/icons/Arrows'
-import { REVIEWS } from '../../shared/utils/constants'
-import { useState } from 'react'
-=======
 import {
    ArrowProps,
    NextArrowI,
    PrevArrowI,
 } from '../../../assets/icons/Arrows'
 import { REVIEWS } from '../../../shared/utils/constants'
->>>>>>> 65bf07490db5885740fcbd9505033c5f3ff7b00d:src/widgets/landing/reviews/Reviews.tsx
+import { useState } from 'react'
 
 interface StyledSlideProps {
    isActive: boolean
