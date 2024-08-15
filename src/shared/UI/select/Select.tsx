@@ -6,16 +6,26 @@ import { styled, Paper, Select as SelectMui, Box } from '@mui/material'
 
 interface CustomSelectProps {
    value: string | number
-   options: Array<{ value: string | number; label: string }>
+   options?: Array<{ value: string | number; label: string }>
+   optionsSecond?: Array<{ value: string | number; label: string }>
    onChange: (event: SelectChangeEvent<string | number>) => void
    placeholder?: string
+   selectSx?: object  
+   menuItemSx?: object  
+   paperSx?: object  
+   onSelectChange?: (value: string | number) => void
+
 }
 
 const Select: FC<CustomSelectProps> = ({
    value,
    options,
+   optionsSecond,
    onChange,
    placeholder,
+   selectSx,
+   menuItemSx,
+   paperSx,
 }) => {
    const handleChange = (event: SelectChangeEvent<unknown>) => {
       onChange(event as SelectChangeEvent<string | number>)
@@ -37,16 +47,23 @@ const Select: FC<CustomSelectProps> = ({
                         width: 819,
                         borderRadius: '0px 0px 8px 8px',
                      },
+                     sx: paperSx,  
                   },
                }}
+               sx={selectSx}  
             >
                {placeholder && (
-                  <StyledMenuItem value="">
+                  <StyledMenuItem value="" sx={menuItemSx}>
                      <p>{placeholder}</p>
                   </StyledMenuItem>
                )}
-               {options.map((item) => (
-                  <StyledMenuItem key={item.value} value={item.value}>
+               {options?.map((item) => (
+                  <StyledMenuItem key={item.value} value={item.value} sx={menuItemSx}>
+                     {item.label}
+                  </StyledMenuItem>
+               ))}
+               {optionsSecond?.map((item) => (
+                  <StyledMenuItem key={item.value} value={item.value} sx={menuItemSx}>
                      {item.label}
                   </StyledMenuItem>
                ))}

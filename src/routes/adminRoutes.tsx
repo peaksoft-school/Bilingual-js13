@@ -1,6 +1,7 @@
-import CreateDescription from "../pages/admin-page/test/CreateDescription";
-import CreateTest from "../pages/admin-page/test/CreateTest";
-import TestInterface from "../pages/admin-page/test/TestInterface";
+import ListenSelect from '../pages/admin-page/listen-select/ListenSelect'
+import CreateDescription from '../pages/admin-page/test/CreateDescription'
+import CreateTest from '../pages/admin-page/test/CreateTest'
+import TestInterface from '../pages/admin-page/test/TestInterface'
 
 export const adminRoutes = [
    {
@@ -9,14 +10,18 @@ export const adminRoutes = [
    },
    {
       path: 'test-interface',
-      element: <TestInterface/>
+      element: <TestInterface />,
    },
    {
       path: 'create-description',
-      element: <CreateDescription/>
+      element: <CreateDescription />,
    },
    {
       path: 'create-test',
-      element: <CreateTest/>
+      element: <CreateTest />,
+   },
+   {
+      path: 'listen-select',
+      element: <ListenSelect />,
    },
 ]
