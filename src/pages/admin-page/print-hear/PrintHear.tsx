@@ -15,7 +15,7 @@ const optionSecond = [
    { value: 'option2222', label: 'Option 2222' },
 ]
 
-const App: React.FC = () => {
+const PrintHear: React.FC = () => {
    const [inputValue, setInputValue] = useState<number | ''>('')
 
    const handleInputChange = (value: number) => {
@@ -64,7 +64,7 @@ const App: React.FC = () => {
    )
 }
 
-export default App
+export default PrintHear
 
 const Container = styled('div')(() => ({
    width: '100%',
