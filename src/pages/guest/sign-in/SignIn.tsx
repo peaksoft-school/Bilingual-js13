@@ -42,7 +42,7 @@ const SignIn = () => {
                      </ButtonWithGoogleBox>
                      <DontHaveAccauntBox>
                         <p>
-                           DON'T HAVE AN ACCOUNT?{' '}
+                           DON'T HAVE AN ACCOUNT?
                            <span>
                               <a href="#">REGISTER</a>
                            </span>
