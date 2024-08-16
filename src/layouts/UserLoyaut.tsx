@@ -4,7 +4,6 @@ const UserLoyaut = () => {
    return (
       <div>
          <h1>User page</h1>
-         <button>auth</button>
          <Outlet />
       </div>
    )

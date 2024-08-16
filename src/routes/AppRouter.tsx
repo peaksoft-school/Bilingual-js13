@@ -7,6 +7,8 @@ import { userRoutes } from './userRouter'
 import { guestRoutes } from './quesRoutes'
 import { adminRoutes } from './adminRoutes'
 import ErrorPage from './ErrorPage'
+import Landing from '../pages/landing-page/Landing'
+import GuestLayout from '../layouts/GuestLayout'
 
 const AppRouter = () => {
    const { isAuth, role } = useAppSelector((state) => state.auth)
@@ -20,8 +22,20 @@ const AppRouter = () => {
                isAuth={role === 'GUEST' ? !isAuth : isAuth}
                role={role}
                isAllowed={['USER', 'GUEST']}
-               component={<UserLoyaut />}
+               component={< Landing/>}
                fallBackPath="/admin"
+            />
+         ),
+      },
+      {
+         path: '/auth',
+         element: (
+            <PrivatRouter
+               isAuth={!isAuth}
+               role={role}
+               isAllowed={['GUEST']}
+               component={<GuestLayout/>}
+               fallBackPath="/guest"
             />
          ),
          children: guestRoutes,
@@ -57,7 +71,7 @@ const AppRouter = () => {
 
       {
          path: '*',
-         element: <ErrorPage/>,
+         element: <ErrorPage />,
       },
    ])
 

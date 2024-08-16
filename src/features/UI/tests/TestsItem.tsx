@@ -1,21 +1,43 @@
 import { FC } from 'react'
-import { DataTestItem } from './Tests'
 import Switches from '../../../shared/UI/switches/Switches'
 import { IconButton, styled } from '@mui/material'
 import Delete from '../../../assets/icons/svgs/delete.svg?react'
 import Update from '../../../assets/icons/svgs/update.svg?react'
 import { palette } from '../../../shared/theme/theme'
+import { DataTestItem } from '../../../pages/admin-page/test/CreateDescription'
 
-const TestsItem: FC<DataTestItem> = ({ text }) => {
+interface TestsItemProps extends DataTestItem {
+   deleteHandler: (event: React.MouseEvent<HTMLButtonElement>) => void
+   handleUpdate: (id: number | undefined) => void
+}
+
+const TestsItem: FC<TestsItemProps> = ({
+   title,
+   number,
+   duration,
+   description,
+   deleteHandler,
+   handleUpdate,
+   id
+}) => {
    return (
       <TextBox>
-         <TestText>{text}</TestText>
+         <NumberTest>{number}</NumberTest>
+         <NameTest>{title}</NameTest>
+         <DurationTest>{duration}</DurationTest>
+         <QuestionTypeTest>{description}</QuestionTypeTest>
          <TextIcons>
             <Switches variant="Primary" />
-            <IconButton className="update-icon">
+            <IconButton
+               className="update-icon"
+               onClick={() => handleUpdate(id)}
+            >
                <Update />
             </IconButton>
-            <IconButton className="delete-icon">
+            <IconButton
+               className="delete-icon"
+               onClick={(event) => deleteHandler(event)}
+            >
                <Delete />
             </IconButton>
          </TextIcons>
@@ -25,13 +47,65 @@ const TestsItem: FC<DataTestItem> = ({ text }) => {
 
 export default TestsItem
 
-const TestText = styled('h3')(() => ({
+const TextBox = styled('div')(() => ({
+   width: '100%',
+   minWidth: '900px',
+   height: '100%',
+   maxHeight: '70px',
+   backgroundColor: palette.primary.white,
+   boxShadow: '1px 1px 5px 1px rgba(0,0,0,0.15)',
+   borderRadius: 8,
+   display: 'flex',
+   justifyContent: 'space-between',
+   alignItems: 'center',
+   padding: '24px 16px',
+   marginBottom: 20,
+}))
+
+const NumberTest = styled('h2')(() => ({
+   fontSize: 16,
+   fontWeight: 400,
+   lineHeight: '18px',
+   fontFamily: 'Poppins',
+   color: 'rgba(76, 72, 89, 1)',
+}))
+
+const NameTest = styled('h3')(() => ({
+   width: '100%',
+   maxWidth: 304,
    fontSize: 16,
    fontWeight: 400,
    lineHeight: '18px',
    fontFamily: 'Poppins',
    marginRight: 20,
    color: 'rgba(76, 72, 89, 1)',
+   whiteSpace: 'nowrap',
+   overflow: 'hidden',
+   textOverflow: 'ellipsis',
+}))
+
+const DurationTest = styled('h4')(() => ({
+   fontSize: 16,
+   fontWeight: 400,
+   lineHeight: '18px',
+   fontFamily: 'Poppins',
+   color: 'rgba(76, 72, 89, 1)',
+   position: 'relative',
+   marginRight: 10,
+}))
+
+const QuestionTypeTest = styled('h5')(() => ({
+   width: '100%',
+   maxWidth: 188,
+   fontSize: 16,
+   fontWeight: 400,
+   lineHeight: '18px',
+   fontFamily: 'Poppins',
+   color: 'rgba(76, 72, 89, 1)',
+   marginRight: 10,
+   whiteSpace: 'nowrap',
+   overflow: 'hidden',
+   textOverflow: 'ellipsis',
 }))
 
 const TextIcons = styled('div')(() => ({
@@ -44,19 +118,4 @@ const TextIcons = styled('div')(() => ({
    '& .delete-icon': {
       marginLeft: -5,
    },
-}))
-
-const TextBox = styled('div')(() => ({
-   width: '100%',
-   minWidth: '900px',
-   height: '100%',
-   minHeight: '70px',
-   backgroundColor: palette.primary.white,
-   boxShadow: '1px 1px 5px 1px rgba(0,0,0,0.15)',
-   borderRadius: 8,
-   display: 'flex',
-   justifyContent: 'space-between',
-   alignItems: 'center',
-   padding: '24px 16px',
-   marginBottom: 20,
 }))
