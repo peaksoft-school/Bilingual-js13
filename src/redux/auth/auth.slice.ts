@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { signUp } from './auth.thunk'
+import { signIn, signUp } from './auth.thunk'
 
 const getInitialState = () => {
    const userInfo = localStorage.getItem('BILINGUAL')
@@ -64,6 +64,28 @@ export const authSlice = createSlice({
             }
          )
          .addCase(signUp.rejected, (state, action) => {
+            state.isLoading = false
+            state.error = action.payload as string
+         })
+         .addCase(signIn.pending, (state) => {
+            state.isLoading = true
+            state.error = ''
+         })
+         .addCase(
+            signIn.fulfilled,
+            (state, action: PayloadAction<SignUpResponse>) => {
+               const { token, role, email } =
+                  action.payload
+               state.token = token
+               state.role = role
+               state.email = email
+               state.isAuth = true
+               state.isLoading = false
+               state.error = ''
+               
+            }
+         )
+         .addCase(signIn.rejected, (state, action) => {
             state.isLoading = false
             state.error = action.payload as string
          })

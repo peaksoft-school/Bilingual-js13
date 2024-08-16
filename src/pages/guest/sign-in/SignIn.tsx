@@ -9,6 +9,8 @@ import Switches from '../../../shared/UI/switches/Switches'
 import Button from '../../../shared/UI/Button'
 import signUpWithGoogle from '../../../assets/icons/svgs/sign-up-with-google/↳ Sign in/Group 337507.svg'
 import { useNavigate } from 'react-router-dom'
+import { signIn } from '../../../redux/auth/auth.thunk'
+import { useAppDispatch } from '../../../hooks/hooks'
 
 type FormData = {
    email: string
@@ -25,6 +27,7 @@ const schema = yup.object().shape({
 
 const SignIn = () => {
    const navigate = useNavigate()
+   const dispatch = useAppDispatch()
 
    const {
       control,
@@ -36,6 +39,11 @@ const SignIn = () => {
 
    const onSubmit = (data: FormData) => {
       console.log(data)
+      try {
+         dispatch(signIn({ data, navigate }))
+      } catch (error) {
+         console.error('Error during signUp:', error)
+      }
    }
 
    const NaviateToSiginUp = () => {
