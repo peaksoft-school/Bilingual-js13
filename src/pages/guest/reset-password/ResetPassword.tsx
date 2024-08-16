@@ -10,9 +10,6 @@ import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 import { signUp } from '../../../redux/auth/auth.thunk'
 import { useAppDispatch } from '../../../hooks/hooks'
-import eyePassword from '../../../assets/icons/svgs/eyePassword/↳ Sign in/eye.svg'
-import eyePasswordDontShow from '../../../assets/icons/svgs/eyePasswordDontShow/↳ Sign in/akar-icons_eye-slashed.svg'
-import { useState } from 'react'
 
 const schema = yup.object().shape({
    firstName: yup.string().required('First name is required'),
@@ -31,11 +28,9 @@ interface FormData {
    password: string
 }
 
-const SignUp = () => {
+const ResetPassword = () => {
    const navigate = useNavigate()
    const dispatch = useAppDispatch()
-   const [isPasswordFocused, setIsPasswordFocused] = useState(false)
-   const [showPassword, setShowPassword] = useState(true)
 
    const {
       register,
@@ -56,11 +51,6 @@ const SignUp = () => {
 
    const NaviateToSiginIn = () => {
       navigate('/auth/sign-in')
-   }
-
-   const handleTogglePasswordVisibility = () => {
-      setShowPassword((prevState) => !prevState)
-      console.log(isPasswordFocused)
    }
 
    return (
@@ -99,28 +89,13 @@ const SignUp = () => {
                         error={Boolean(errors.email)}
                         helperText={errors.email?.message}
                      />
-                     <PasswordBox>
-                        <InputPassword
-                           label="Password"
-                           type={showPassword ? 'password' : 'text'}
-                           {...register('password')}
-                           error={Boolean(errors.password)}
-                           helperText={errors.password?.message}
-                           onFocus={() => setIsPasswordFocused(false)}
-                           onBlur={() => setIsPasswordFocused(true)}
-                        />
-
-                        <img
-                           onClick={handleTogglePasswordVisibility}
-                           src={
-                              showPassword ? eyePasswordDontShow : eyePassword
-                           }
-                           alt={
-                              showPassword ? 'Hide Password' : 'Show Password'
-                           }
-                        />
-                     </PasswordBox>
-
+                     <InputPassword
+                        label="Password"
+                        type="password"
+                        {...register('password')}
+                        error={Boolean(errors.password)}
+                        helperText={errors.password?.message}
+                     />
                      <ButtonSignIn type="submit">SIGN UP</ButtonSignIn>
                      <ButtonWithGoogleBox>
                         <ButtonWithGoogle>
@@ -144,7 +119,7 @@ const SignUp = () => {
    )
 }
 
-export default SignUp
+export default ResetPassword
 
 const Container = styled('div')(() => ({
    width: '100%',
@@ -274,16 +249,5 @@ const DontHaveAccauntBox = styled('div')(() => ({
    '& a': {
       textDecoration: 'none',
       color: 'rgba(58, 16, 229, 1)',
-   },
-}))
-
-const PasswordBox = styled('div')(() => ({
-   '& img': {
-      position: 'relative',
-      right: 40,
-      top: 36,
-      width: 20,
-      height: 20,
-      cursor: 'pointer',
    },
 }))

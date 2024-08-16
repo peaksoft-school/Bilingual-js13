@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { signIn, signUp } from './auth.thunk'
+import { forgotPassword, signIn, signUp } from './auth.thunk'
 
 const getInitialState = () => {
    const userInfo = localStorage.getItem('BILINGUAL')
@@ -10,6 +10,7 @@ const getInitialState = () => {
          token: parsedUserInfo.token,
          role: parsedUserInfo.role,
          email: parsedUserInfo.email,
+         link: parsedUserInfo.link,
          isAuth: true,
          firstName: parsedUserInfo.firstName,
          lastName: parsedUserInfo.lastName,
@@ -21,6 +22,7 @@ const getInitialState = () => {
       token: '',
       role: 'GUEST',
       email: '',
+      link: '',
       isAuth: false,
       firstName: '',
       lastName: '',
@@ -33,6 +35,7 @@ interface SignUpResponse {
    token: string
    role: string
    email: string
+   link: string
    firstName: string
    lastName: string
 }
@@ -60,7 +63,6 @@ export const authSlice = createSlice({
                state.isAuth = true
                state.isLoading = false
                state.error = ''
-               
             }
          )
          .addCase(signUp.rejected, (state, action) => {
@@ -74,18 +76,37 @@ export const authSlice = createSlice({
          .addCase(
             signIn.fulfilled,
             (state, action: PayloadAction<SignUpResponse>) => {
-               const { token, role, email } =
-                  action.payload
+               const { token, role, email } = action.payload
                state.token = token
                state.role = role
                state.email = email
                state.isAuth = true
                state.isLoading = false
                state.error = ''
-               
             }
          )
          .addCase(signIn.rejected, (state, action) => {
+            state.isLoading = false
+            state.error = action.payload as string
+         })
+         .addCase(forgotPassword.pending, (state) => {
+            state.isLoading = true
+            state.error = ''
+         })
+         .addCase(
+            forgotPassword.fulfilled,
+            (state, action: PayloadAction<SignUpResponse>) => {
+               const { token, role, email, link } = action.payload
+               state.token = token
+               state.role = role
+               state.email = email
+               state.link = link
+               state.isAuth = true
+               state.isLoading = false
+               state.error = ''
+            }
+         )
+         .addCase(forgotPassword.rejected, (state, action) => {
             state.isLoading = false
             state.error = action.payload as string
          })

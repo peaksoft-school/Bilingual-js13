@@ -39,3 +39,17 @@ export const signIn = createAsyncThunk(
       }
    }
 )
+
+export const forgotPassword = createAsyncThunk(
+   'forgot/forgotPassword',
+   async ({ data, navigate }: AuthPayload, { rejectWithValue }) => {
+      try {
+         const response = await axiosInstance.post('/api/auth/forgotPassword', data)
+         navigate('/auth/reset-password')
+         return response.data
+      } catch (error) {
+         const axiosError = error as AxiosError
+         return rejectWithValue(axiosError.message)
+      }
+   }
+)

@@ -11,6 +11,9 @@ import signUpWithGoogle from '../../../assets/icons/svgs/sign-up-with-google/↳
 import { useNavigate } from 'react-router-dom'
 import { signIn } from '../../../redux/auth/auth.thunk'
 import { useAppDispatch } from '../../../hooks/hooks'
+import eyePassword from '../../../assets/icons/svgs/eyePassword/↳ Sign in/eye.svg'
+import eyePasswordDontShow from '../../../assets/icons/svgs/eyePasswordDontShow/↳ Sign in/akar-icons_eye-slashed.svg'
+import { useState } from 'react'
 
 type FormData = {
    email: string
@@ -28,6 +31,8 @@ const schema = yup.object().shape({
 const SignIn = () => {
    const navigate = useNavigate()
    const dispatch = useAppDispatch()
+   const [isPasswordFocused, setIsPasswordFocused] = useState(false)
+   const [showPassword, setShowPassword] = useState(true)
 
    const {
       control,
@@ -49,6 +54,12 @@ const SignIn = () => {
    const NaviateToSiginUp = () => {
       navigate('/auth/sign-up')
    }
+
+   const handleTogglePasswordVisibility = () => {
+      setShowPassword((prevState) => !prevState)
+      console.log(isPasswordFocused)
+   }
+
    return (
       <>
          <Container>
@@ -82,20 +93,41 @@ const SignIn = () => {
                               />
                            )}
                         />
-                        <Controller
-                           name="password"
-                           control={control}
-                           render={({ field }) => (
-                              <InputPassword
-                                 {...field}
-                                 label="Password"
-                                 error={!!errors.password}
-                                 helperText={
-                                    errors.password?.message as React.ReactNode
-                                 }
-                              />
-                           )}
-                        />
+                        <PasswordBox>
+                           <Controller
+                              name="password"
+                              control={control}
+                              render={({ field }) => (
+                                 <InputPassword
+                                    {...field}
+                                    type={showPassword ? 'password' : 'text'}
+                                    label="Password"
+                                    error={!!errors.password}
+                                    helperText={
+                                       errors.password
+                                          ?.message as React.ReactNode
+                                    }
+                                    onFocus={() => setIsPasswordFocused(false)}
+                                    onBlur={() => setIsPasswordFocused(true)}
+                                 />
+                              )}
+                           />
+
+                           <img
+                              onClick={handleTogglePasswordVisibility}
+                              src={
+                                 showPassword
+                                    ? eyePasswordDontShow
+                                    : eyePassword
+                              }
+                              alt={
+                                 showPassword
+                                    ? 'Hide Password'
+                                    : 'Show Password'
+                              }
+                           />
+                        </PasswordBox>
+
                         <RememberBox>
                            <Switches variant="Tertiary" />
                            <p style={{ position: 'relative', right: 15 }}>
@@ -150,7 +182,6 @@ const SignInContainer = styled('div')(() => ({
    width: '100%',
    maxWidth: '616px',
    height: '100%',
-   minHeight: '620px',
    marginTop: '74px',
    backgroundColor: 'white',
    borderRadius: 10,
@@ -234,8 +265,8 @@ const ButtonWithGoogle = styled(Button)(() => ({
    fontSize: 14,
    '& img': {
       marginRight: 10,
-      widht: 16,
-      heiht: 16,
+      width: 16,
+      height: 16,
    },
    margin: '0 auto',
    '&:hover': {
@@ -255,5 +286,16 @@ const DontHaveAccauntBox = styled('div')(() => ({
    '& a': {
       textDecoration: 'none',
       color: 'rgba(58, 16, 229, 1)',
+   },
+}))
+
+const PasswordBox = styled('div')(() => ({
+   '& img': {
+      position: 'relative',
+      right: 40,
+      top: 36,
+      width: 20,
+      height: 20,
+      cursor: 'pointer',
    },
 }))
