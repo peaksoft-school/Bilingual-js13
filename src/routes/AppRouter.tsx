@@ -35,7 +35,7 @@ const AppRouter = () => {
                role={role}
                isAllowed={['GUEST']}
                component={<GuestLayout/>}
-               fallBackPath="/guest"
+               fallBackPath="/"
             />
          ),
          children: guestRoutes,
