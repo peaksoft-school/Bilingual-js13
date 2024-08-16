@@ -1,17 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { signUp } from './auth.thunk'
 
 const getInitialState = () => {
-   const data = localStorage.getItem('BILINGUAL')
+   const userInfo = localStorage.getItem('BILINGUAL')
 
-   if (data) {
-      const parsedData = JSON.parse(data)
+   if (userInfo) {
+      const parsedUserInfo = JSON.parse(userInfo)
       return {
-         token: parsedData.token,
-         role: parsedData.role,
-         email: parsedData.email,
+         token: parsedUserInfo.token,
+         role: parsedUserInfo.role,
+         email: parsedUserInfo.email,
          isAuth: true,
-         firstName: parsedData.firstName,
-         lastName: parsedData.lastName,
+         firstName: parsedUserInfo.firstName,
+         lastName: parsedUserInfo.lastName,
+         isLoading: false,
+         error: '',
       }
    }
    return {
@@ -26,8 +29,45 @@ const getInitialState = () => {
    }
 }
 
+interface SignUpResponse {
+   token: string
+   role: string
+   email: string
+   firstName: string
+   lastName: string
+}
+
 export const authSlice = createSlice({
    name: 'auth',
    initialState: getInitialState(),
    reducers: {},
+   extraReducers: (builder) => {
+      builder
+         .addCase(signUp.pending, (state) => {
+            state.isLoading = true
+            state.error = ''
+         })
+         .addCase(
+            signUp.fulfilled,
+            (state, action: PayloadAction<SignUpResponse>) => {
+               const { token, role, email, firstName, lastName } =
+                  action.payload
+               state.token = token
+               state.role = role
+               state.email = email
+               state.firstName = firstName
+               state.lastName = lastName
+               state.isAuth = true
+               state.isLoading = false
+               state.error = ''
+               
+            }
+         )
+         .addCase(signUp.rejected, (state, action) => {
+            state.isLoading = false
+            state.error = action.payload as string
+         })
+   },
 })
+
+export default authSlice.reducer

@@ -8,6 +8,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
+import { signUp } from '../../../redux/auth/auth.thunk'
+import { useAppDispatch } from '../../../hooks/hooks'
 
 const schema = yup.object().shape({
    firstName: yup.string().required('First name is required'),
@@ -28,6 +30,7 @@ interface FormData {
 
 const SignUp = () => {
    const navigate = useNavigate()
+   const dispatch = useAppDispatch()
 
    const {
       register,
@@ -39,6 +42,11 @@ const SignUp = () => {
 
    const onSubmit: SubmitHandler<FormData> = (data) => {
       console.log('Form is valid, submit the form:', data)
+      try {
+         dispatch(signUp({ data, navigate }))
+      } catch (error) {
+         console.error('Error during signUp:', error)
+      }
    }
 
    const NaviateToSiginIn = () => {
