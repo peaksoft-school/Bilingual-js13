@@ -17,6 +17,7 @@ export const signUp = createAsyncThunk(
    async ({ data, navigate }: AuthPayload, { rejectWithValue }) => {
       try {
          const response = await axiosInstance.post('/api/auth/signUp', data)
+         navigate('/')
          return response.data
       } catch (error) {
          const axiosError = error as AxiosError
