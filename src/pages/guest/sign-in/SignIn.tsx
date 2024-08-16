@@ -1,3 +1,6 @@
+import { useForm, Controller } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 import { styled } from '@mui/material'
 import SignInX from '../../../assets/icons/svgs/siginx/↳ Sign in/System.svg'
 import singInImgBilingual from '../../../assets/icons/svgs/singInImgBilingual/↳ Sign in/Layer 2.svg'
@@ -5,8 +8,39 @@ import Input from '../../../shared/UI/Input'
 import Switches from '../../../shared/UI/switches/Switches'
 import Button from '../../../shared/UI/Button'
 import signUpWithGoogle from '../../../assets/icons/svgs/sign-up-with-google/↳ Sign in/Group 337507.svg'
+import { useNavigate } from 'react-router-dom'
+
+type FormData = {
+   email: string
+   password: string
+}
+
+const schema = yup.object().shape({
+   email: yup.string().email('Incorect email').required('Email is required'),
+   password: yup
+      .string()
+      .min(6, 'Password must be at least 6 characters')
+      .required('Incorect Password'),
+})
 
 const SignIn = () => {
+   const navigate = useNavigate()
+
+   const {
+      control,
+      handleSubmit,
+      formState: { errors },
+   } = useForm({
+      resolver: yupResolver(schema),
+   })
+
+   const onSubmit = (data: FormData) => {
+      console.log(data)
+   }
+
+   const NaviateToSiginUp = () => {
+      navigate('/auth/sign-up')
+   }
    return (
       <>
          <Container>
@@ -24,16 +58,44 @@ const SignIn = () => {
                      </SingInImgBilingualBox>
                      <SignInText>
                         <p>Sign in</p>
-                     </SignInText>{' '}
-                     <InputEmail label="Email" />
-                     <InputPassword label="Password" />
-                     <RememberBox>
-                        <Switches variant="Tertiary" />
-                        <p style={{ position: 'relative', right: 15 }}>
-                           To remember me
-                        </p>
-                     </RememberBox>
-                     <ButtonSignIn>SIGN IN</ButtonSignIn>
+                     </SignInText>
+                     <form onSubmit={handleSubmit(onSubmit)}>
+                        <Controller
+                           name="email"
+                           control={control}
+                           render={({ field }) => (
+                              <InputEmail
+                                 {...field}
+                                 label="Email"
+                                 error={!!errors.email}
+                                 helperText={
+                                    errors.email?.message as React.ReactNode
+                                 }
+                              />
+                           )}
+                        />
+                        <Controller
+                           name="password"
+                           control={control}
+                           render={({ field }) => (
+                              <InputPassword
+                                 {...field}
+                                 label="Password"
+                                 error={!!errors.password}
+                                 helperText={
+                                    errors.password?.message as React.ReactNode
+                                 }
+                              />
+                           )}
+                        />
+                        <RememberBox>
+                           <Switches variant="Tertiary" />
+                           <p style={{ position: 'relative', right: 15 }}>
+                              To remember me
+                           </p>
+                        </RememberBox>
+                        <ButtonSignIn type="submit">SIGN IN</ButtonSignIn>
+                     </form>
                      <ButtonWithGoogleBox>
                         <ButtonWithGoogle>
                            <img src={signUpWithGoogle} alt="signUpWithGoogle" />
@@ -43,8 +105,8 @@ const SignIn = () => {
                      <DontHaveAccauntBox>
                         <p>
                            DON'T HAVE AN ACCOUNT?
-                           <span>
-                              <a href="#">REGISTER</a>
+                           <span onClick={NaviateToSiginUp}>
+                              <a href="#"> REGISTER</a>
                            </span>
                         </p>
                      </DontHaveAccauntBox>
@@ -80,7 +142,7 @@ const SignInContainer = styled('div')(() => ({
    width: '100%',
    maxWidth: '616px',
    height: '100%',
-   maxHeight: '620px',
+   minHeight: '620px',
    marginTop: '74px',
    backgroundColor: 'white',
    borderRadius: 10,
@@ -168,6 +230,9 @@ const ButtonWithGoogle = styled(Button)(() => ({
       heiht: 16,
    },
    margin: '0 auto',
+   '&:hover': {
+      border: '2px solid rgba(58, 16, 229, 1)',
+   },
 }))
 
 const DontHaveAccauntBox = styled('div')(() => ({
@@ -181,6 +246,6 @@ const DontHaveAccauntBox = styled('div')(() => ({
    color: 'rgba(117, 117, 117, 1)',
    '& a': {
       textDecoration: 'none',
-      color: 'rgba(58, 16, 229, 1)'
+      color: 'rgba(58, 16, 229, 1)',
    },
 }))
