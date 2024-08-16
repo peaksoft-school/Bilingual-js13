@@ -45,7 +45,7 @@ const SignIn = () => {
                            DON'T HAVE AN ACCOUNT?{' '}
                            <span>
                               <a href="#">REGISTER</a>
-                           </span>
+                           </span  >
                         </p>
                      </DontHaveAccauntBox>
                   </SignInContainer>
