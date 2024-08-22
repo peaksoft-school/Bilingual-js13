@@ -3,21 +3,36 @@ import LeftBoxProvo from './LeftBoxProvo'
 import RightBoxProvo from './RightBoxProvo'
 import ProveBackground from '../../../../assets/icons/svgs/ProveBackground.svg'
 import BacgkroundSecond from '../../../../assets/icons/svgs/BacgkroundSecond.svg'
+import { useNavigate } from 'react-router-dom'
+import { useAppSelector } from '../../../../hooks/hooks'
 
-const Prove = () => (
-   <>
-      <ProvoContainer>
-         <ProvoBackroundUrl>
-            <ProvoContent>
-               <ProvoFlex>
-                  <LeftBoxProvo />
-                  <RightBoxProvo />
-               </ProvoFlex>
-            </ProvoContent>
-         </ProvoBackroundUrl>
-      </ProvoContainer>
-   </>
-)
+const Prove = () => {
+   const navigate = useNavigate()
+   const { isAuth } = useAppSelector((state) => state.auth)
+
+   const hanleNavigate = () => {
+      if (isAuth === true) {
+         navigate('/')
+      }else {
+         navigate('/auth/sign-in')
+      }
+   }
+
+   return (
+      <>
+         <ProvoContainer>
+            <ProvoBackroundUrl>
+               <ProvoContent>
+                  <ProvoFlex>
+                     <LeftBoxProvo hanleNavigate={hanleNavigate}/>
+                     <RightBoxProvo />
+                  </ProvoFlex>
+               </ProvoContent>
+            </ProvoBackroundUrl>
+         </ProvoContainer>
+      </>
+   )
+}
 
 export default Prove
 

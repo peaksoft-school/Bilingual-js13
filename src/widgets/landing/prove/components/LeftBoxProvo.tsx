@@ -8,8 +8,12 @@ import Button from '../../../../shared/UI/Button'
 const AnimatedButton = styled(Button)`
    animation: ${LeftBoxProvoAnimateButton} 1s forwards;
 `
+interface LeftBoxProvoProps {
+   hanleNavigate: () => void;
+}
 
-export const LeftBoxProvo = () => {
+
+export const LeftBoxProvo = ({hanleNavigate}: LeftBoxProvoProps) => {
    return (
       <>
          <LeftBoxProvoAnotherName>
@@ -24,7 +28,7 @@ export const LeftBoxProvo = () => {
                   languages.
                </SubTitleProvo>
             </AnimateBox>
-            <AnimatedButton customVariant="Undenary">TO BEGIN</AnimatedButton>
+            <AnimatedButton onClick={hanleNavigate} customVariant="Undenary">TO BEGIN</AnimatedButton>
          </LeftBoxProvoAnotherName>
       </>
    )

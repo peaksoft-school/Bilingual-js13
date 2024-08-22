@@ -8,6 +8,7 @@ interface AuthPayload {
       lastName?: string
       email?: string
       password?: string
+      link?: string
    }
    navigate: (path: string) => void
 }
@@ -44,7 +45,11 @@ export const forgotPassword = createAsyncThunk(
    'forgot/forgotPassword',
    async ({ data, navigate }: AuthPayload, { rejectWithValue }) => {
       try {
-         const response = await axiosInstance.post('/api/auth/forgotPassword', data)
+         const response = await axiosInstance.post(
+            '/api/auth/forgotPassword',
+            {},
+            { params: { email: data.email, link: data.link } }
+         )
          navigate('/auth/reset-password')
          return response.data
       } catch (error) {

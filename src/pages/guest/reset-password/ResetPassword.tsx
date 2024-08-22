@@ -3,7 +3,6 @@ import SignInX from '../../../assets/icons/svgs/siginx/↳ Sign in/System.svg'
 import singInImgBilingual from '../../../assets/icons/svgs/singInImgBilingual/↳ Sign in/Layer 2.svg'
 import Input from '../../../shared/UI/Input'
 import Button from '../../../shared/UI/Button'
-import signUpWithGoogle from '../../../assets/icons/svgs/sign-up-with-google/↳ Sign in/Group 337507.svg'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -53,6 +52,10 @@ const ResetPassword = () => {
       navigate('/auth/sign-in')
    }
 
+   const NaviateToSiginUp = () => {
+      navigate('/auth/sign-up')
+   }
+
    return (
       <form onSubmit={handleSubmit(onSubmit)}>
          <Container>
@@ -69,48 +72,27 @@ const ResetPassword = () => {
                         />
                      </SingInImgBilingualBox>
                      <SignInText>
-                        <p>Create an Account</p>
+                        <p>Password reset</p>
                      </SignInText>
-                     <InputFirstName
-                        label="First name"
-                        {...register('firstName')}
-                        error={Boolean(errors.firstName)}
-                        helperText={errors.firstName?.message}
-                     />
-                     <InputLastName
-                        label="Last name"
-                        {...register('lastName')}
-                        error={Boolean(errors.lastName)}
-                        helperText={errors.lastName?.message}
-                     />
+                     
                      <InputEmail
-                        label="Email"
+                        label="New Password"
                         {...register('email')}
                         error={Boolean(errors.email)}
                         helperText={errors.email?.message}
                      />
                      <InputPassword
-                        label="Password"
+                        label="Confirm your new password"
                         type="password"
                         {...register('password')}
                         error={Boolean(errors.password)}
                         helperText={errors.password?.message}
                      />
-                     <ButtonSignIn type="submit">SIGN UP</ButtonSignIn>
-                     <ButtonWithGoogleBox>
-                        <ButtonWithGoogle>
-                           <img src={signUpWithGoogle} alt="signUpWithGoogle" />
-                           SIGN UP WITH GOOGLE
-                        </ButtonWithGoogle>
-                     </ButtonWithGoogleBox>
-                     <DontHaveAccauntBox>
-                        <p>
-                           ALREADY HAVE AN ACCOUNT?
-                           <span onClick={NaviateToSiginIn}>
-                              <a href="#"> LOG IN</a>
-                           </span>
-                        </p>
-                     </DontHaveAccauntBox>
+                     <ButtonSignIn type="submit">Reset password</ButtonSignIn>
+                     <LinkContainer>
+                        <Button onClick={NaviateToSiginIn}>SIGN IN</Button>
+                        <Button onClick={NaviateToSiginUp}>SIGN UP</Button>
+                     </LinkContainer>
                   </SignInContainer>
                </StyledContent>
             </StyledBox>
@@ -143,7 +125,6 @@ const SignInContainer = styled('div')(() => ({
    width: '100%',
    maxWidth: '616px',
    height: '100%',
-   minHeight: '716px',
    marginTop: '74px',
    backgroundColor: 'white',
    borderRadius: 10,
@@ -180,17 +161,6 @@ const SignInText = styled('div')(() => ({
    },
 }))
 
-const InputFirstName = styled(Input)(() => ({
-   width: '100%',
-   maxWidth: 500,
-   marginBottom: 20,
-}))
-
-const InputLastName = styled(Input)(() => ({
-   width: '100%',
-   maxWidth: 500,
-   marginBottom: 20,
-}))
 
 const InputEmail = styled(Input)(() => ({
    width: '100%',
@@ -212,42 +182,21 @@ const ButtonSignIn = styled(Button)(() => ({
    maxWidth: 500,
 }))
 
-const ButtonWithGoogleBox = styled('div')(() => ({
-   width: '100%',
-   maxWidth: 500,
-   textAlign: 'center',
-}))
 
-const ButtonWithGoogle = styled(Button)(() => ({
-   width: '100%',
-   maxWidth: 280,
-   border: '2px solid rgba(189, 189, 189, 1)',
-   color: 'rgba(189, 189, 189, 1)',
-   backgroundColor: 'white',
-   fontWeight: 500,
-   fontSize: 14,
-   '& img': {
-      marginRight: 10,
-      width: 16,
-      height: 16,
-   },
-   margin: '0 auto',
-   '&:hover': {
-      border: ' 2px solid rgba(58, 16, 229, 1)',
-   },
-}))
-
-const DontHaveAccauntBox = styled('div')(() => ({
-   marginTop: 24,
-   width: '100%',
-   maxWidth: 500,
+const LinkContainer = styled('div')(() => ({
    display: 'flex',
-   justifyContent: 'center',
-   fontSize: 16,
-   fontWeight: 500,
-   color: 'rgba(117, 117, 117, 1)',
-   '& a': {
-      textDecoration: 'none',
-      color: 'rgba(58, 16, 229, 1)',
+   justifyContent: 'space-between',
+   width: '100%',
+   maxWidth: 500,
+   '& Button': {
+      color: '#3a10e5',
+      backgroundColor: 'white',
+      '&:hover': {
+        backgroundColor: '#3a10e5',
+
+      }
    },
 }))
+
+
+
