@@ -27,10 +27,10 @@ const getInitialState = () => {
    }
    return {
       token: '',
-      role: 'GUEST',
+      role: 'ADMIN',
       email: '',
       link: '',
-      isAuth: false,
+      isAuth: true,
       firstName: '',
       lastName: '',
       isLoading: false,

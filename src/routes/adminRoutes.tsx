@@ -1,8 +1,11 @@
 import DescribeImg from '../pages/admin-page/describe-img/DescribeImg'
+import HighightAnswer from '../pages/admin-page/highight-answer/HighightAnswer'
 import ListenSelect from '../pages/admin-page/listen-select/ListenSelect'
 import ListenSelectAudio from '../pages/admin-page/listen-select/ListenSelectAudio'
 import ListenSelectModal from '../pages/admin-page/listen-select/ListenSelectModal'
 import PrintHear from '../pages/admin-page/print-hear/PrintHear'
+import RecordSayingStatement from '../pages/admin-page/record-saying-statement/RecordSayingStatement'
+import RespondWords from '../pages/admin-page/respond-words/RespondWords'
 import CreateDescription from '../pages/admin-page/test/CreateDescription'
 import CreateTest from '../pages/admin-page/test/CreateTest'
 import TestInterface from '../pages/admin-page/test/TestInterface'
@@ -48,5 +51,17 @@ export const adminRoutes = [
    {
       path: 'describe-img',
       element: <DescribeImg />,
+   },
+   {
+      path: 'record-saying-statement',
+      element: <RecordSayingStatement />,
+   },
+   {
+      path: 'respond-words',
+      element: <RespondWords />,
+   },
+   {
+      path: 'highight-answer',
+      element: <HighightAnswer />,
    },
 ]

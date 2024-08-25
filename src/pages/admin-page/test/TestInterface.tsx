@@ -1,5 +1,4 @@
 import { IconButton, styled } from '@mui/material'
-import Header from '../../../widgets/landing/header/Header'
 import Switches from '../../../shared/UI/switches/Switches'
 import Update from '../../../assets/icons/svgs/update.svg?react'
 import Delete from '../../../assets/icons/svgs/delete.svg?react'
@@ -76,7 +75,6 @@ const TestInterface = () => {
 
    return (
       <>
-         <Header />
          <Container>
             <StyledBox>
                <BoxContainer>

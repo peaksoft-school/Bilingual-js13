@@ -1,6 +1,5 @@
 import { useState, ChangeEvent } from 'react'
 import { styled } from '@mui/material'
-import Header from '../../../widgets/landing/header/Header'
 import { palette } from '../../../shared/theme/theme'
 import Input from '../../../shared/UI/Input'
 import Button from '../../../shared/UI/Button'
@@ -80,7 +79,6 @@ const CreateDescription = () => {
 
    return (
       <>
-         <Header />
          <Container>
             <StyledBox>
                <BoxContainer>
