@@ -14,6 +14,7 @@ import eyePassword from '../../../assets/icons/svgs/eyePassword/↳ Sign in/eye.
 import eyePasswordDontShow from '../../../assets/icons/svgs/eyePasswordDontShow/↳ Sign in/akar-icons_eye-slashed.svg'
 import { useEffect, useState } from 'react'
 import { signIn } from '../../../redux/auth/auth.thunk'
+import { persistor } from '../../../redux/store'
 
 type FormData = {
    email: string

@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { axiosInstance } from '../../config/axiosInstance'
 import { AxiosError } from 'axios'
+import { showToastify } from '../../shared/UI/notifications/ShowToastify'
 
 interface AuthPayload {
    data: {
@@ -28,11 +29,11 @@ export interface ForgotPasswordResponse {
 }
 
 export interface resetPasswordParams {
-data: {
-   token: string
-   newPassword: string
-   oldPassword: string
-}
+   data: {
+      token: string
+      newPassword: string
+      oldPassword: string
+   }
 }
 
 export const signUp = createAsyncThunk(
@@ -78,9 +79,21 @@ export const forgotPassword = createAsyncThunk<
             `/api/auth/forgotPassword?email=${email}&link=${link}`
          )
          navigate('/')
+         showToastify(
+            'success',
+            'Success!',
+            'Your request was successfully completed.'
+         )
+
          return response.data
       } catch (error) {
          const axiosError = error as AxiosError
+         showToastify(
+            'error',
+            'Error',
+            'An error occurred while processing your request.'
+         )
+
          return rejectWithValue(axiosError.message)
       }
    }

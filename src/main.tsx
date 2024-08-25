@@ -8,6 +8,7 @@ import store, { persistor } from './redux/store.ts'
 import { PersistGate } from 'redux-persist/integration/react'
 import App from './app/App.tsx'
 
+
 injectStore(store)
 
 
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Provider store={store}>
          <App />
          {/* <ListenAndSelectUI options={options} optionsSecond={optionSecond}  children='sfsdf' /> */}
+         
          
          <Toastify />
       </Provider>

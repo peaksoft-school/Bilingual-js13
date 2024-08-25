@@ -22,6 +22,7 @@ const getInitialState = () => {
          isLoading: false,
          error: parsedUserInfo.error,
          message: parsedUserInfo.message,
+         toastify: parsedUserInfo.toastify
       }
    }
    return {
@@ -35,6 +36,7 @@ const getInitialState = () => {
       isLoading: false,
       error: '',
       message: '',
+      toastify: false
    }
 }
 
@@ -109,6 +111,7 @@ export const authSlice = createSlice({
                state.isLoading = false
                state.error = ''
                state.message = message
+               state.toastify = true
             }
          )
          .addCase(forgotPassword.rejected, (state, action) => {
