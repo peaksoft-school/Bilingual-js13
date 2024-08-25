@@ -14,7 +14,7 @@ export const guestRoutes = [
       element: <SignUp />,
    },
    {
-      path: 'reset-password',
+      path: 'reset-password/:id',
       element: <ResetPassword />,
    },
    {

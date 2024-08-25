@@ -12,7 +12,10 @@ import GuestLayout from '../layouts/GuestLayout'
 
 const AppRouter = () => {
    const { isAuth, role } = useAppSelector((state) => state.auth)
+
    console.log(role)
+   console.log(isAuth);
+   
 
    const router = createBrowserRouter([
       {
@@ -22,7 +25,7 @@ const AppRouter = () => {
                isAuth={role === 'GUEST' ? !isAuth : isAuth}
                role={role}
                isAllowed={['USER', 'GUEST']}
-               component={< Landing/>}
+               component={<Landing />}
                fallBackPath="/admin"
             />
          ),
@@ -34,7 +37,7 @@ const AppRouter = () => {
                isAuth={!isAuth}
                role={role}
                isAllowed={['GUEST']}
-               component={<GuestLayout/>}
+               component={<GuestLayout />}
                fallBackPath="/"
             />
          ),

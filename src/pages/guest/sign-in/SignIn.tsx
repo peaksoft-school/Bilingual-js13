@@ -9,11 +9,11 @@ import Switches from '../../../shared/UI/switches/Switches'
 import Button from '../../../shared/UI/Button'
 import signUpWithGoogle from '../../../assets/icons/svgs/sign-up-with-google/↳ Sign in/Group 337507.svg'
 import { useNavigate } from 'react-router-dom'
-import { signIn } from '../../../redux/auth/auth.thunk'
-import { useAppDispatch } from '../../../hooks/hooks'
+import { useAppDispatch, useAppSelector } from '../../../hooks/hooks'
 import eyePassword from '../../../assets/icons/svgs/eyePassword/↳ Sign in/eye.svg'
 import eyePasswordDontShow from '../../../assets/icons/svgs/eyePasswordDontShow/↳ Sign in/akar-icons_eye-slashed.svg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { signIn } from '../../../redux/auth/auth.thunk'
 
 type FormData = {
    email: string
@@ -33,6 +33,9 @@ const SignIn = () => {
    const dispatch = useAppDispatch()
    const [isPasswordFocused, setIsPasswordFocused] = useState(false)
    const [showPassword, setShowPassword] = useState(true)
+   const { error } = useAppSelector((state) => state.auth)
+   const [errorSignIn, setErrorSignIn] = useState('')
+   const [isError, setIsError] = useState(false)
 
    const {
       control,
@@ -42,12 +45,25 @@ const SignIn = () => {
       resolver: yupResolver(schema),
    })
 
-   const onSubmit = (data: FormData) => {
-      console.log(data)
-      try {
-         dispatch(signIn({ data, navigate }))
-      } catch (error) {
-         console.error('Error during signUp:', error)
+   useEffect(() => {
+      if (error) {
+         setIsError(true)
+         setErrorSignIn(error)
+      } else {
+         setIsError(false)
+         setErrorSignIn('')
+      }
+   }, [error])
+
+   const onSubmit = async (data: FormData) => {
+      const resultAction = await dispatch(signIn({ data, navigate }))
+
+      if (signIn.rejected.match(resultAction)) {
+         setIsError(true)
+         setErrorSignIn(error as string)
+      } else {
+         setIsError(false)
+         setErrorSignIn('')
       }
    }
 
@@ -59,6 +75,21 @@ const SignIn = () => {
       setShowPassword((prevState) => !prevState)
       console.log(isPasswordFocused)
    }
+
+   // const googleAuthFn = () => {
+   //    signInWithPopup(auth, provider)
+   //       .then((data) => {
+   //          if (data.user) {
+   //             data.usergetIdToked().then((token) => {
+   //                console.log(token)
+   //                dispatch(googleAuthFirebase({ tokenId: token }))
+   //             })
+   //          }
+   //       })
+   //       .catch((error) => {
+   //          console.error('Ошибка при аутентификации через Google', error)
+   //       })
+   // }
 
    return (
       <>
@@ -93,6 +124,7 @@ const SignIn = () => {
                               />
                            )}
                         />
+
                         <PasswordBox>
                            <Controller
                               name="password"
@@ -134,6 +166,10 @@ const SignIn = () => {
                               To remember me
                            </p>
                         </RememberBox>
+                        {isError && (
+                           <p style={{ color: 'red' }}>{errorSignIn}</p>
+                        )}
+
                         <ButtonSignIn type="submit">SIGN IN</ButtonSignIn>
                      </form>
                      <ButtonWithGoogleBox>

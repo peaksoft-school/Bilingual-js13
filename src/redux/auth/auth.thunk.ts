@@ -13,6 +13,28 @@ interface AuthPayload {
    navigate: (path: string) => void
 }
 
+export interface ErrorResponse {
+   exceptionMessage?: string
+}
+
+export interface ForgotPasswordParams {
+   email: string
+   navigate: (path: string) => void
+   link: string
+}
+
+export interface ForgotPasswordResponse {
+   message: string
+}
+
+export interface resetPasswordParams {
+data: {
+   token: string
+   newPassword: string
+   oldPassword: string
+}
+}
+
 export const signUp = createAsyncThunk(
    'sign/signup',
    async ({ data, navigate }: AuthPayload, { rejectWithValue }) => {
@@ -35,22 +57,27 @@ export const signIn = createAsyncThunk(
          navigate('/')
          return response.data
       } catch (error) {
-         const axiosError = error as AxiosError
-         return rejectWithValue(axiosError.message)
+         const axiosError = error as AxiosError<ErrorResponse>
+
+         return rejectWithValue(
+            axiosError.response?.data?.exceptionMessage || axiosError.message
+         )
       }
    }
 )
 
-export const forgotPassword = createAsyncThunk(
+export const forgotPassword = createAsyncThunk<
+   ForgotPasswordResponse,
+   ForgotPasswordParams,
+   { rejectValue: string }
+>(
    'forgot/forgotPassword',
-   async ({ data, navigate }: AuthPayload, { rejectWithValue }) => {
+   async ({ email, navigate, link }, { rejectWithValue }) => {
       try {
          const response = await axiosInstance.post(
-            '/api/auth/forgotPassword',
-            {},
-            { params: { email: data.email, link: data.link } }
+            `/api/auth/forgotPassword?email=${email}&link=${link}`
          )
-         navigate('/auth/reset-password')
+         navigate('/')
          return response.data
       } catch (error) {
          const axiosError = error as AxiosError
@@ -58,3 +85,22 @@ export const forgotPassword = createAsyncThunk(
       }
    }
 )
+
+// export const resetPassword = createAsyncThunk<
+// resetPasswordParams,
+//    { rejectValue: string }
+// >(
+//    'reset/resetPassword',
+//    async ({ data, navigate }, { rejectWithValue }) => {
+//       try {
+//          const response = await axiosInstance.post(
+//             `/api/auth/resetPassword`,data
+//          )
+//          navigate('/')
+//          return response.data
+//       } catch (error) {
+//          const axiosError = error as AxiosError
+//          return rejectWithValue(axiosError.message)
+//       }
+//    }
+// )

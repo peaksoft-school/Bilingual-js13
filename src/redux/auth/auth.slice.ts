@@ -1,5 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { forgotPassword, signIn, signUp } from './auth.thunk'
+import {
+   forgotPassword,
+   ForgotPasswordResponse,
+   signIn,
+   signUp,
+} from './auth.thunk'
 
 const getInitialState = () => {
    const userInfo = localStorage.getItem('BILINGUAL')
@@ -15,7 +20,8 @@ const getInitialState = () => {
          firstName: parsedUserInfo.firstName,
          lastName: parsedUserInfo.lastName,
          isLoading: false,
-         error: '',
+         error: parsedUserInfo.error,
+         message: parsedUserInfo.message,
       }
    }
    return {
@@ -28,6 +34,7 @@ const getInitialState = () => {
       lastName: '',
       isLoading: false,
       error: '',
+      message: '',
    }
 }
 
@@ -38,6 +45,7 @@ interface SignUpResponse {
    link: string
    firstName: string
    lastName: string
+   message: string
 }
 
 export const authSlice = createSlice({
@@ -95,15 +103,12 @@ export const authSlice = createSlice({
          })
          .addCase(
             forgotPassword.fulfilled,
-            (state, action: PayloadAction<SignUpResponse>) => {
-               const { token, role, email, link } = action.payload
-               state.token = token
-               state.role = role
-               state.email = email
-               state.link = link
-               state.isAuth = true
+            (state, action: PayloadAction<ForgotPasswordResponse>) => {
+               console.log(action)
+               const { message } = action.payload
                state.isLoading = false
                state.error = ''
+               state.message = message
             }
          )
          .addCase(forgotPassword.rejected, (state, action) => {

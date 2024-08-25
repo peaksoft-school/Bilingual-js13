@@ -74,7 +74,7 @@ const ResetPassword = () => {
                      <SignInText>
                         <p>Password reset</p>
                      </SignInText>
-                     
+
                      <InputEmail
                         label="New Password"
                         {...register('email')}
@@ -161,7 +161,6 @@ const SignInText = styled('div')(() => ({
    },
 }))
 
-
 const InputEmail = styled(Input)(() => ({
    width: '100%',
    maxWidth: 500,
@@ -182,7 +181,6 @@ const ButtonSignIn = styled(Button)(() => ({
    maxWidth: 500,
 }))
 
-
 const LinkContainer = styled('div')(() => ({
    display: 'flex',
    justifyContent: 'space-between',
@@ -192,11 +190,7 @@ const LinkContainer = styled('div')(() => ({
       color: '#3a10e5',
       backgroundColor: 'white',
       '&:hover': {
-        backgroundColor: '#3a10e5',
-
-      }
+         backgroundColor: '#3a10e5',
+      },
    },
 }))
-
-
-
