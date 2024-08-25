@@ -6,6 +6,8 @@ import ListenSelectModal from '../pages/admin-page/listen-select/ListenSelectMod
 import PrintHear from '../pages/admin-page/print-hear/PrintHear'
 import RecordSayingStatement from '../pages/admin-page/record-saying-statement/RecordSayingStatement'
 import RespondWords from '../pages/admin-page/respond-words/RespondWords'
+import SelectIdeaModal from '../pages/admin-page/select-idea-modal/SelectIdeaModal'
+import SelectIdea from '../pages/admin-page/select-idea/SelectIdea'
 import CreateDescription from '../pages/admin-page/test/CreateDescription'
 import CreateTest from '../pages/admin-page/test/CreateTest'
 import TestInterface from '../pages/admin-page/test/TestInterface'
@@ -63,5 +65,13 @@ export const adminRoutes = [
    {
       path: 'highight-answer',
       element: <HighightAnswer />,
+   },
+   {
+      path: 'select-idea',
+      element: <SelectIdea />,
+   },
+   {
+      path: 'select-idea-modal',
+      element: <SelectIdeaModal/>,
    },
 ]
