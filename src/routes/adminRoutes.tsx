@@ -8,6 +8,8 @@ import RecordSayingStatement from '../pages/admin-page/record-saying-statement/R
 import RespondWords from '../pages/admin-page/respond-words/RespondWords'
 import SelectIdeaModal from '../pages/admin-page/select-idea-modal/SelectIdeaModal'
 import SelectIdea from '../pages/admin-page/select-idea/SelectIdea'
+import EvaluateSelect from '../pages/admin-page/submited-result-page/EvaluateSelect'
+import EvalutionSubmited from '../pages/admin-page/submited-result-page/EvalutionSubmited'
 import SubmitedResultPage from '../pages/admin-page/submited-result-page/SubmitedResultPage'
 import CreateDescription from '../pages/admin-page/test/CreateDescription'
 import CreateTest from '../pages/admin-page/test/CreateTest'
@@ -78,5 +80,13 @@ export const adminRoutes = [
    {
       path: 'submited-result-page',
       element: <SubmitedResultPage/>,
+   },
+   {
+      path: 'evalution-submited',
+      element: <EvalutionSubmited/>,
+   },
+   {
+      path: 'evaluate-select',
+      element: <EvaluateSelect/>,
    },
 ]
