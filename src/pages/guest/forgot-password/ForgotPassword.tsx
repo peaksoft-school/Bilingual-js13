@@ -19,7 +19,7 @@ const schema = yup.object().shape({
    email: yup.string().email('Incorect email').required('Email is required'),
 })
 
-const link = 'http://localhost:5173/auth/reset-password'
+const link = `${window.location.origin}/auth/reset-password`
 
 const ForgotPassword: React.FC = () => {
    const navigate = useNavigate()

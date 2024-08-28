@@ -99,21 +99,25 @@ export const forgotPassword = createAsyncThunk<
    }
 )
 
-// export const resetPassword = createAsyncThunk<
-// resetPasswordParams,
-//    { rejectValue: string }
-// >(
-//    'reset/resetPassword',
-//    async ({ data, navigate }, { rejectWithValue }) => {
-//       try {
-//          const response = await axiosInstance.post(
-//             `/api/auth/resetPassword`,data
-//          )
-//          navigate('/')
-//          return response.data
-//       } catch (error) {
-//          const axiosError = error as AxiosError
-//          return rejectWithValue(axiosError.message)
-//       }
-//    }
-// )
+export const resetPassword = createAsyncThunk<
+   resetPasswordParams,
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   any,
+   { rejectValue: string }
+>(
+   'reset/resetPassword',
+   async ({ navigate, newPassword, token }, { rejectWithValue }) => {
+      console.log(token, 'hello')
+      try {
+         const { data } = await axiosInstance.post(`/api/auth/resetPassword`, {
+            token: token,
+            newPassword: newPassword,
+         })
+         navigate('/')
+         return data
+      } catch (error) {
+         const axiosError = error as AxiosError
+         return rejectWithValue(axiosError.message)
+      }
+   }
+)

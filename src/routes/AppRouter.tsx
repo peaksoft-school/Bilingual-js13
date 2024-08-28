@@ -13,8 +13,8 @@ import GuestLayout from '../layouts/GuestLayout'
 const AppRouter = () => {
    const { isAuth, role } = useAppSelector((state) => state.auth)
 
-   console.log(role)
-   console.log(isAuth);
+   // console.log(role)
+   // console.log(isAuth);
    
 
    const router = createBrowserRouter([

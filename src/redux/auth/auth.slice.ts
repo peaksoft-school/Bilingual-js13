@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {
    forgotPassword,
    ForgotPasswordResponse,
+   resetPassword,
    signIn,
    signUp,
 } from './auth.thunk'
@@ -22,7 +23,7 @@ const getInitialState = () => {
          isLoading: false,
          error: parsedUserInfo.error,
          message: parsedUserInfo.message,
-         toastify: parsedUserInfo.toastify
+         toastify: parsedUserInfo.toastify,
       }
    }
    return {
@@ -36,7 +37,7 @@ const getInitialState = () => {
       isLoading: false,
       error: '',
       message: '',
-      toastify: false
+      toastify: false,
    }
 }
 
@@ -115,6 +116,18 @@ export const authSlice = createSlice({
             }
          )
          .addCase(forgotPassword.rejected, (state, action) => {
+            state.isLoading = false
+            state.error = action.payload as string
+         })
+
+         .addCase(resetPassword.pending, (state) => {
+            state.isLoading = true
+            state.error = ''
+         })
+         .addCase(resetPassword.fulfilled, (state) => {
+            state.isLoading = false
+         })
+         .addCase(resetPassword.rejected, (state, action) => {
             state.isLoading = false
             state.error = action.payload as string
          })

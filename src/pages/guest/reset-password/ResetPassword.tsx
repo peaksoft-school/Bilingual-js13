@@ -6,30 +6,31 @@ import Button from '../../../shared/UI/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useNavigate } from 'react-router-dom'
-import { signUp } from '../../../redux/auth/auth.thunk'
+import { useNavigate, useParams } from 'react-router-dom'
+import { resetPassword } from '../../../redux/auth/auth.thunk'
 import { useAppDispatch } from '../../../hooks/hooks'
 
 const schema = yup.object().shape({
-   firstName: yup.string().required('First name is required'),
-   lastName: yup.string().required('Last name is required'),
-   email: yup.string().email('Incorect email').required('Email is required'),
-   password: yup
+   newPassword: yup
       .string()
       .min(6, 'Password must be at least 6 characters')
+      .required('Incorect Password'),
+   confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('newPassword'), undefined], 'Passwords must match')
       .required('Incorect Password'),
 })
 
 interface FormData {
-   firstName: string
-   lastName: string
-   email: string
-   password: string
+   newPassword: string
+   confirmPassword: string
 }
 
 const ResetPassword = () => {
    const navigate = useNavigate()
    const dispatch = useAppDispatch()
+   const { token } = useParams()
+   console.log(token)
 
    const {
       register,
@@ -39,20 +40,30 @@ const ResetPassword = () => {
       resolver: yupResolver(schema),
    })
 
-   const onSubmit: SubmitHandler<FormData> = (data) => {
-      console.log('Form is valid, submit the form:', data)
-      try {
-         dispatch(signUp({ data, navigate }))
-      } catch (error) {
-         console.error('Error during signUp:', error)
+   const onSubmit: SubmitHandler<FormData> = ({
+      newPassword,
+      confirmPassword,
+   }) => {
+  if (newPassword === confirmPassword) {
+      if (token) {
+         dispatch(
+            resetPassword({
+               navigate,
+               newPassword,
+               token,
+            })
+         )
+      } else {
+         console.error('Token is missing')
       }
    }
+   }
 
-   const NaviateToSiginIn = () => {
+   const navigateToSignIn  = () => {
       navigate('/auth/sign-in')
    }
 
-   const NaviateToSiginUp = () => {
+   const navigateToSignUp  = () => {
       navigate('/auth/sign-up')
    }
 
@@ -77,21 +88,20 @@ const ResetPassword = () => {
 
                      <InputEmail
                         label="New Password"
-                        {...register('email')}
-                        error={Boolean(errors.email)}
-                        helperText={errors.email?.message}
+                        {...register('newPassword')}
+                        error={Boolean(errors.newPassword)}
+                        helperText={errors.newPassword?.message}
                      />
                      <InputPassword
                         label="Confirm your new password"
-                        type="password"
-                        {...register('password')}
-                        error={Boolean(errors.password)}
-                        helperText={errors.password?.message}
+                        {...register('confirmPassword')}
+                        error={Boolean(errors.confirmPassword)}
+                        helperText={errors.confirmPassword?.message}
                      />
                      <ButtonSignIn type="submit">Reset password</ButtonSignIn>
                      <LinkContainer>
-                        <Button onClick={NaviateToSiginIn}>SIGN IN</Button>
-                        <Button onClick={NaviateToSiginUp}>SIGN UP</Button>
+                        <Button onClick={navigateToSignIn }>SIGN IN</Button>
+                        <Button onClick={navigateToSignUp }>SIGN UP</Button>
                      </LinkContainer>
                   </SignInContainer>
                </StyledContent>
