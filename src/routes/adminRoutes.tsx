@@ -1,4 +1,5 @@
 import ListenVoice from '../pages/admin-page/add-listening-speaking-tasks/listen-16/ListenVoice'
+import WhatYouHear from '../pages/admin-page/add-listening-speaking-tasks/type-17/WhatYouHear'
 import DescribeImg from '../pages/admin-page/describe-img/DescribeImg'
 import HighightAnswer from '../pages/admin-page/highight-answer/HighightAnswer'
 import ListenSelect from '../pages/admin-page/listen-select/ListenSelect'
@@ -76,23 +77,26 @@ export const adminRoutes = [
    },
    {
       path: 'select-idea-modal',
-      element: <SelectIdeaModal/>,
+      element: <SelectIdeaModal />,
    },
    {
       path: 'submited-result-page',
-      element: <SubmitedResultPage/>,
+      element: <SubmitedResultPage />,
    },
    {
       path: 'evalution-submited',
-      element: <EvalutionSubmited/>,
+      element: <EvalutionSubmited />,
    },
    {
       path: 'evaluate-select',
-      element: <EvaluateSelect/>,
+      element: <EvaluateSelect />,
    },
    {
       path: 'listen-voice',
-      element: <ListenVoice/>, // Ветка add-listening-seaking-tasks
+      element: <ListenVoice />, // Ветка add-listening-seaking-tasks
+   },
+   {
+      path: 'what-you-hear',
+      element: <WhatYouHear />, // Ветка add-listening-seaking-tasks
    },
 ]
-
