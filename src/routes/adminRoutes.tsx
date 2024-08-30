@@ -3,6 +3,7 @@ import ListenVoice from '../pages/admin-page/add-listening-speaking-tasks/listen
 import SayingStateMent from '../pages/admin-page/add-listening-speaking-tasks/record-19/SayingStateMent'
 import WhatYouHear from '../pages/admin-page/add-listening-speaking-tasks/type-17/WhatYouHear'
 import DescribeImg from '../pages/admin-page/describe-img/DescribeImg'
+import EvaluateLeast from '../pages/admin-page/design-evaluation-screens/evaluate-20/EvaluateLeast'
 import HighightAnswer from '../pages/admin-page/highight-answer/HighightAnswer'
 import ListenSelect from '../pages/admin-page/listen-select/ListenSelect'
 import ListenSelectAudio from '../pages/admin-page/listen-select/ListenSelectAudio'
@@ -108,5 +109,9 @@ export const adminRoutes = [
    {
       path: 'saying-state-ment',
       element: <SayingStateMent />, // Ветка add-listening-seaking-tasks
+   },
+   {
+      path: 'evaluate-least',
+      element: <EvaluateLeast />, // Ветка design-evaluation-screens
    },
 ]
