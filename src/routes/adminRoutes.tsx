@@ -1,3 +1,4 @@
+import EvaluateDescribeImg from '../pages/admin-page/add-listening-speaking-tasks/evaluate-18/EvaluateDescribeImg'
 import ListenVoice from '../pages/admin-page/add-listening-speaking-tasks/listen-16/ListenVoice'
 import WhatYouHear from '../pages/admin-page/add-listening-speaking-tasks/type-17/WhatYouHear'
 import DescribeImg from '../pages/admin-page/describe-img/DescribeImg'
@@ -98,5 +99,9 @@ export const adminRoutes = [
    {
       path: 'what-you-hear',
       element: <WhatYouHear />, // Ветка add-listening-seaking-tasks
+   },
+   {
+      path: 'evaluate-describe-img',
+      element: <EvaluateDescribeImg />, // Ветка add-listening-seaking-tasks
    },
 ]
