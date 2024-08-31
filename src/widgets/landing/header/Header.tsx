@@ -1,8 +1,16 @@
 import { Box, styled } from '@mui/material'
 import Bilingual from '../../../assets/icons/svgs/bilingual-logo.svg'
 import Button from '../../../shared/UI/Button'
+import { useAppDispatch } from '../../../hooks/hooks'
+import { authActions } from '../../../redux/auth/auth.slice'
 
 const Header = () => {
+   const dispatch = useAppDispatch()
+
+   const logOut = () => {
+      dispatch(authActions.logOut())
+   }
+
    return (
       <Container>
          <StyledBox>
@@ -15,11 +23,13 @@ const Header = () => {
                      <li className="tests">
                         <p>TESTS</p>
                      </li>
-                     <li className='submited'>
+                     <li className="submited">
                         <p>SUBMITTED RESULTS</p>
                      </li>
                      <li>
-                        <Button customVariant="Octonary">LOG OUT</Button>
+                        <Button customVariant="Octonary" onClick={logOut}>
+                           LOG OUT
+                        </Button>
                      </li>
                   </ul>
                </RightBox>
@@ -77,11 +87,11 @@ const RightBox = styled('div')(() => ({
          fontSize: '15px',
          color: 'rgba(76, 72, 89, 1)',
          fontWeight: 700,
-         fontFamily: 'Poppins'
+         fontFamily: 'Poppins',
       },
       '& button': {
-        fontSize: 14
-      }
+         fontSize: 14,
+      },
    },
    '& li': {
       listStyle: 'none',

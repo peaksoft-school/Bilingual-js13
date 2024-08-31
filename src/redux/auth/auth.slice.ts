@@ -54,7 +54,18 @@ interface SignUpResponse {
 export const authSlice = createSlice({
    name: 'auth',
    initialState: getInitialState(),
-   reducers: {},
+   reducers: {
+      logOut: (state) => {
+         state.isLoading = false
+         state.token = ''
+         state.role = 'GUEST'
+         state.email = ''
+         state.link = ''
+         state.isAuth = false
+         state.firstName = ''
+         state.lastName = ''
+      },
+   },
    extraReducers: (builder) => {
       builder
          .addCase(signUp.pending, (state) => {
@@ -133,5 +144,7 @@ export const authSlice = createSlice({
          })
    },
 })
+
+export const authActions = authSlice.actions
 
 export default authSlice.reducer
