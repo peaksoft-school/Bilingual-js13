@@ -4,27 +4,26 @@ import { palette } from '../../../shared/theme/theme'
 import Button from '../../../shared/UI/Button'
 import TestsEmpty from './TestsEmpty'
 import TestsItem from './TestsItem'
-
-export interface DataTestItem {
-   id?: number
-   text?: string
-}
-
-export const DATA_TEST: DataTestItem[] = [{ text: 'dhe' }]
+import { useNavigate } from 'react-router-dom'
+import { useAppSelector } from '../../../hooks/hooks'
 
 const Tests: FC = () => {
+   const navigate = useNavigate()
+   const { dataTest } = useAppSelector((state) => state.tests)
+
+   const handleClick = () => {
+      navigate('/admin/create-description')
+   }
    return (
       <>
          <ContainerBox>
-            <StyledButton>
+            <StyledButton onClick={handleClick}>
                <span>+</span> ADD NEW TEST
             </StyledButton>
-            {DATA_TEST.length === 0 ? (
+            {dataTest.length === 0 ? (
                <TestsEmpty />
             ) : (
-               DATA_TEST.map((item) => (
-                  <TestsItem key={item.id} text={item.text} />
-               ))
+               dataTest.map((item) => <TestsItem key={item.id} {...item} />)
             )}
          </ContainerBox>
       </>
@@ -37,6 +36,7 @@ const ContainerBox = styled('div')(() => ({
    width: '100%',
    maxWidth: '1060px',
    height: '100%',
+   minHeight: '314px',
    borderRadius: '20px',
    backgroundColor: palette.primary.white,
    boxShadow: '1px 1px 5px 1px rgba(0,0,0,0.15)',
