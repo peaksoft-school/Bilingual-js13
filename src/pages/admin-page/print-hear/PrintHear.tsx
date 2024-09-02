@@ -1,26 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import ListenAndSelectUI from '../../../features/UI/listen-and-select/ListenAndSelectUI'
 import Input from '../../../shared/UI/Input'
 import Button from '../../../shared/UI/Button'
 import playVector from '../../../assets/icons/svgs/playVector.svg'
+import { useNavigate } from 'react-router-dom'
+import { optionSecond } from '../listen-select/options'
 
 const options = [
    { value: 'option1', label: 'Option 1' },
    { value: 'option2', label: 'Option 2' },
 ]
 
-const optionSecond = [
-   { value: 'option111', label: 'Option 1111' },
-   { value: 'option2222', label: 'Option 2222' },
-]
-
 const PrintHear: React.FC = () => {
-   const [inputValue, setInputValue] = useState<number | ''>('')
+   const navigate = useNavigate()
 
-   const handleInputChange = (value: number) => {
-      setInputValue(value)
-      console.log(inputValue)
+   const handleInputChange = (value: string | number) => {
+      const selectedOption = optionSecond.find(
+         (option) => option.value === value
+      )
+      if (selectedOption) {
+         navigate(selectedOption.route)
+      } else {
+         console.log('Маршрут не найден для значения:', value)
+      }
    }
 
    return (

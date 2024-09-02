@@ -3,15 +3,12 @@ import ListenAndSelectUI from '../../../features/UI/listen-and-select/ListenAndS
 import Button from '../../../shared/UI/Button'
 import Switches from '../../../shared/UI/switches/Switches'
 import DeleteIcon from '../../../assets/icons/svgs/delete.svg'
+import { useNavigate } from 'react-router-dom'
+import { optionSecond } from '../listen-select/options'
 
 const options = [
    { value: 'option1', label: 'Option 1' },
    { value: 'option2', label: 'Option 2' },
-]
-
-const optionSecond = [
-   { value: 'option111', label: 'Option 1111' },
-   { value: 'option2222', label: 'Option 2222' },
 ]
 
 const TestItemData = [
@@ -38,6 +35,19 @@ const TestItemData = [
 ]
 
 const SelectIdea = () => {
+   const navigate = useNavigate()
+
+   const handleInputChange = (value: string | number) => {
+      const selectedOption = optionSecond.find(
+         (option) => option.value === value
+      )
+      if (selectedOption) {
+         navigate(selectedOption.route)
+      } else {
+         console.log('Маршрут не найден для значения:', value)
+      }
+   }
+
    return (
       <>
          <Container>
@@ -46,6 +56,7 @@ const SelectIdea = () => {
                   <ListenAndSelectUI
                      options={options}
                      optionsSecond={optionSecond}
+                     onInputChange={handleInputChange}
                      children={
                         <>
                            <InputBox>
@@ -180,7 +191,7 @@ const TestItemBox = styled('div')(() => ({
    '& .number': {
       '& h2': {
          fontWeight: 400,
-         fontSize: 16
+         fontSize: 16,
       },
    },
 }))

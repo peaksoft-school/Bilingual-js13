@@ -1,19 +1,15 @@
-import { useState } from 'react'
 import ListenAndSelectUI from '../../../features/UI/listen-and-select/ListenAndSelectUI'
 import { styled } from '@mui/material'
 import Button from '../../../shared/UI/Button'
 import Switches from '../../../shared/UI/switches/Switches'
 import Voluem from '../../../assets/icons/svgs/voluem.svg'
 import ListenDelete from '../../../assets/icons/svgs/ListenDelete.svg'
+import { useNavigate } from 'react-router-dom'
+import { optionSecond } from './options'
 
 const options = [
    { value: 'option1', label: 'Option 1' },
    { value: 'option2', label: 'Option 2' },
-]
-
-const optionSecond = [
-   { value: 'option111', label: 'Option 1111' },
-   { value: 'option2222', label: 'Option 2222' },
 ]
 
 const ListenSelectAudioData = [
@@ -26,11 +22,17 @@ const ListenSelectAudioData = [
 ]
 
 const ListenSelectAudio = () => {
-   const [inputValue, setInputValue] = useState<number | ''>('')
+   const navigate = useNavigate()
 
-   const handleInputChange = (value: number) => {
-      setInputValue(value)
-      console.log(inputValue)
+   const handleInputChange = (value: string | number) => {
+      const selectedOption = optionSecond.find(
+         (option) => option.value === value
+      )
+      if (selectedOption) {
+         navigate(selectedOption.route)
+      } else {
+         console.log('Маршрут не найден для значения:', value)
+      }
    }
    return (
       <>

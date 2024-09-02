@@ -1,14 +1,14 @@
-import { FC, useState } from 'react'
-import { SelectChangeEvent, styled } from '@mui/material'
-import Select from '../../../shared/UI/select/Select'
-import Input from '../../../shared/UI/Input'
+import { FC, useState } from 'react';
+import { SelectChangeEvent, styled } from '@mui/material';
+import Select from '../../../shared/UI/select/Select';
+import Input from '../../../shared/UI/Input';
 
 interface ListenAndSelectUIProps {
    options: Array<{ value: string | number; label: string }>
    optionsSecond: Array<{ value: string | number; label: string }>
    placeholder?: string
    onSelectChange?: (value: string | number) => void
-   children: any
+   children: React.ReactNode
    onInputChange?: (value: number) => void
 }
 
@@ -20,21 +20,35 @@ const ListenAndSelectUI: FC<ListenAndSelectUIProps> = ({
    onInputChange,
    children,
 }) => {
-   const [select, setSelect] = useState<string | number>('')
-   const [inputValue, setInputValue] = useState<string>('')
+   const [selectFirst, setSelectFirst] = useState<string | number>('');
+   const [selectSecond, setSelectSecond] = useState<string | number>('');
+   const [inputValue, setInputValue] = useState<string>('');
 
-   const handleSelect = (e: SelectChangeEvent<string | number>) => {
-      setSelect(e.target.value)
+   const handleSelectFirst = (e: SelectChangeEvent<string | number>) => {
+      const value = e.target.value;
+      setSelectFirst(value);
       if (onSelectChange) {
-         onSelectChange(e.target.value)
+         onSelectChange(value);
+      }
+   }
+
+   const handleSelectSecond = (e: SelectChangeEvent<string | number>) => {
+      const value = e.target.value;
+      setSelectSecond(value);
+      if (onSelectChange) {
+         onSelectChange(value);
+      }
+      if (onInputChange) {
+         const numValue = typeof value === 'string' ? parseInt(value, 10) : value;
+         onInputChange(numValue);
       }
    }
 
    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.value
-      setInputValue(value)
+      const value = e.target.value;
+      setInputValue(value);
       if (onInputChange) {
-         onInputChange(Number(value) || 0)
+         onInputChange(Number(value) || 0);
       }
    }
 
@@ -44,9 +58,9 @@ const ListenAndSelectUI: FC<ListenAndSelectUIProps> = ({
             <label style={{ cursor: 'pointer', marginTop: 6 }}>
                <p>Title</p>
                <Select
-                  value={select}
+                  value={selectFirst}
                   options={options}
-                  onChange={handleSelect}
+                  onChange={handleSelectFirst}
                   placeholder={placeholder}
                   selectSx={{
                      width: 697,
@@ -74,9 +88,9 @@ const ListenAndSelectUI: FC<ListenAndSelectUIProps> = ({
             <label style={{ cursor: 'pointer', marginTop: 16 }}>
                <p>Type</p>
                <Select
-                  value={select}
-                  optionsSecond={optionsSecond}
-                  onChange={handleSelect}
+                  value={selectSecond}
+                  options={optionsSecond}
+                  onChange={handleSelectSecond}
                   placeholder={placeholder}
                   selectSx={{
                      width: 820,
@@ -91,10 +105,10 @@ const ListenAndSelectUI: FC<ListenAndSelectUIProps> = ({
          </SelectType>
          {children}
       </ListenSelectBox>
-   )
+   );
 }
 
-export default ListenAndSelectUI
+export default ListenAndSelectUI;
 
 export const ListenSelectBox = styled('div')(() => ({
    width: '100%',
@@ -104,12 +118,12 @@ export const ListenSelectBox = styled('div')(() => ({
    padding: '50px 80px',
    borderRadius: 20,
    backgroundColor: 'white',
-}))
+}));
 
 export const InputSelectBox = styled('div')(() => ({
    display: 'flex',
    justifyContent: 'space-between',
-}))
+}));
 
 export const InputBox = styled('div')(() => ({
    '& p': {
@@ -120,8 +134,8 @@ export const InputBox = styled('div')(() => ({
       marginBottom: 8,
       maxHeight: 94,
    },
-}))
+}));
 
 export const SelectType = styled('div')(() => ({
    marginTop: 24,
-}))
+}));
