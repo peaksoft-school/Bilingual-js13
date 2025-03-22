@@ -1,5 +1,4 @@
 import { styled } from '@mui/material'
-import Header from '../../../widgets/landing/header/Header'
 import { palette } from '../../../shared/theme/theme'
 import Button from '../../../shared/UI/Button'
 import TestsItem from '../../../features/UI/tests/TestsItem'
@@ -62,7 +61,6 @@ const CreateTest = () => {
 
    return (
       <>
-         <Header />
          <Container>
             <StyledBox>
                <BoxContainer>
